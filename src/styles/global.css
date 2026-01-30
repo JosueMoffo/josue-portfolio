@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+@theme {
+  --color-night-950: #0a0e1a;
+  --color-night-900: #0f1419;
+  --color-night-800: #1a1f2e;
+  --color-cyber-blue: #00d9ff;
+  --color-cyber-purple: #a78bfa;
+  --color-cyber-green: #10b981;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Fira Code", monospace;
+}
+
+@layer base {
+  body {
+    /* On applique les styles de base sur le body */
+    @apply bg-night-950 text-slate-300 font-sans;
+    margin: 0;
+  }
+}

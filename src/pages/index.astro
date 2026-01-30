@@ -1,17 +1,417 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Josué Mbah Moffo - Portfolio">
+  <section id="accueil" class="min-h-screen pt-32 pb-16 flex items-center justify-center relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 pointer-events-none">
+      <div class="absolute inset-0" style="background-image: linear-gradient(#00d9ff 1px, transparent 1px), linear-gradient(90deg, #00d9ff 1px, transparent 1px); background-size: 50px 50px;"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center">
+        
+        <div class="relative inline-block mb-6 animate-fade-in">
+          <div class="absolute inset-0 bg-cyber-blue blur-xl opacity-20 rounded-full"></div>
+          <img 
+            src="/profile.png" 
+            alt="Josué Mbah Moffo" 
+            class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full border-2 border-cyber-blue object-cover shadow-[0_0_20px_rgba(0,217,255,0.2)]"
+          />
+        </div>
+
+        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-2 animate-fade-in-up">
+          Mbah Moffo <span class="text-cyber-blue">Josué</span>
+        </h1>
+        
+        <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-400 mb-2 animate-fade-in-up delay-100">
+          Étudiant en Génie Informatique
+        </h2>
+        
+        <p class="text-md sm:text-lg text-cyber-blue/80 font-mono tracking-widest uppercase mb-8 animate-fade-in-up delay-200">
+          Aspirant Expert en Cybersécurité
+        </p>
+
+        <div class="flex justify-center mb-10 animate-fade-in delay-300">
+          <div class="inline-flex items-center gap-3 bg-night-900/80 border border-night-800 px-4 py-1.5 rounded-full backdrop-blur-sm shadow-lg">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-blue opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-blue"></span>
+            </span>
+            <p class="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] text-slate-400">
+              Dernière mise à jour : <span class="text-white">30 Janvier 2026</span>
+            </p>
+          </div>
+        </div>
+        
+        <div class="max-w-2xl mx-auto mb-12 animate-fade-in-up delay-400">
+          <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
+            Focus sur le développement d'applications robustes et l'administration sécurisée des infrastructures réseaux.
+          </p>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-500 font-mono text-sm">
+          <a 
+            href="https://drive.google.com/file/d/1SSyVmkj5LcFCKE7AUuJ1U7TztF5efOID/view?usp=drive_link" 
+            target="_blank" 
+            class="w-full sm:w-auto px-8 py-3 bg-cyber-blue text-night-950 font-bold rounded-sm hover:bg-white transition-all duration-300"
+          >
+            TÉLÉCHARGER_CV
+          </a>
+          <a 
+            href="#contact" 
+            class="w-full sm:w-auto px-8 py-3 border border-cyber-blue/50 text-cyber-blue font-bold rounded-sm hover:bg-cyber-blue/10 transition-all duration-300"
+          >
+            ME_CONTACTER
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-20 hidden sm:block">
+      <div class="w-[1px] h-12 bg-gradient-to-b from-cyber-blue to-transparent animate-pulse"></div>
+    </div>
+  </section>
+
+
+  <!-- Parcours Académique -->
+  <section id="parcours" class="py-20 bg-night-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Parcours Académique</h2>
+        <div class="w-24 h-1 bg-cyber-blue mx-auto"></div>
+      </div>
+      
+      <div class="max-w-4xl mx-auto">
+        <div class="space-y-12">
+          <div class="relative pl-8 border-l-2 border-night-800 hover:border-cyber-blue transition-colors duration-300">
+            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-cyber-blue"></div>
+            <div class="mb-1">
+              <span class="inline-block px-3 py-1 text-xs font-mono font-semibold bg-night-800 text-cyber-blue rounded">2022 - Présent</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Génie Informatique - 4e année</h3>
+            <p class="text-gray-400 mb-2">École Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</p>
+            <p class="text-gray-500 text-sm">Yaoundé, Cameroun</p>
+          </div>
+          
+          <div class="relative pl-8 border-l-2 border-night-800 hover:border-cyber-blue transition-colors duration-300">
+            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-600"></div>
+            <div class="mb-1">
+              <span class="inline-block px-3 py-1 text-xs font-mono font-semibold bg-night-800 text-gray-400 rounded">2021 - 2022</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Formation en Mathématiques</h3>
+            <p class="text-gray-400 mb-2">Université de Yaoundé 1</p>
+            <p class="text-gray-500 text-sm">Yaoundé, Cameroun</p>
+          </div>
+          
+          <div class="relative pl-8 border-l-2 border-night-800 hover:border-cyber-blue transition-colors duration-300">
+            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-600"></div>
+            <div class="mb-1">
+              <span class="inline-block px-3 py-1 text-xs font-mono font-semibold bg-night-800 text-gray-400 rounded">2021</span>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-2">Baccalauréat Série C</h3>
+            <p class="text-gray-400 mb-2">Sciences Mathématiques</p>
+            <p class="text-gray-500 text-sm">Cameroun</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Compétences -->
+  <section id="competences" class="py-20 bg-night-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Compétences Techniques</h2>
+        <div class="w-24 h-1 bg-cyber-blue mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-night-900 border border-night-800 p-6 rounded-sm hover:border-cyber-blue transition-all duration-300 group">
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyber-blue transition-colors">Développement</h3>
+          <div class="space-y-2">
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">JavaScript</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">TypeScript</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">PHP</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">C</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Python</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Java</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-night-800">
+            <p class="text-sm text-gray-400 font-semibold mb-2">Frameworks</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Astro</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Django</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Flask</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">SpringBoot</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Tailwind CSS</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-night-900 border border-night-800 p-6 rounded-sm hover:border-cyber-purple transition-all duration-300 group">
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyber-purple transition-colors">Infrastructure & Réseaux</h3>
+          <div class="space-y-2">
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Linux</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Windows Server</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">SNMP</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Nagios</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-night-800">
+            <p class="text-sm text-gray-400 font-semibold mb-2">Outils</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Cisco Packet Tracer</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Wireshark</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">VirtualBox</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-night-900 border border-night-800 p-6 rounded-sm hover:border-cyber-green transition-all duration-300 group">
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyber-green transition-colors">DevOps & Cloud</h3>
+          <div class="space-y-2">
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Docker</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Git</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Bash</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Firebase</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-night-800">
+            <p class="text-sm text-gray-400 font-semibold mb-2">Plateformes</p>
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Cloudflare</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Vercel</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Railway</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-night-900 border border-night-800 p-6 rounded-sm hover:border-cyber-blue transition-all duration-300 group">
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyber-blue transition-colors">Base de Données</h3>
+          <div class="space-y-2">
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">MySQL</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">PostgreSQL</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Firebase</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="bg-night-900 border border-night-800 p-6 rounded-sm hover:border-red-500 transition-all duration-300 group md:col-span-2">
+          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-red-500 transition-colors">
+            Sécurité <span class="text-sm text-gray-500">(En apprentissage)</span>
+          </h3>
+          <div class="space-y-2">
+            <div class="flex flex-wrap gap-2">
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Analyse de vulnérabilités</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Metasploitable</span>
+              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Penetration Testing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projets -->
+  <section id="projets" class="py-20 bg-night-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Projets Académiques</h2>
+        <div class="w-24 h-1 bg-cyber-blue mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="bg-night-950 border border-night-800 rounded-sm overflow-hidden hover:border-cyber-blue transition-all duration-300 group">
+          <div class="p-8">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="text-2xl font-bold text-white group-hover:text-cyber-blue transition-colors">API-Rsv-TravYotei</h3>
+              <span class="px-3 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/20">SpringBoot</span>
+            </div>
+            
+            <p class="text-gray-400 leading-relaxed mb-6">
+              Système de gestion de réservations utilisant SpringBoot et Apache Kafka pour assurer une communication asynchrone robuste entre les microservices. Architecture orientée événements garantissant la scalabilité et la fiabilité.
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Java</span>
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">SpringBoot</span>
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Apache Kafka</span>
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Microservices</span>
+            </div>
+            
+            <a 
+              href="https://github.com/JosueMoffo/API-Rsv-TravYotei" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center text-cyber-blue hover:text-white transition-colors font-medium"
+            >
+              Voir sur GitHub
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-night-950 border border-night-800 rounded-sm overflow-hidden hover:border-cyber-purple transition-all duration-300 group">
+          <div class="p-8">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="text-2xl font-bold text-white group-hover:text-cyber-purple transition-colors">API-recommendation-systeme</h3>
+              <span class="px-3 py-1 text-xs font-mono bg-cyber-purple/10 text-cyber-purple rounded border border-cyber-purple/20">Flask</span>
+            </div>
+            
+            <p class="text-gray-400 leading-relaxed mb-6">
+              API de recommandation intelligente pour bibliothèque utilisant des algorithmes de Machine Learning. Analyse les préférences utilisateurs et suggère des ouvrages pertinents basés sur l'historique de lecture et les tendances.
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Python</span>
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Flask</span>
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Machine Learning</span>
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Railway</span>
+            </div>
+            
+            <a 
+              href="https://recommendation.up.railway.app" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center text-cyber-purple hover:text-white transition-colors font-medium"
+            >
+              Voir la démo
+              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="bg-night-950 border border-night-800 rounded-sm overflow-hidden hover:border-cyber-green transition-all duration-300 group lg:col-span-2">
+          <div class="p-8">
+            <div class="flex items-start justify-between mb-4">
+              <h3 class="text-2xl font-bold text-white group-hover:text-cyber-green transition-colors">E-commerce Django</h3>
+              <span class="px-3 py-1 text-xs font-mono bg-cyber-green/10 text-cyber-green rounded border border-cyber-green/20">Django</span>
+            </div>
+            
+            <p class="text-gray-400 leading-relaxed mb-6">
+              Plateforme e-commerce complète développée avec Django. Gestion avancée des produits, paniers d'achat, systèmes de paiement, authentification sécurisée et interface d'administration. Focus particulier sur la robustesse du backend et la sécurité des transactions.
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Python</span>
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Django</span>
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">PostgreSQL</span>
+              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Backend Focus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-20 bg-night-950">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Questions Fréquentes</h2>
+        <div class="w-24 h-1 bg-cyber-blue mx-auto"></div>
+      </div>
+      
+      <div class="space-y-6">
+        <div class="bg-night-900 border border-night-800 rounded-sm p-6 hover:border-cyber-blue transition-all duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">Quel est votre rythme de disponibilité ?</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Actuellement en formation à l'ENSPY, je suis disponible pour des stages ou missions freelance en parallèle de mes études. Je peux m'adapter aux besoins du projet tout en maintenant un équilibre avec mon parcours académique.
+          </p>
+        </div>
+        
+        <div class="bg-night-900 border border-night-800 rounded-sm p-6 hover:border-cyber-purple transition-all duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">Pourquoi ce double profil Dev et Réseau ?</h3>
+          <p class="text-gray-400 leading-relaxed">
+            Pour comprendre l'application de la couche logicielle jusqu'à la transmission physique des données, étape cruciale pour la cybersécurité. Cette approche me permet d'appréhender les systèmes informatiques dans leur globalité, de l'infrastructure réseau aux applications utilisateur, ce qui est essentiel pour identifier et corriger les vulnérabilités.
+          </p>
+        </div>
+        
+        <div class="bg-night-900 border border-night-800 rounded-sm p-6 hover:border-cyber-green transition-all duration-300">
+          <h3 class="text-xl font-bold text-white mb-3">Quels sont vos prochains objectifs techniques ?</h3>
+          <p class="text-gray-400 leading-relaxed">
+            L'approfondissement de la sécurité offensive à travers la pratique du penetration testing et l'obtention de certifications professionnelles, notamment les certifications Cisco (CCNA). Je continue également à développer mes compétences en analyse de vulnérabilités et en administration sécurisée des infrastructures.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-20 bg-night-900">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Entrons en Contact</h2>
+        <div class="w-24 h-1 bg-cyber-blue mx-auto mb-6"></div>
+        <p class="text-gray-400 text-lg">N'hésitez pas à me contacter pour discuter de projets, opportunités ou collaborations</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-night-950 border border-night-800 rounded-sm p-8 hover:border-cyber-blue transition-all duration-300 group">
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-cyber-blue/10 rounded-full mb-4 group-hover:bg-cyber-blue/20 transition-colors">
+              <svg class="w-8 h-8 text-cyber-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Email</h3>
+            <a href="mailto:josuemoffo@gmail.com" class="text-gray-400 hover:text-cyber-blue transition-colors">josuemoffo@gmail.com</a>
+          </div>
+        </div>
+        
+        <div class="bg-night-950 border border-night-800 rounded-sm p-8 hover:border-cyber-purple transition-all duration-300 group">
+          <div class="text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-cyber-purple/10 rounded-full mb-4 group-hover:bg-cyber-purple/20 transition-colors">
+              <svg class="w-8 h-8 text-cyber-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white mb-2">Localisation</h3>
+            <p class="text-gray-400">Yaoundé, Cameroun</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="bg-night-950 border border-night-800 rounded-sm p-8">
+        <h3 class="text-xl font-bold text-white mb-6 text-center">Retrouvez-moi sur</h3>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+          <a 
+            href="https://github.com/JosueMoffo" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 px-6 py-3 bg-night-900 border border-night-800 rounded-sm hover:border-cyber-blue hover:bg-night-800 transition-all duration-300 w-full sm:w-auto justify-center"
+          >
+            <span class="text-gray-300 font-medium">GitHub</span>
+          </a>
+          <a 
+            href="https://www.linkedin.com/in/josu%C3%A9-moffo-07b756352/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 px-6 py-3 bg-night-900 border border-night-800 rounded-sm hover:border-cyber-blue hover:bg-night-800 transition-all duration-300 w-full sm:w-auto justify-center"
+          >
+            <span class="text-gray-300 font-medium">LinkedIn</span>
+          </a>
+          <a 
+            href="https://www.instagram.com/elmoffojos/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="flex items-center gap-3 px-6 py-3 bg-night-900 border border-night-800 rounded-sm hover:border-cyber-blue hover:bg-night-800 transition-all duration-300 w-full sm:w-auto justify-center"
+          >
+            <span class="text-gray-300 font-medium">Instagram</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
