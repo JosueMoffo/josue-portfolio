@@ -76,15 +76,24 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
           Ingénieur en formation à l'ENSPY. Spécialisation en développement sécurisé et administration systèmes.
         </p>
         <div class="flex justify-center space-x-6 text-xs uppercase tracking-widest">
-          <a href="https://github.com/JosueMoffo" class="text-slate-400 hover:text-cyber-blue">GitHub</a>
-          <a href="https://www.linkedin.com/in/josu%C3%A9-moffo-07b756352/" class="text-slate-400 hover:text-cyber-blue">LinkedIn</a>
-          <a href="mailto:josuemoffo@gmail.com" class="text-slate-400 hover:text-cyber-blue">📧 Contact</a>
+          <a href="https://github.com/JosueMoffo" onclick="window.trackClick('Social_Link', { platform: 'GitHub' })" class="text-slate-400 hover:text-cyber-blue">GitHub</a>
+          <a href="https://www.linkedin.com/in/josu%C3%A9-moffo-07b756352/" onclick="window.trackClick('Social_Link', { platform: 'Linkedin' })" class="text-slate-400 hover:text-cyber-blue">LinkedIn</a>
+          <a href="mailto:josuemoffo@gmail.com" onclick="window.trackClick('Social_Link', { platform: 'Gmail' })" class="text-slate-400 hover:text-cyber-blue">📧 Contact</a>
         </div>
         <p class="mt-8 text-[10px] text-slate-700 uppercase tracking-[0.2em]">&copy; 2026 Tous droits réservés</p>
       </div>
     </footer>
 
     <Analytics />
+
+    <script>
+      import { track } from '@vercel/analytics';
+      
+      // On attache la fonction à l'objet window pour l'utiliser dans nos composants
+      window.trackClick = (eventName, properties = {}) => {
+        track(eventName, properties);
+      };
+    </script>
 
     <script>
       // Gestion Menu Mobile simple

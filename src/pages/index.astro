@@ -53,13 +53,15 @@ import Layout from '../layouts/Layout.astro';
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-500 font-mono text-sm">
           <a 
             href="https://drive.google.com/file/d/1SSyVmkj5LcFCKE7AUuJ1U7TztF5efOID/view?usp=drive_link" 
-            target="_blank" 
+            target="_blank"
+            onclick="window.trackClick('Download_CV', { platform: 'GoogleDrive' })" 
             class="w-full sm:w-auto px-8 py-3 bg-cyber-blue text-night-950 font-bold rounded-sm hover:bg-white transition-all duration-300"
           >
             TÉLÉCHARGER_CV
           </a>
           <a 
-            href="#contact" 
+            href="#contact"
+            onclick="window.trackClick('Contact_Click', { location: 'Hero_Section' })" 
             class="w-full sm:w-auto px-8 py-3 border border-cyber-blue/50 text-cyber-blue font-bold rounded-sm hover:bg-cyber-blue/10 transition-all duration-300"
           >
             ME_CONTACTER
