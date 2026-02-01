@@ -249,7 +249,8 @@ import Layout from '../layouts/Layout.astro';
             
             <a 
               href="https://github.com/JosueMoffo/API-Rsv-TravYotei" 
-              target="_blank" 
+              target="_blank"
+              onclick="window.trackClick('View_Project', { name: 'API-Rsv-TravYotei' })" 
               rel="noopener noreferrer"
               class="inline-flex items-center text-cyber-blue hover:text-white transition-colors font-medium"
             >
@@ -281,7 +282,8 @@ import Layout from '../layouts/Layout.astro';
             
             <a 
               href="https://recommendation.up.railway.app" 
-              target="_blank" 
+              target="_blank"
+              onclick="window.trackClick('View_Project', { name: 'API-recommendation' })" 
               rel="noopener noreferrer"
               class="inline-flex items-center text-cyber-purple hover:text-white transition-colors font-medium"
             >
@@ -367,7 +369,7 @@ import Layout from '../layouts/Layout.astro';
               </svg>
             </div>
             <h3 class="text-xl font-bold text-white mb-2">Email</h3>
-            <a href="mailto:josuemoffo@gmail.com" class="text-gray-400 hover:text-cyber-blue transition-colors">josuemoffo@gmail.com</a>
+            <a href="mailto:josuemoffo@gmail.com" onclick="window.trackClick('Social_Link', { platform: 'Gmail' })" class="text-gray-400 hover:text-cyber-blue transition-colors">josuemoffo@gmail.com</a>
           </div>
         </div>
         
@@ -391,6 +393,7 @@ import Layout from '../layouts/Layout.astro';
           <a 
             href="https://github.com/JosueMoffo" 
             target="_blank" 
+            onclick="window.trackClick('Social_Link', { platform: 'GitHub' })" 
             rel="noopener noreferrer"
             class="flex items-center gap-3 px-6 py-3 bg-night-900 border border-night-800 rounded-sm hover:border-cyber-blue hover:bg-night-800 transition-all duration-300 w-full sm:w-auto justify-center"
           >
@@ -399,6 +402,7 @@ import Layout from '../layouts/Layout.astro';
           <a 
             href="https://www.linkedin.com/in/josu%C3%A9-moffo-07b756352/" 
             target="_blank" 
+            onclick="window.trackClick('Social_Link', { platform: 'Linkedin' })" 
             rel="noopener noreferrer"
             class="flex items-center gap-3 px-6 py-3 bg-night-900 border border-night-800 rounded-sm hover:border-cyber-blue hover:bg-night-800 transition-all duration-300 w-full sm:w-auto justify-center"
           >
@@ -407,6 +411,7 @@ import Layout from '../layouts/Layout.astro';
           <a 
             href="https://www.instagram.com/elmoffojos/" 
             target="_blank" 
+            onclick="window.trackClick('Social_Link', { platform: 'Instagram' })" 
             rel="noopener noreferrer"
             class="flex items-center gap-3 px-6 py-3 bg-night-900 border border-night-800 rounded-sm hover:border-cyber-blue hover:bg-night-800 transition-all duration-300 w-full sm:w-auto justify-center"
           >
