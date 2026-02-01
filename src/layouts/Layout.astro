@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 interface Props {
   title: string;
@@ -85,12 +86,13 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
     </footer>
 
     <Analytics />
+    <SpeedInsights />
 
     <script>
       import { track } from '@vercel/analytics';
-      
-      // On attache la fonction à l'objet window pour l'utiliser dans nos composants
-      window.trackClick = (eventName, properties = {}) => {
+
+      // On utilise 'as any' pour éviter les erreurs de type TypeScript sur l'objet window
+      (window as any).trackClick = (eventName, properties = {}) => { 
         track(eventName, properties);
       };
     </script>
