@@ -49,33 +49,86 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
             JMM.dev
           </a>
           
+          <!-- Desktop nav -->
           <div class="hidden md:flex space-x-8">
             <a href="#accueil" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">Accueil</a>
             <a href="#parcours" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">Parcours</a>
             <a href="#competences" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">Compétences</a>
             <a href="#projets" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">Projets</a>
             <a href="#faq" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">FAQ</a>
+            <a href="#contact" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">Contact</a>
           </div>
           
-        <button id="mobile-menu-button" class="md:hidden text-slate-400 relative z-50">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-
-        <div id="mobile-menu" class="fixed inset-0 bg-night-950/95 backdrop-blur-lg z-40 hidden md:hidden">
-          <div class="flex flex-col items-center justify-center h-full space-y-8">
-            <a href="#accueil" class="mobile-link text-2xl text-slate-300 hover:text-cyber-blue transition-colors" onclick="closeMobileMenu()">Accueil</a>
-            <a href="#parcours" class="mobile-link text-2xl text-slate-300 hover:text-cyber-blue transition-colors" onclick="closeMobileMenu()">Parcours</a>
-            <a href="#competences" class="mobile-link text-2xl text-slate-300 hover:text-cyber-blue transition-colors" onclick="closeMobileMenu()">Compétences</a>
-            <a href="#projets" class="mobile-link text-2xl text-slate-300 hover:text-cyber-blue transition-colors" onclick="closeMobileMenu()">Projets</a>
-            <a href="#faq" class="mobile-link text-2xl text-slate-300 hover:text-cyber-blue transition-colors" onclick="closeMobileMenu()">FAQ</a>
-          </div>
-        </div>
-
+          <!-- Burger button -->
+          <button
+            id="mobile-menu-button"
+            class="md:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 gap-[5px] group"
+            aria-label="Menu"
+          >
+            <span id="burger-line-1" class="block w-6 h-[2px] bg-slate-400 rounded-full transition-all duration-300 ease-in-out group-hover:bg-cyber-blue"></span>
+            <span id="burger-line-2" class="block w-6 h-[2px] bg-slate-400 rounded-full transition-all duration-300 ease-in-out group-hover:bg-cyber-blue"></span>
+            <span id="burger-line-3" class="block w-4 h-[2px] bg-slate-400 rounded-full transition-all duration-300 ease-in-out group-hover:bg-cyber-blue self-start"></span>
+          </button>
         </div>
       </div>
     </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div
+      id="mobile-menu"
+      class="fixed inset-0 z-40 flex flex-col md:hidden pointer-events-none opacity-0"
+      style="transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);"
+    >
+      <!-- Backdrop blur layer -->
+      <div class="absolute inset-0 bg-night-950/95 backdrop-blur-xl"></div>
+
+      <!-- Decorative grid -->
+      <div class="absolute inset-0 opacity-5 pointer-events-none">
+        <div class="absolute inset-0" style="background-image: linear-gradient(#00d9ff 1px, transparent 1px), linear-gradient(90deg, #00d9ff 1px, transparent 1px); background-size: 40px 40px;"></div>
+      </div>
+
+      <!-- Decorative glow -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-64 bg-cyber-blue/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- Nav links -->
+      <nav class="relative z-10 flex flex-col items-center justify-center flex-1 gap-2 pt-16">
+        <p class="text-[10px] font-mono uppercase tracking-[0.3em] text-slate-600 mb-6">Navigation</p>
+
+        {[
+          { href: '#accueil', label: 'Accueil', num: '01' },
+          { href: '#parcours', label: 'Parcours', num: '02' },
+          { href: '#competences', label: 'Compétences', num: '03' },
+          { href: '#projets', label: 'Projets', num: '04' },
+          { href: '#faq', label: 'FAQ', num: '05' },
+          { href: '#contact', label: 'Contact', num: '06' },
+        ].map(({ href, label, num }) => (
+          <a
+            href={href}
+            data-mobile-link
+            class="mobile-nav-link group flex items-center gap-4 px-8 py-3 w-full max-w-xs rounded-sm hover:bg-night-800 transition-all duration-200"
+          >
+            <span class="text-[10px] font-mono text-cyber-blue/40 group-hover:text-cyber-blue transition-colors">{num}</span>
+            <span class="text-2xl font-bold text-white uppercase tracking-wider group-hover:text-cyber-blue transition-colors">{label}</span>
+            <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-cyber-blue">→</span>
+          </a>
+        ))}
+
+        <!-- CTA -->
+        <a
+          href="https://drive.google.com/file/d/1SSyVmkj5LcFCKE7AUuJ1U7TztF5efOID/view?usp=drive_link"
+          target="_blank"
+          data-mobile-link
+          class="mt-8 px-8 py-3 bg-cyber-blue text-night-950 font-bold font-mono text-sm rounded-sm hover:bg-white transition-all duration-300"
+        >
+          TÉLÉCHARGER_CV
+        </a>
+      </nav>
+
+      <!-- Footer ligne -->
+      <div class="relative z-10 flex justify-center pb-8">
+        <span class="text-[10px] font-mono text-slate-700 uppercase tracking-[0.2em]">JMM.dev © 2026</span>
+      </div>
+    </div>
     
     <main>
       <slot />
@@ -109,57 +162,45 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
     </script>
 
     <script>
-      // Gestion Menu Mobile complet
       const btn = document.getElementById('mobile-menu-button');
-      const mobileMenu = document.getElementById('mobile-menu');
-      
-      if (btn && mobileMenu) {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          mobileMenu.classList.toggle('hidden');
-          
-          // Empêcher le scroll du body quand le menu est ouvert
-          if (!mobileMenu.classList.contains('hidden')) {
-            document.body.style.overflow = 'hidden';
-          } else {
-            document.body.style.overflow = '';
-          }
-        });
+      const menu = document.getElementById('mobile-menu');
+      const line1 = document.getElementById('burger-line-1');
+      const line2 = document.getElementById('burger-line-2');
+      const line3 = document.getElementById('burger-line-3');
+      let isOpen = false;
 
-        // Fermer le menu quand on clique sur un lien
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        mobileLinks.forEach(link => {
-          link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            document.body.style.overflow = '';
-          });
-        });
-
-        // Fermer le menu si on clique en dehors (optionnel)
-        mobileMenu.addEventListener('click', (e) => {
-          if (e.target === mobileMenu) {
-            mobileMenu.classList.add('hidden');
-            document.body.style.overflow = '';
-          }
-        });
-
-        // Gérer la fermeture avec la touche Echap
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
-            mobileMenu.classList.add('hidden');
-            document.body.style.overflow = '';
-          }
-        });
+      function openMenu() {
+        isOpen = true;
+        menu.style.opacity = '1';
+        menu.style.pointerEvents = 'auto';
+        document.body.style.overflow = 'hidden';
+        // Animate burger → X
+        line1.style.transform = 'translateY(7px) rotate(45deg)';
+        line2.style.opacity = '0';
+        line2.style.transform = 'scaleX(0)';
+        line3.style.transform = 'translateY(-7px) rotate(-45deg)';
+        line3.style.width = '1.5rem';
       }
 
-      // Fonction globale pour fermer le menu (utilisée par les liens)
-      window.closeMobileMenu = () => {
-        const menu = document.getElementById('mobile-menu');
-        if (menu) {
-          menu.classList.add('hidden');
-          document.body.style.overflow = '';
-        }
-      };
+      function closeMenu() {
+        isOpen = false;
+        menu.style.opacity = '0';
+        menu.style.pointerEvents = 'none';
+        document.body.style.overflow = '';
+        // Reset burger
+        line1.style.transform = '';
+        line2.style.opacity = '';
+        line2.style.transform = '';
+        line3.style.transform = '';
+        line3.style.width = '';
+      }
+
+      btn?.addEventListener('click', () => isOpen ? closeMenu() : openMenu());
+
+      // Ferme au clic sur un lien
+      document.querySelectorAll('[data-mobile-link]').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
     </script>
   </body>
 </html>
