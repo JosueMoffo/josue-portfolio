@@ -57,11 +57,22 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
             <a href="#faq" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">FAQ</a>
           </div>
           
-          <button id="mobile-menu-button" class="md:hidden text-slate-400">
-            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+        <button id="mobile-menu-button" class="md:hidden text-slate-400 relative z-50">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+
+        <div id="mobile-menu" class="fixed inset-0 bg-night-950/95 backdrop-blur-lg z-40 hidden md:hidden">
+          <div class="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#accueil" class="mobile-link text-2xl text-slate-300 hover:text-cyber-blue transition-colors" onclick="closeMobileMenu()">Accueil</a>
+            <a href="#parcours" class="mobile-link text-2xl text-slate-300 hover:text-cyber-blue transition-colors" onclick="closeMobileMenu()">Parcours</a>
+            <a href="#competences" class="mobile-link text-2xl text-slate-300 hover:text-cyber-blue transition-colors" onclick="closeMobileMenu()">Compétences</a>
+            <a href="#projets" class="mobile-link text-2xl text-slate-300 hover:text-cyber-blue transition-colors" onclick="closeMobileMenu()">Projets</a>
+            <a href="#faq" class="mobile-link text-2xl text-slate-300 hover:text-cyber-blue transition-colors" onclick="closeMobileMenu()">FAQ</a>
+          </div>
+        </div>
+
         </div>
       </div>
     </nav>
@@ -98,11 +109,57 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
     </script>
 
     <script>
-      // Gestion Menu Mobile simple
+      // Gestion Menu Mobile complet
       const btn = document.getElementById('mobile-menu-button');
-      btn?.addEventListener('click', () => {
-        // Logique d'ouverture menu mobile si tu ajoutes une div mobile-menu
-      });
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (btn && mobileMenu) {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          mobileMenu.classList.toggle('hidden');
+          
+          // Empêcher le scroll du body quand le menu est ouvert
+          if (!mobileMenu.classList.contains('hidden')) {
+            document.body.style.overflow = 'hidden';
+          } else {
+            document.body.style.overflow = '';
+          }
+        });
+
+        // Fermer le menu quand on clique sur un lien
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+          });
+        });
+
+        // Fermer le menu si on clique en dehors (optionnel)
+        mobileMenu.addEventListener('click', (e) => {
+          if (e.target === mobileMenu) {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+          }
+        });
+
+        // Gérer la fermeture avec la touche Echap
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape' && mobileMenu && !mobileMenu.classList.contains('hidden')) {
+            mobileMenu.classList.add('hidden');
+            document.body.style.overflow = '';
+          }
+        });
+      }
+
+      // Fonction globale pour fermer le menu (utilisée par les liens)
+      window.closeMobileMenu = () => {
+        const menu = document.getElementById('mobile-menu');
+        if (menu) {
+          menu.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      };
     </script>
   </body>
 </html>
