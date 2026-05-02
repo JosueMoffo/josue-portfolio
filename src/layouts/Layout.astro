@@ -12,96 +12,71 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
 ---
 
 <!DOCTYPE html>
-<html lang="fr" class="scroll-smooth scroll-pt-16">
+<html lang="fr" data-theme="dark" class="scroll-smooth scroll-pt-16">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
-    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet" />
     <title>{title}</title>
-    
-    <style is:global>
-      /* On ne garde que ce que Tailwind ne gère pas nativement proprement */
-      ::-webkit-scrollbar { width: 8px; }
-      ::-webkit-scrollbar-track { background: #0a0e1a; }
-      ::-webkit-scrollbar-thumb { background: #1a1f2e; border-radius: 4px; }
-      ::-webkit-scrollbar-thumb:hover { background: #00d9ff; }
-
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
-    </style>
-
-    <script 
-      is:inline 
-      defer 
-      src="https://cloud.umami.is/script.js" 
-      data-website-id="4157314c-c5f1-412d-9f88-d9014f73f5e1"
-    ></script>
-
   </head>
-  
-  <body class="bg-night-950 text-slate-300 antialiased font-sans">
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-night-950/80 backdrop-blur-md border-b border-night-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16">
-          <a href="#accueil" class="font-mono text-xl font-bold text-cyber-blue tracking-tighter">
-            JMM.dev
-          </a>
-          
+
+  <body>
+    <!-- NAV -->
+    <nav style="position:fixed;top:0;left:0;right:0;z-index:50;background:var(--bg-nav);border-bottom:1px solid var(--border-color);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:background 0.35s,border-color 0.35s;">
+      <div style="max-width:1280px;margin:0 auto;padding:0 1.5rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;height:64px;gap:12px;">
+
+          <a href="#accueil" class="nav-logo">JMM.dev</a>
+
           <!-- Desktop nav -->
-          <div class="hidden md:flex space-x-8">
-            <a href="#accueil" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">Accueil</a>
-            <a href="#parcours" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">Parcours</a>
-            <a href="#competences" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">Compétences</a>
-            <a href="#projets" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">Projets</a>
-            <a href="#faq" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">FAQ</a>
-            <a href="#contact" class="text-slate-400 hover:text-cyber-blue transition-colors text-xs uppercase tracking-widest font-medium">Contact</a>
+          <div style="display:none;" class="desktop-nav">
+            <a href="#accueil" class="nav-link">Accueil</a>
+            <a href="#parcours" class="nav-link">Parcours</a>
+            <a href="#competences" class="nav-link">Compétences</a>
+            <a href="#projets" class="nav-link">Projets</a>
+            <a href="#faq" class="nav-link">FAQ</a>
+            <a href="#contact" class="nav-link">Contact</a>
           </div>
-          
-          <!-- Burger button -->
-          <button
-            id="mobile-menu-button"
-            class="md:hidden relative z-50 flex flex-col justify-center items-center w-10 h-10 gap-[5px] group"
-            aria-label="Menu"
-          >
-            <span id="burger-line-1" class="block w-6 h-[2px] bg-slate-400 rounded-full transition-all duration-300 ease-in-out group-hover:bg-cyber-blue"></span>
-            <span id="burger-line-2" class="block w-6 h-[2px] bg-slate-400 rounded-full transition-all duration-300 ease-in-out group-hover:bg-cyber-blue"></span>
-            <span id="burger-line-3" class="block w-4 h-[2px] bg-slate-400 rounded-full transition-all duration-300 ease-in-out group-hover:bg-cyber-blue self-start"></span>
-          </button>
+
+          <div style="display:flex;align-items:center;gap:10px;">
+            <!-- Theme Toggle — toujours visible -->
+            <button id="theme-toggle" aria-label="Basculer le thème">
+              <span class="toggle-icon" id="toggle-icon">☀️</span>
+              <span class="toggle-label" id="toggle-label">LIGHT</span>
+            </button>
+
+            <!-- Burger -->
+            <button id="mobile-menu-button" style="display:flex;flex-direction:column;justify-content:center;align-items:center;width:40px;height:40px;gap:5px;background:transparent;border:none;cursor:pointer;padding:0;" aria-label="Menu">
+              <span id="bl1" style="display:block;width:22px;height:2px;background:var(--text-secondary);border-radius:2px;transition:all 0.3s ease;"></span>
+              <span id="bl2" style="display:block;width:22px;height:2px;background:var(--text-secondary);border-radius:2px;transition:all 0.3s ease;"></span>
+              <span id="bl3" style="display:block;width:16px;height:2px;background:var(--text-secondary);border-radius:2px;transition:all 0.3s ease;align-self:flex-start;"></span>
+            </button>
+          </div>
         </div>
       </div>
     </nav>
 
+    <!-- Desktop nav shown via style -->
+    <style>
+      @media (min-width: 768px) {
+        .desktop-nav { display:flex !important; gap:2rem; align-items:center; }
+        #mobile-menu-button { display:none !important; }
+      }
+    </style>
+
     <!-- Mobile Menu Overlay -->
-    <div
-      id="mobile-menu"
-      class="fixed inset-0 z-40 flex flex-col md:hidden pointer-events-none opacity-0"
-      style="transition: opacity 0.35s cubic-bezier(0.4,0,0.2,1);"
-    >
-      <!-- Backdrop blur layer -->
-      <div class="absolute inset-0 bg-night-950/95 backdrop-blur-xl"></div>
+    <div id="mobile-menu" style="position:fixed;inset:0;z-index:40;display:flex;flex-direction:column;pointer-events:none;opacity:0;transition:opacity 0.35s cubic-bezier(0.4,0,0.2,1);">
+      <div style="position:absolute;inset:0;background:var(--bg-primary);opacity:0.97;"></div>
+      <div class="grid-bg" style="position:absolute;inset:0;"></div>
+      <div style="position:absolute;top:25%;left:50%;transform:translateX(-50%);width:240px;height:240px;background:rgba(var(--accent-rgb),0.06);border-radius:50%;filter:blur(60px);pointer-events:none;"></div>
 
-      <!-- Decorative grid -->
-      <div class="absolute inset-0 opacity-5 pointer-events-none">
-        <div class="absolute inset-0" style="background-image: linear-gradient(#00d9ff 1px, transparent 1px), linear-gradient(90deg, #00d9ff 1px, transparent 1px); background-size: 40px 40px;"></div>
-      </div>
-
-      <!-- Decorative glow -->
-      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-64 h-64 bg-cyber-blue/10 rounded-full blur-3xl pointer-events-none"></div>
-
-      <!-- Nav links -->
-      <nav class="relative z-10 flex flex-col items-center justify-center flex-1 gap-2 pt-16">
-        <p class="text-[10px] font-mono uppercase tracking-[0.3em] text-slate-600 mb-6">Navigation</p>
-
+      <nav style="position:relative;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;flex:1;gap:4px;padding-top:72px;">
+        <p style="font-size:0.6rem;font-family:'Fira Code',monospace;text-transform:uppercase;letter-spacing:0.3em;color:var(--text-muted);margin-bottom:20px;">Navigation</p>
         {[
           { href: '#accueil', label: 'Accueil', num: '01' },
           { href: '#parcours', label: 'Parcours', num: '02' },
@@ -110,50 +85,33 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
           { href: '#faq', label: 'FAQ', num: '05' },
           { href: '#contact', label: 'Contact', num: '06' },
         ].map(({ href, label, num }) => (
-          <a
-            href={href}
-            data-mobile-link
-            class="mobile-nav-link group flex items-center gap-4 px-8 py-3 w-full max-w-xs rounded-sm hover:bg-night-800 transition-all duration-200"
-          >
-            <span class="text-[10px] font-mono text-cyber-blue/40 group-hover:text-cyber-blue transition-colors">{num}</span>
-            <span class="text-2xl font-bold text-white uppercase tracking-wider group-hover:text-cyber-blue transition-colors">{label}</span>
-            <span class="ml-auto opacity-0 group-hover:opacity-100 transition-opacity text-cyber-blue">→</span>
+          <a href={href} data-mobile-link class="mobile-nav-link">
+            <span class="mob-num">{num}</span>
+            <span class="mob-label">{label}</span>
+            <span class="mob-arrow">→</span>
           </a>
         ))}
-
-        <!-- CTA -->
-        <a
-          href="https://drive.google.com/file/d/1SSyVmkj5LcFCKE7AUuJ1U7TztF5efOID/view?usp=drive_link"
-          target="_blank"
-          data-mobile-link
-          class="mt-8 px-8 py-3 bg-cyber-blue text-night-950 font-bold font-mono text-sm rounded-sm hover:bg-white transition-all duration-300"
-        >
-          TÉLÉCHARGER_CV
-        </a>
+        <a href="https://drive.google.com/file/d/1SSyVmkj5LcFCKE7AUuJ1U7TztF5efOID/view?usp=drive_link" target="_blank" data-mobile-link class="btn-primary" style="margin-top:28px;letter-spacing:0.08em;">TÉLÉCHARGER_CV</a>
       </nav>
 
-      <!-- Footer ligne -->
-      <div class="relative z-10 flex justify-center pb-8">
-        <span class="text-[10px] font-mono text-slate-700 uppercase tracking-[0.2em]">JMM.dev © 2026</span>
+      <div style="position:relative;z-index:10;display:flex;justify-content:center;padding-bottom:28px;">
+        <span style="font-size:0.58rem;font-family:'Fira Code',monospace;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.2em;">JMM.dev © 2026</span>
       </div>
     </div>
-    
+
     <main>
       <slot />
     </main>
-    
-    <footer class="bg-night-950 border-t border-night-800 py-12 mt-20">
-      <div class="max-w-7xl mx-auto px-4 text-center">
-        <h3 class="text-white font-bold mb-4">Josué Mbah Moffo</h3>
-        <p class="text-slate-500 text-sm max-w-md mx-auto mb-8">
-          Ingénieur en formation à l'ENSPY. Spécialisation en développement sécurisé et administration systèmes.
-        </p>
-        <div class="flex justify-center space-x-6 text-xs uppercase tracking-widest">
-          <a href="https://github.com/JosueMoffo" onclick="window.trackClick('Social_Link', { platform: 'GitHub' })" class="text-slate-400 hover:text-cyber-blue">GitHub</a>
-          <a href="https://www.linkedin.com/in/josue-moffo-07b756352/" onclick="window.trackClick('Social_Link', { platform: 'Linkedin' })" class="text-slate-400 hover:text-cyber-blue">LinkedIn</a>
-          <a href="mailto:josuemoffo@gmail.com" onclick="window.trackClick('Social_Link', { platform: 'Gmail' })" class="text-slate-400 hover:text-cyber-blue">📧 Contact</a>
+
+    <footer style="padding:3rem 1rem 2rem;">
+      <div style="max-width:1280px;margin:0 auto;text-align:center;">
+        <p style="font-weight:700;font-size:1rem;color:var(--text-primary);margin-bottom:8px;">Josué Mbah Moffo</p>
+        <p style="color:var(--text-muted);font-size:0.82rem;max-width:420px;margin:0 auto 24px;line-height:1.7;">Ingénieur en formation à l'ENSPY. Spécialisation en développement sécurisé et administration systèmes.</p>
+        <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:24px;">
+          <a href="https://github.com/JosueMoffo" target="_blank" class="footer-link">GitHub</a>
+          <a href="https://www.linkedin.com/in/josue-moffo-07b756352/" target="_blank" class="footer-link">LinkedIn</a>
+          <a href="mailto:josuemoffo@gmail.com" class="footer-link">✉ Contact</a>
         </div>
-        <p class="mt-8 text-[10px] text-slate-700 uppercase tracking-[0.2em]">&copy; 2026 Tous droits réservés</p>
       </div>
     </footer>
 
@@ -162,52 +120,74 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
 
     <script>
       import { track } from '@vercel/analytics';
-
-      // On utilise 'as any' pour éviter les erreurs de type TypeScript sur l'objet window
-      (window as any).trackClick = (eventName, properties = {}) => { 
-        track(eventName, properties);
-      };
+      (window as any).trackClick = (eventName: string, properties = {}) => { track(eventName, properties); };
     </script>
 
     <script>
-      const btn = document.getElementById('mobile-menu-button');
-      const menu = document.getElementById('mobile-menu');
-      const line1 = document.getElementById('burger-line-1');
-      const line2 = document.getElementById('burger-line-2');
-      const line3 = document.getElementById('burger-line-3');
-      let isOpen = false;
+      // ── THEME ────────────────────────────────────────────────
+      const html = document.documentElement;
+      const btn = document.getElementById('theme-toggle')!;
+      const icon = document.getElementById('toggle-icon')!;
+      const label = document.getElementById('toggle-label')!;
+
+      function applyTheme(theme: string) {
+        html.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        if (theme === 'light') {
+          icon.textContent = '🌙';
+          label.textContent = 'DARK';
+        } else {
+          icon.textContent = '☀️';
+          label.textContent = 'LIGHT';
+        }
+      }
+
+      const saved = localStorage.getItem('theme') || 'dark';
+      applyTheme(saved);
+
+      btn.addEventListener('click', () => {
+        const current = html.getAttribute('data-theme');
+        applyTheme(current === 'dark' ? 'light' : 'dark');
+      });
+
+      // ── MOBILE MENU ──────────────────────────────────────────
+      const menuBtn = document.getElementById('mobile-menu-button')!;
+      const menu = document.getElementById('mobile-menu')!;
+      const l1 = document.getElementById('bl1')!;
+      const l2 = document.getElementById('bl2')!;
+      const l3 = document.getElementById('bl3')!;
+      let open = false;
 
       function openMenu() {
-        isOpen = true;
+        open = true;
         menu.style.opacity = '1';
         menu.style.pointerEvents = 'auto';
         document.body.style.overflow = 'hidden';
-        // Animate burger → X
-        line1.style.transform = 'translateY(7px) rotate(45deg)';
-        line2.style.opacity = '0';
-        line2.style.transform = 'scaleX(0)';
-        line3.style.transform = 'translateY(-7px) rotate(-45deg)';
-        line3.style.width = '1.5rem';
+        l1.style.transform = 'translateY(7px) rotate(45deg)';
+        l2.style.opacity = '0'; l2.style.transform = 'scaleX(0)';
+        l3.style.transform = 'translateY(-7px) rotate(-45deg)';
+        l3.style.width = '22px';
       }
-
       function closeMenu() {
-        isOpen = false;
+        open = false;
         menu.style.opacity = '0';
         menu.style.pointerEvents = 'none';
         document.body.style.overflow = '';
-        // Reset burger
-        line1.style.transform = '';
-        line2.style.opacity = '';
-        line2.style.transform = '';
-        line3.style.transform = '';
-        line3.style.width = '';
+        l1.style.transform = ''; l2.style.opacity = ''; l2.style.transform = '';
+        l3.style.transform = ''; l3.style.width = '16px';
       }
+      menuBtn.addEventListener('click', () => open ? closeMenu() : openMenu());
+      document.querySelectorAll('[data-mobile-link]').forEach(l => l.addEventListener('click', closeMenu));
 
-      btn?.addEventListener('click', () => isOpen ? closeMenu() : openMenu());
-
-      // Ferme au clic sur un lien
-      document.querySelectorAll('[data-mobile-link]').forEach(link => {
-        link.addEventListener('click', closeMenu);
+      // ── FAQ ACCORDION ─────────────────────────────────────────
+      document.querySelectorAll('.faq-trigger').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+          const item = trigger.closest('.faq-item')!;
+          const isOpen = item.classList.contains('open');
+          // Fermer tous
+          document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+          if (!isOpen) item.classList.add('open');
+        });
       });
     </script>
   </body>

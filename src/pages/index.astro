@@ -3,480 +3,481 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Josué Mbah Moffo - Portfolio">
-  <section id="accueil" class="min-h-screen pt-32 pb-16 flex items-center justify-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10 pointer-events-none">
-      <div class="absolute inset-0" style="background-image: linear-gradient(#00d9ff 1px, transparent 1px), linear-gradient(90deg, #00d9ff 1px, transparent 1px); background-size: 50px 50px;"></div>
-    </div>
-    
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div class="text-center">
-        
-        <div class="relative inline-block mb-6 animate-fade-in">
-          <div class="absolute inset-0 bg-cyber-blue blur-xl opacity-20 rounded-full"></div>
-          <img 
-            src="/profile.png" 
-            alt="Josué Mbah Moffo" 
-            class="relative w-28 h-28 sm:w-36 sm:h-36 rounded-full border-2 border-cyber-blue object-cover shadow-[0_0_20px_rgba(0,217,255,0.2)]"
-          />
-        </div>
 
-        <h1 class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white mb-2 animate-fade-in-up">
-          Mbah Moffo <span class="text-cyber-blue">Josué</span>
-        </h1>
-        
-        <h2 class="text-lg sm:text-xl lg:text-2xl text-gray-400 mb-2 animate-fade-in-up delay-100">
-          Étudiant en Génie Informatique
-        </h2>
-        
-        <p class="text-md sm:text-lg text-cyber-blue/80 font-mono tracking-widest uppercase mb-8 animate-fade-in-up delay-200">
-          Backend Developer orienté Sécurité
-        </p>
+  <!-- ══ HERO ══════════════════════════════════════════════════ -->
+  <section id="accueil" style="min-height:100vh;padding:8rem 1.5rem 4rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+    <div class="grid-bg"></div>
+    <div style="position:absolute;top:20%;right:10%;width:320px;height:320px;background:rgba(var(--accent-rgb),0.04);border-radius:50%;filter:blur(80px);pointer-events:none;"></div>
 
-        <div class="flex justify-center mb-10 animate-fade-in delay-300">
-          <div class="inline-flex items-center gap-3 bg-night-900/80 border border-night-800 px-4 py-1.5 rounded-full backdrop-blur-sm shadow-lg">
-            <span class="relative flex h-2 w-2">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyber-blue opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-cyber-blue"></span>
-            </span>
-            <p class="text-[9px] sm:text-[10px] font-mono uppercase tracking-[0.15em] text-slate-400">
-              Dernière mise à jour : <span class="text-white">15 Avril 2026</span>
-            </p>
+    <div style="max-width:860px;margin:0 auto;text-align:center;position:relative;z-index:2;">
+
+      <!-- Photo -->
+      <div class="animate-fade-in" style="display:inline-block;position:relative;margin-bottom:1.5rem;">
+        <div style="position:absolute;inset:-4px;border-radius:50%;background:var(--accent);opacity:0.12;filter:blur(16px);"></div>
+        <img
+          src="/profile.png" alt="Josué Mbah Moffo"
+          style="position:relative;width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);box-shadow:0 0 24px rgba(var(--accent-rgb),0.18);"
+        />
+      </div>
+
+      <h1 class="animate-fade-in-up delay-100" style="font-size:clamp(2.4rem,7vw,4.2rem);font-weight:700;line-height:1.1;margin:0 0 8px;color:var(--text-primary);">
+        Mbah Moffo <span style="color:var(--accent);">Josué</span>
+      </h1>
+
+      <h2 class="animate-fade-in-up delay-200" style="font-size:clamp(1rem,3vw,1.3rem);color:var(--text-secondary);margin:0 0 8px;font-weight:400;">
+        Étudiant en Génie Informatique
+      </h2>
+
+      <p class="animate-fade-in-up delay-200" style="font-family:'Fira Code',monospace;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);opacity:0.85;margin:0 0 1.5rem;">
+        Backend Developer orienté Sécurité
+      </p>
+
+      <div class="animate-fade-in delay-300" style="display:flex;justify-content:center;margin-bottom:2rem;">
+        <div class="hero-status">
+          <div class="ping-wrapper">
+            <span class="ping-ring"></span>
+            <span class="ping-dot"></span>
           </div>
-        </div>
-        
-        <div class="max-w-2xl mx-auto mb-12 animate-fade-in-up delay-400">
-          <p class="text-gray-400 text-base sm:text-lg leading-relaxed">
-            Focus sur le développement d'applications robustes et l'administration sécurisée des infrastructures réseaux.
-          </p>
-        </div>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-500 font-mono text-sm">
-          <a 
-            href="https://drive.google.com/file/d/1SSyVmkj5LcFCKE7AUuJ1U7TztF5efOID/view?usp=drive_link" 
-            target="_blank"
-            onclick="window.trackClick('Download_CV', { platform: 'GoogleDrive' })" 
-            class="umami--click--add-to-cart w-full sm:w-auto px-8 py-3 bg-cyber-blue text-night-950 font-bold rounded-sm hover:bg-white transition-all duration-300"
-          >
-            TÉLÉCHARGER_CV
-          </a>
-          <a 
-            href="#contact"
-            onclick="window.trackClick('Contact_Click', { location: 'Hero_Section' })" 
-            class=" umami--click--add-to-cart w-full sm:w-auto px-8 py-3 border border-cyber-blue/50 text-cyber-blue font-bold rounded-sm hover:bg-cyber-blue/10 transition-all duration-300"
-          >
-            ME_CONTACTER
-          </a>
+          <span style="font-size:0.62rem;font-family:'Fira Code',monospace;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);">
+            Dernière mise à jour : <span style="color:var(--text-primary);">15 Avril 2026</span>
+          </span>
         </div>
       </div>
+
+      <p class="animate-fade-in-up delay-300" style="color:var(--text-secondary);font-size:1.05rem;line-height:1.75;max-width:580px;margin:0 auto 2.5rem;">
+        Focus sur le développement d'applications robustes et l'administration sécurisée des infrastructures réseaux.
+      </p>
+
+      <div class="animate-fade-in-up delay-400 cta-group" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+        <a href="https://drive.google.com/file/d/1SSyVmkj5LcFCKE7AUuJ1U7TztF5efOID/view?usp=drive_link"
+           target="_blank" onclick="window.trackClick('Download_CV',{})" class="btn-primary" style="letter-spacing:0.08em;">
+          TÉLÉCHARGER_CV
+        </a>
+        <a href="#contact" onclick="window.trackClick('Contact_Click',{})" class="btn-outline">
+          ME_CONTACTER
+        </a>
+      </div>
     </div>
-    
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 opacity-20 hidden sm:block">
-      <div class="w-[1px] h-12 bg-gradient-to-b from-cyber-blue to-transparent animate-pulse"></div>
+
+    <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);opacity:0.15;">
+      <div style="width:1px;height:48px;background:linear-gradient(to bottom,var(--accent),transparent);animation:pulse 2s infinite;"></div>
     </div>
   </section>
 
-
-  <!-- Parcours Académique -->
-  <section id="parcours" class="py-20 bg-night-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Parcours Académique</h2>
-        <div class="w-24 h-1 bg-cyber-blue mx-auto"></div>
+  <!-- ══ PARCOURS ══════════════════════════════════════════════ -->
+  <section id="parcours" class="section-alt" style="padding:5rem 1.5rem;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:4rem;">
+        <h2 class="section-title">Parcours Académique</h2>
+        <div class="section-bar"></div>
       </div>
-      
-      <div class="max-w-4xl mx-auto">
-        <div class="space-y-12">
-          <div class="relative pl-8 border-l-2 border-night-800 hover:border-cyber-blue transition-colors duration-300">
-            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-cyber-blue"></div>
-            <div class="mb-1">
-              <span class="inline-block px-3 py-1 text-xs font-mono font-semibold bg-night-800 text-cyber-blue rounded">2022 - Présent</span>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Génie Informatique - 4e année</h3>
-            <p class="text-gray-400 mb-2">École Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</p>
-            <p class="text-gray-500 text-sm">Yaoundé, Cameroun</p>
+
+      <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:2.5rem;">
+
+        <div class="timeline-line" style="position:relative;padding-left:2rem;">
+          <div style="position:absolute;left:-7px;top:0;width:14px;height:14px;border-radius:50%;background:var(--accent);"></div>
+          <div style="margin-bottom:6px;">
+            <span style="display:inline-block;padding:2px 10px;border-radius:4px;font-size:0.68rem;font-family:'Fira Code',monospace;font-weight:600;background:var(--tag-bg);color:var(--accent);">2022 — Présent</span>
           </div>
-          
-          <div class="relative pl-8 border-l-2 border-night-800 hover:border-cyber-blue transition-colors duration-300">
-            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-600"></div>
-            <div class="mb-1">
-              <span class="inline-block px-3 py-1 text-xs font-mono font-semibold bg-night-800 text-gray-400 rounded">2021 - 2022</span>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Formation en Mathématiques</h3>
-            <p class="text-gray-400 mb-2">Université de Yaoundé 1</p>
-            <p class="text-gray-500 text-sm">Yaoundé, Cameroun</p>
-          </div>
-          
-          <div class="relative pl-8 border-l-2 border-night-800 hover:border-cyber-blue transition-colors duration-300">
-            <div class="absolute -left-2 top-0 w-4 h-4 rounded-full bg-gray-600"></div>
-            <div class="mb-1">
-              <span class="inline-block px-3 py-1 text-xs font-mono font-semibold bg-night-800 text-gray-400 rounded">2021</span>
-            </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Baccalauréat Série C</h3>
-            <p class="text-gray-400 mb-2">Sciences Mathématiques</p>
-            <p class="text-gray-500 text-sm">Cameroun</p>
-          </div>
+          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Génie Informatique — 4e année</h3>
+          <p style="color:var(--text-secondary);margin:0 0 4px;">École Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</p>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin:0;">Yaoundé, Cameroun</p>
         </div>
+
+        <div class="timeline-line" style="position:relative;padding-left:2rem;">
+          <div style="position:absolute;left:-7px;top:0;width:14px;height:14px;border-radius:50%;background:var(--text-muted);"></div>
+          <div style="margin-bottom:6px;">
+            <span style="display:inline-block;padding:2px 10px;border-radius:4px;font-size:0.68rem;font-family:'Fira Code',monospace;font-weight:600;background:var(--tag-bg);color:var(--text-muted);">2021 — 2022</span>
+          </div>
+          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Formation en Mathématiques</h3>
+          <p style="color:var(--text-secondary);margin:0 0 4px;">Université de Yaoundé 1</p>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin:0;">Yaoundé, Cameroun</p>
+        </div>
+
+        <div class="timeline-line" style="position:relative;padding-left:2rem;">
+          <div style="position:absolute;left:-7px;top:0;width:14px;height:14px;border-radius:50%;background:var(--text-muted);"></div>
+          <div style="margin-bottom:6px;">
+            <span style="display:inline-block;padding:2px 10px;border-radius:4px;font-size:0.68rem;font-family:'Fira Code',monospace;font-weight:600;background:var(--tag-bg);color:var(--text-muted);">2021</span>
+          </div>
+          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Baccalauréat Série C</h3>
+          <p style="color:var(--text-secondary);margin:0 0 4px;">Sciences Mathématiques</p>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin:0;">Cameroun</p>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Compétences -->
-  <section id="competences" class="py-20 bg-night-950">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Compétences Techniques</h2>
-        <div class="w-24 h-1 bg-cyber-blue mx-auto"></div>
+  <!-- ══ COMPÉTENCES ═══════════════════════════════════════════ -->
+  <section id="competences" class="section-dark" style="padding:5rem 1.5rem;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:4rem;">
+        <h2 class="section-title">Compétences Techniques</h2>
+        <div class="section-bar"></div>
       </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-night-900 border border-night-800 p-6 rounded-sm hover:border-cyber-blue transition-all duration-300 group">
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyber-blue transition-colors">Développement</h3>
-          <div class="space-y-2">
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">JavaScript</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">TypeScript</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">PHP</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">C</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Python</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Java</span>
-            </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
+
+        <div class="card" style="padding:1.5rem;" id="card-dev">
+          <h3 style="font-size:1.05rem;font-weight:700;color:var(--accent);margin:0 0 1rem;">Développement</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;">
+            {['JavaScript','TypeScript','PHP','C','Python','Java'].map(s => <span class="tag">{s}</span>)}
           </div>
-          <div class="mt-4 pt-4 border-t border-night-800">
-            <p class="text-sm text-gray-400 font-semibold mb-2">Frameworks</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Astro</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Django</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">FastAPI</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">SpringBoot</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Tailwind CSS</span>
+          <div style="border-top:1px solid var(--border-color);padding-top:1rem;">
+            <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:0 0 8px;font-weight:600;">Frameworks</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              {['Astro','Django','FastAPI','SpringBoot','Tailwind CSS'].map(s => <span class="tag">{s}</span>)}
             </div>
           </div>
         </div>
-        
-        <div class="bg-night-900 border border-night-800 p-6 rounded-sm hover:border-cyber-purple transition-all duration-300 group">
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyber-purple transition-colors">Infrastructure & Réseaux</h3>
-          <div class="space-y-2">
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Linux</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Windows</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">SNMP</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Nagios</span>
-            </div>
+
+        <div class="card" style="padding:1.5rem;">
+          <h3 style="font-size:1.05rem;font-weight:700;color:var(--cyber-purple,#a78bfa);margin:0 0 1rem;" class="card-title-purple">Infrastructure & Réseaux</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;">
+            {['Linux','Windows','SNMP','Nagios'].map(s => <span class="tag">{s}</span>)}
           </div>
-          <div class="mt-4 pt-4 border-t border-night-800">
-            <p class="text-sm text-gray-400 font-semibold mb-2">Outils</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Cisco Packet Tracer</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Wireshark</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">VirtualBox</span>
+          <div style="border-top:1px solid var(--border-color);padding-top:1rem;">
+            <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:0 0 8px;font-weight:600;">Outils</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              {['Cisco Packet Tracer','Wireshark','VirtualBox'].map(s => <span class="tag">{s}</span>)}
             </div>
           </div>
         </div>
-        
-        <div class="bg-night-900 border border-night-800 p-6 rounded-sm hover:border-cyber-green transition-all duration-300 group">
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyber-green transition-colors">DevOps & Cloud</h3>
-          <div class="space-y-2">
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Docker</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Git</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Bash</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Firebase</span>
-            </div>
+
+        <div class="card" style="padding:1.5rem;">
+          <h3 style="font-size:1.05rem;font-weight:700;color:#10b981;margin:0 0 1rem;">DevOps & Cloud</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;">
+            {['Docker','Git','Bash','Firebase'].map(s => <span class="tag">{s}</span>)}
           </div>
-          <div class="mt-4 pt-4 border-t border-night-800">
-            <p class="text-sm text-gray-400 font-semibold mb-2">Plateformes</p>
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Supabase</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Vercel</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Render</span>
+          <div style="border-top:1px solid var(--border-color);padding-top:1rem;">
+            <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:0 0 8px;font-weight:600;">Plateformes</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              {['Supabase','Vercel','Render'].map(s => <span class="tag">{s}</span>)}
             </div>
           </div>
         </div>
-        
-        <div class="bg-night-900 border border-night-800 p-6 rounded-sm hover:border-cyber-blue transition-all duration-300 group">
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-cyber-blue transition-colors">Base de Données</h3>
-          <div class="space-y-2">
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">MySQL</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">PostgreSQL</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Firebase</span>
-            </div>
+
+        <div class="card" style="padding:1.5rem;">
+          <h3 style="font-size:1.05rem;font-weight:700;color:var(--accent);margin:0 0 1rem;">Base de Données</h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            {['MySQL','PostgreSQL','Firebase'].map(s => <span class="tag">{s}</span>)}
           </div>
         </div>
-        
-        <div class="bg-night-900 border border-night-800 p-6 rounded-sm hover:border-red-500 transition-all duration-300 group md:col-span-2">
-          <h3 class="text-xl font-bold text-white mb-4 group-hover:text-red-500 transition-colors">
-            Sécurité <span class="text-sm text-gray-500">(En apprentissage)</span>
-          </h3>
-          <div class="space-y-2">
-            <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Analyse de vulnérabilités</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Metasploitable</span>
-              <span class="px-3 py-1 text-sm bg-night-800 text-gray-300 rounded font-mono">Penetration Testing</span>
-            </div>
+
+        <div class="card" style="padding:1.5rem;grid-column:span 1;" id="security-card">
+          <h3 style="font-size:1.05rem;font-weight:700;color:#ef4444;margin:0 0 1rem;">Sécurité </h3>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            {['Analyse de vulnérabilités','Metasploitable','Penetration Testing'].map(s => <span class="tag">{s}</span>)}
           </div>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Projets -->
-  <section id="projets" class="py-20 bg-night-900">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Projets Académiques</h2>
-        <div class="w-24 h-1 bg-cyber-blue mx-auto"></div>
+  <!-- ══ PROJETS ════════════════════════════════════════════════ -->
+  <section id="projets" class="section-alt" style="padding:5rem 1.5rem;">
+    <div style="max-width:1280px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:3rem;">
+        <h2 class="section-title">Projets Personnels</h2>
+        <div class="section-bar"></div>
       </div>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div class="bg-night-950 border border-night-800 rounded-sm overflow-hidden hover:border-cyber-blue transition-all duration-300 group">
-          <div class="p-8">
-            <div class="flex items-start justify-between mb-4">
-              <h3 class="text-2xl font-bold text-white group-hover:text-cyber-blue transition-colors">API-Rsv-TravYotei</h3>
-              <span class="px-3 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/20">SpringBoot</span>
-            </div>
-            
-            <p class="text-gray-400 leading-relaxed mb-6">
-              Système de gestion de réservations utilisant SpringBoot et Apache Kafka pour assurer une communication asynchrone robuste entre les microservices. Architecture orientée événements garantissant la scalabilité et la fiabilité.
-            </p>
-            
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Java</span>
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">SpringBoot</span>
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Apache Kafka</span>
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Microservices</span>
-            </div>
-            
-            <a 
-              href="https://github.com/JosueMoffo/API-Rsv-TravYotei" 
-              target="_blank"
-              onclick="window.trackClick('View_Project', { name: 'API-Rsv-TravYotei' })" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center text-cyber-blue hover:text-white transition-colors font-medium"
-            >
+
+        <!-- Shuba -->
+        <div class="card-inner" style="padding:2rem;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:1rem;flex-wrap:wrap;">
+            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin:0;flex:1;">Shuba: Une Marketplace Multi-tenant</h3>
+            <span style="padding:3px 10px;font-family:'Fira Code',monospace;font-size:0.68rem;border-radius:4px;background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.2);white-space:nowrap;">Django</span>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.72;margin:0 0 1.2rem;font-size:0.92rem;">Plateforme e-commerce complète développée avec Django. Gestion avancée des produits, paniers d'achat, systèmes de paiement, authentification sécurisée et interface d'administration.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.2rem;">
+            {['Python','Django','PostgreSQL','Backend Focus'].map(s => <span class="tag">{s}</span>)}
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <a href="https://shuba.onrender.com" target="_blank" onclick="window.trackClick('View_Project',{name:'Marketplace'})" class="project-link" style="color:#10b981;">
+              Explorer l'application en production
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+            </a>
+            <a href="https://github.com/JosueMoffo/saas-marketplace" target="_blank" onclick="window.trackClick('View_Project',{name:'Marketplace_GH'})" class="project-link" style="color:#10b981;">
               Voir sur GitHub
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
             </a>
           </div>
         </div>
+        <br>
 
-        <div class="bg-night-950 border border-night-800 rounded-sm overflow-hidden hover:border-cyber-green transition-all duration-300 group">
-          <div class="p-8">
-            <div class="flex items-start justify-between mb-4">
-              <h3 class="text-2xl font-bold text-white group-hover:text-cyber-green transition-colors">Shuba: Une Marketplace Multi-tenant</h3>
-              <span class="px-3 py-1 text-xs font-mono bg-cyber-green/10 text-cyber-green rounded border border-cyber-green/20">Django</span>
-            </div>
-            
-            <p class="text-gray-400 leading-relaxed mb-6">
-              Plateforme e-commerce complète développée avec Django. Gestion avancée des produits, paniers d'achat, systèmes de paiement, authentification sécurisée et interface d'administration. Focus particulier sur la robustesse du backend et la sécurité des transactions.
-            </p>
-            
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Python</span>
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Django</span>
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">PostgreSQL</span>
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Backend Focus</span>
-            </div>
-
-                        <a 
-              href="https://shuba.onrender.com" 
-              target="_blank"
-              onclick="window.trackClick('View_Project', { name: 'Marketplace' })" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center text-cyber-green hover:text-white transition-colors font-medium"
-            >
-              Explorer l'application
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-
-          </div>
-        </div>
-
-        
-        <div class="bg-night-950 border border-night-800 rounded-sm overflow-hidden hover:border-cyber-purple transition-all duration-300 group">
-          <div class="p-8">
-            <div class="flex items-start justify-between mb-4">
-              <h3 class="text-2xl font-bold text-white group-hover:text-cyber-purple transition-colors">API-recommendation-systeme</h3>
-              <span class="px-3 py-1 text-xs font-mono bg-cyber-purple/10 text-cyber-purple rounded border border-cyber-purple/20">Flask</span>
-            </div>
-            
-            <p class="text-gray-400 leading-relaxed mb-6">
-              API de recommandation intelligente pour bibliothèque utilisant des algorithmes de Machine Learning. Analyse les préférences utilisateurs et suggère des ouvrages pertinents basés sur l'historique de lecture et les tendances.
-            </p>
-            
-            <div class="flex flex-wrap gap-2 mb-6">
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Python</span>
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Flask</span>
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Machine Learning</span>
-              <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Railway</span>
-            </div>
-            
-            <a 
-              href="https://recommendation.up.railway.app" 
-              target="_blank"
-              onclick="window.trackClick('View_Project', { name: 'API-recommendation' })" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center text-cyber-purple hover:text-white transition-colors font-medium"
-            >
-              Voir la démo
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          </div>
-        </div>
-        
-
-        <div class="bg-night-950 border border-night-800 rounded-sm overflow-hidden hover:border-cyber-blue transition-all duration-300 group">
-        <div class="p-8">
-          <div class="flex items-start justify-between mb-4">
-            <div>
-              <h3 class="text-2xl font-bold text-white group-hover:text-cyber-blue transition-colors">TravYotei - Planification de Voyages</h3>
-              <p class="text-cyber-blue text-sm font-mono mt-1">Application Fullstack • Projet Académique ENSPY</p>
-            </div>
-            <span class="px-3 py-1 text-xs font-mono bg-cyber-blue/10 text-cyber-blue rounded border border-cyber-blue/20">Next.js + SpringBoot</span>
-          </div>
-          
-          <p class="text-gray-400 leading-relaxed mb-6">
-            Solution complète de digitalisation du transport interurbain au Cameroun. L'interface permet la planification de trajets personnalisés, la gestion des agences de transport et la réservation en temps réel, connectée à une architecture microservices robuste.
-          </p>
-          
-          <div class="flex flex-wrap gap-2 mb-6">
-            <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">TypeScript</span>
-            <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Astro/React</span>
-            <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Tailwind CSS</span>
-            <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Spring Boot API</span>
-            <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Kafka</span>
-            <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Render</span>
-            <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Aiven</span>
-            <span class="px-2 py-1 text-xs bg-night-800 text-gray-400 rounded font-mono">Vercel</span>
-          </div>
-          
-          <div class="flex gap-6">
-            <a 
-              href="https://frontend-travyotei.vercel.app/" 
-              target="_blank"
-              onclick="window.trackClick('View_Project', { name: 'TravYotei_Frontend' })" 
-              rel="noopener noreferrer"
-              class="inline-flex items-center text-cyber-blue hover:text-white transition-colors font-medium"
-            >
-              Explorer l'application
-              <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
-          </div>
-        </div>
+      <div style="text-align:center;margin-bottom:4rem;">
+        <h2 class="section-title">Projets Académiques</h2>
+        <div class="section-bar"></div>
       </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;">
+
+        <!-- API-Rsv -->
+        <div class="card-inner" style="padding:2rem;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:1rem;flex-wrap:wrap;">
+            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin:0;flex:1;">API-Rsv-TravYotei</h3>
+            <span style="padding:3px 10px;font-family:'Fira Code',monospace;font-size:0.68rem;border-radius:4px;background:rgba(var(--accent-rgb),0.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.2);white-space:nowrap;">SpringBoot</span>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.72;margin:0 0 1.2rem;font-size:0.92rem;">Système de gestion de réservations utilisant SpringBoot et Apache Kafka pour une communication asynchrone robuste entre microservices. Architecture orientée événements.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.2rem;">
+            {['Java','SpringBoot','Apache Kafka','Microservices'].map(s => <span class="tag">{s}</span>)}
+          </div>
+          <a href="https://github.com/JosueMoffo/API-Rsv-TravYotei" target="_blank" onclick="window.trackClick('View_Project',{name:'API-Rsv-TravYotei'})" class="project-link">
+            Voir sur GitHub
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+
+        <!-- Recommendation -->
+        <div class="card-inner" style="padding:2rem;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:1rem;flex-wrap:wrap;">
+            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin:0;flex:1;">API-recommendation-systeme</h3>
+            <span style="padding:3px 10px;font-family:'Fira Code',monospace;font-size:0.68rem;border-radius:4px;background:rgba(167,139,250,0.1);color:#a78bfa;border:1px solid rgba(167,139,250,0.2);white-space:nowrap;">Flask</span>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.72;margin:0 0 1.2rem;font-size:0.92rem;">API de recommandation intelligente pour bibliothèque utilisant des algorithmes de Machine Learning. Analyse les préférences utilisateurs et suggère des ouvrages pertinents.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.2rem;">
+            {['Python','Flask','Machine Learning','Railway'].map(s => <span class="tag">{s}</span>)}
+          </div>
+          <a href="https://recommendation.up.railway.app" target="_blank" onclick="window.trackClick('View_Project',{name:'API-recommendation'})" class="project-link" style="color:#a78bfa;">
+            Voir la démo
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+
+        <!-- TravYotei -->
+        <div class="card-inner" style="padding:2rem;">
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px;flex-wrap:wrap;">
+            <div style="flex:1;">
+              <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin:0 0 4px;">TravYotei — Planification de Voyages</h3>
+              <p style="color:var(--accent);font-size:0.75rem;font-family:'Fira Code',monospace;margin:0;">Application Fullstack • Projet Académique ENSPY</p>
+            </div>
+            <span style="padding:3px 10px;font-family:'Fira Code',monospace;font-size:0.68rem;border-radius:4px;background:rgba(var(--accent-rgb),0.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.2);white-space:nowrap;">Next.js + SpringBoot</span>
+          </div>
+          <p style="color:var(--text-secondary);line-height:1.72;margin:0 0 1.2rem;font-size:0.92rem;">Solution complète de digitalisation du transport interurbain au Cameroun. Planification de trajets, gestion des agences et réservation en temps réel sur architecture microservices.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.2rem;">
+            {['TypeScript','Astro/React','Tailwind CSS','Spring Boot API','Kafka','Vercel'].map(s => <span class="tag">{s}</span>)}
+          </div>
+          <a href="https://frontend-travyotei.vercel.app/" target="_blank" onclick="window.trackClick('View_Project',{name:'TravYotei_Frontend'})" class="project-link">
+            Explorer l'application
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="py-20 bg-night-950">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Questions Fréquentes</h2>
-        <div class="w-24 h-1 bg-cyber-blue mx-auto"></div>
+  <!-- ══ FAQ ═══════════════════════════════════════════════════ -->
+  <section id="faq" class="section-dark" style="padding:5rem 1.5rem;">
+    <div style="max-width:760px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:4rem;">
+        <h2 class="section-title">Questions Fréquentes</h2>
+        <div class="section-bar"></div>
       </div>
-      
-      <div class="space-y-6">
-        <div class="bg-night-900 border border-night-800 rounded-sm p-6 hover:border-cyber-blue transition-all duration-300">
-          <h3 class="text-xl font-bold text-white mb-3">Quel est votre rythme de disponibilité ?</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Actuellement en formation à l'ENSPY, je suis disponible pour des stages ou missions freelance en parallèle de mes études. Je peux m'adapter aux besoins du projet tout en maintenant un équilibre avec mon parcours académique.
-          </p>
+
+      <div style="display:flex;flex-direction:column;gap:12px;">
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">Quel est votre rythme de disponibilité ?</span>
+            <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Actuellement en formation à l'ENSPY, je suis disponible pour des stages ou missions freelance en parallèle de mes études. Je peux m'adapter aux besoins du projet tout en maintenant un équilibre avec mon parcours académique.
+            </div>
+          </div>
         </div>
-        
-        <div class="bg-night-900 border border-night-800 rounded-sm p-6 hover:border-cyber-purple transition-all duration-300">
-          <h3 class="text-xl font-bold text-white mb-3">Pourquoi ce double profil Dev et Réseau ?</h3>
-          <p class="text-gray-400 leading-relaxed">
-            Pour comprendre l'application de la couche logicielle jusqu'à la transmission physique des données, étape cruciale pour la cybersécurité. Cette approche me permet d'appréhender les systèmes informatiques dans leur globalité, de l'infrastructure réseau aux applications utilisateur, ce qui est essentiel pour identifier et corriger les vulnérabilités.
-          </p>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">Pourquoi ce double profil Dev et Réseau ?</span>
+            <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Pour comprendre l'application de la couche logicielle jusqu'à la transmission physique des données, étape cruciale pour la cybersécurité. Cette approche me permet d'appréhender les systèmes informatiques dans leur globalité, de l'infrastructure réseau aux applications utilisateur. Ce qui est essentiel pour identifier et corriger les vulnérabilités.
+            </div>
+          </div>
         </div>
-        
-        <div class="bg-night-900 border border-night-800 rounded-sm p-6 hover:border-cyber-green transition-all duration-300">
-          <h3 class="text-xl font-bold text-white mb-3">Quels sont vos prochains objectifs techniques ?</h3>
-          <p class="text-gray-400 leading-relaxed">
-            L'approfondissement de la sécurité offensive à travers la pratique du penetration testing et l'obtention de certifications professionnelles, notamment les certifications Cisco (CCNA) et CompTIA security+. Je continue également à développer mes compétences en analyse de vulnérabilités et en administration sécurisée des infrastructures.
-          </p>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">Quels sont vos prochains objectifs techniques ?</span>
+            <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              L'approfondissement de la sécurité offensive à travers la pratique du penetration testing et l'obtention de certifications professionnelles, notamment les certifications Cisco (CCNA) et CompTIA Security+. Je continue également à développer mes compétences en analyse de vulnérabilités et en administration sécurisée des infrastructures.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span class="faq-question">Acceptez-vous des missions freelance ou à distance ?</span>
+            <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Oui, tout à fait. Je suis ouvert aux collaborations à distance (remote) et aux missions ponctuelles sur des projets backend, API REST, architecture microservices ou sécurisation d'applications. N'hésitez pas à me contacter via le formulaire ci-dessous pour discuter de vos besoins.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONTACT ═══════════════════════════════════════════════ -->
+  <section id="contact" class="section-alt" style="padding:5rem 1.5rem;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:4rem;">
+        <h2 class="section-title">Entrons en Contact</h2>
+        <div class="section-bar" style="margin-bottom:1rem;"></div>
+        <p style="color:var(--text-secondary);font-size:1rem;">N'hésitez pas à me contacter pour discuter de projets, opportunités ou collaborations</p>
+      </div>
+
+      <!-- Infos rapides -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:2rem;">
+        <div class="card" style="padding:1.75rem;text-align:center;">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(var(--accent-rgb),0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+            <svg width="24" height="24" fill="none" stroke="var(--accent)" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Email</h3>
+          <a href="mailto:josuemoffo@gmail.com" onclick="window.trackClick('Social_Link',{platform:'Gmail'})" style="color:var(--text-secondary);text-decoration:none;font-size:0.88rem;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">josuemoffo@gmail.com</a>
+        </div>
+
+        <div class="card" style="padding:1.75rem;text-align:center;">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(167,139,250,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
+            <svg width="24" height="24" fill="none" stroke="#a78bfa" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Localisation</h3>
+          <p style="color:var(--text-secondary);font-size:0.88rem;margin:0;">Yaoundé, Cameroun</p>
+        </div>
+      </div>
+
+      <!-- Formulaire d'email direct -->
+      <div class="card" style="padding:2rem 2.5rem;margin-bottom:2rem;">
+        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Envoyer un message</h3>
+        <p style="color:var(--text-muted);font-size:0.82rem;margin:0 0 1.5rem;font-family:'Fira Code',monospace;">NOTE: Le message sera envoyé directement à josuemoffo@gmail.com</p>
+
+        <form id="contact-form" style="display:flex;flex-direction:column;gap:1.1rem;" novalidate>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
+            <div class="form-group">
+              <label class="form-label" for="cf-name">Votre nom</label>
+              <input class="form-input" type="text" id="cf-name" name="name" placeholder="Mbah Josué" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="cf-email">Votre email</label>
+              <input class="form-input" type="email" id="cf-email" name="email" placeholder="josue@exemple.com" required autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="cf-subject">Sujet</label>
+            <input class="form-input" type="text" id="cf-subject" name="subject" placeholder="Stage, collaboration, projet, Questions..." required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="cf-message">Message</label>
+            <textarea class="form-textarea" id="cf-message" name="message" placeholder="Ecrire votre message..." required rows="5"></textarea>
+          </div>
+
+          <div id="form-status" class="form-status"></div>
+
+          <div>
+            <button type="submit" class="btn-primary" id="cf-submit" style="min-width:180px;letter-spacing:0.06em;">
+              ENVOYER LE MESSAGE
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Réseaux sociaux -->
+      <div class="card" style="padding:1.5rem 2rem;">
+        <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin:0 0 1rem;text-align:center;">Retrouvez-moi sur</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
+          <a href="https://github.com/JosueMoffo" target="_blank" onclick="window.trackClick('Social_Link',{platform:'GitHub'})" class="social-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--text-secondary);">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/josue-moffo-07b756352/" target="_blank" onclick="window.trackClick('Social_Link',{platform:'Linkedin'})" class="social-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#0077b5;">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="https://www.instagram.com/elmoffojos/" target="_blank" onclick="window.trackClick('Social_Link',{platform:'Instagram'})" class="social-btn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#e1306c;">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+            Instagram
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-20 bg-night-900">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <h2 class="font-display text-4xl sm:text-5xl font-bold text-white mb-4">Entrons en Contact</h2>
-        <div class="w-24 h-1 bg-cyber-blue mx-auto mb-6"></div>
-        <p class="text-gray-400 text-lg">N'hésitez pas à me contacter pour discuter de projets, opportunités ou collaborations</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div class="bg-night-950 border border-night-800 rounded-sm p-8 hover:border-cyber-blue transition-all duration-300 group">
-          <div class="text-center">
-            <div class="inline-flex items-center justify-center w-16 h-16 bg-cyber-blue/10 rounded-full mb-4 group-hover:bg-cyber-blue/20 transition-colors">
-              <svg class="w-8 h-8 text-cyber-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Email</h3>
-            <a href="mailto:josuemoffo@gmail.com" onclick="window.trackClick('Social_Link', { platform: 'Gmail' })" class="text-gray-400 hover:text-cyber-blue transition-colors">josuemoffo@gmail.com</a>
-          </div>
-        </div>
-        
-        <div class="bg-night-950 border border-night-800 rounded-sm p-8 hover:border-cyber-purple transition-all duration-300 group">
-          <div class="text-center">
-            <div class="inline-flex items-center justify-center w-16 h-16 bg-cyber-purple/10 rounded-full mb-4 group-hover:bg-cyber-purple/20 transition-colors">
-              <svg class="w-8 h-8 text-cyber-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-              </svg>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-2">Localisation</h3>
-            <p class="text-gray-400">Yaoundé, Cameroun</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="bg-night-950 border border-night-800 rounded-sm p-8">
-        <h3 class="text-xl font-bold text-white mb-6 text-center">Retrouvez-moi sur</h3>
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-          <a 
-            href="https://github.com/JosueMoffo" 
-            target="_blank" 
-            onclick="window.trackClick('Social_Link', { platform: 'GitHub' })" 
-            rel="noopener noreferrer"
-            class="flex items-center gap-3 px-6 py-3 bg-night-900 border border-night-800 rounded-sm hover:border-cyber-blue hover:bg-night-800 transition-all duration-300 w-full sm:w-auto justify-center"
-          >
-            <span class="text-gray-300 font-medium">GitHub</span>
-          </a>
-          <a 
-            href="https://www.linkedin.com/in/josue-moffo-07b756352/" 
-            target="_blank" 
-            onclick="window.trackClick('Social_Link', { platform: 'Linkedin' })" 
-            rel="noopener noreferrer"
-            class="flex items-center gap-3 px-6 py-3 bg-night-900 border border-night-800 rounded-sm hover:border-cyber-blue hover:bg-night-800 transition-all duration-300 w-full sm:w-auto justify-center"
-          >
-            <span class="text-gray-300 font-medium">LinkedIn</span>
-          </a>
-          <a 
-            href="https://www.instagram.com/elmoffojos/" 
-            target="_blank" 
-            onclick="window.trackClick('Social_Link', { platform: 'Instagram' })" 
-            rel="noopener noreferrer"
-            class="flex items-center gap-3 px-6 py-3 bg-night-900 border border-night-800 rounded-sm hover:border-cyber-blue hover:bg-night-800 transition-all duration-300 w-full sm:w-auto justify-center"
-          >
-            <span class="text-gray-300 font-medium">Instagram</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
 </Layout>
+
+<script>
+  // ── FORMULAIRE DE CONTACT ─────────────────────────────────────
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const statusEl = document.getElementById('form-status')!;
+  const submitBtn = document.getElementById('cf-submit') as HTMLButtonElement;
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name    = (document.getElementById('cf-name') as HTMLInputElement).value.trim();
+    const email   = (document.getElementById('cf-email') as HTMLInputElement).value.trim();
+    const subject = (document.getElementById('cf-subject') as HTMLInputElement).value.trim();
+    const message = (document.getElementById('cf-message') as HTMLTextAreaElement).value.trim();
+
+    // Validation basique
+    if (!name || !email || !subject || !message) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = 'Veuillez remplir tous les champs.';
+      return;
+    }
+    const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRx.test(email)) {
+      statusEl.className = 'form-status error';
+      statusEl.textContent = 'Adresse email invalide.';
+      return;
+    }
+
+    // Construction du mailto
+    const body = `Nom : ${name}\nEmail : ${email}\n\n${message}`;
+    const mailto = `mailto:josuemoffo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+
+    statusEl.className = 'form-status success';
+    statusEl.textContent = 'Votre client mail va s\'ouvrir pour envoyer le message.';
+    submitBtn.textContent = 'MESSAGE PRÉPARÉ';
+    submitBtn.style.opacity = '0.7';
+
+    setTimeout(() => {
+      submitBtn.textContent = 'ENVOYER LE MESSAGE';
+      submitBtn.style.opacity = '1';
+    }, 5000);
+
+    (window as any).trackClick?.('Contact_Form_Submit', { name, subject });
+  });
+</script>
