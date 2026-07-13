@@ -1,28 +1,72 @@
-# build output
+# ─────────────────────────────────────────────────────────────────
+# SORTIES DE BUILD & COMPILATION
+# ─────────────────────────────────────────────────────────────────
 dist/
 .output/
+build/
+out/
+.next/
+.astro/
+.cache/
+*.tsbuildinfo
 
-# dependencies
+# ─────────────────────────────────────────────────────────────────
+# DÉPENDANCES & PAQUETS
+# ─────────────────────────────────────────────────────────────────
 node_modules/
+jspm_packages/
+.pnpm-store/
 
-# logs
+# ─────────────────────────────────────────────────────────────────
+# FICHIERS DE CONFIGURATION LOCALE & VARIABLES D'ENVIRONNEMENT
+# ─────────────────────────────────────────────────────────────────
+# Ne jamais pousser de secrets ou clés API sur GitHub
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+.env.*.local
+*.local
+
+# ─────────────────────────────────────────────────────────────────
+# LOGS ET RAPPORTS DE DIAGNOSTIC
+# ─────────────────────────────────────────────────────────────────
+logs
+*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
+lerna-debug.log*
+.eslintcache
 
-# environment variables
-.env
-.env.production
-
-# macOS-specific files
+# ─────────────────────────────────────────────────────────────────
+# SYSTÈME (Ubuntu / Linux & macOS)
+# ─────────────────────────────────────────────────────────────────
 .DS_Store
+.AppleDouble
+.LSOverride
+ Thumbs.db
+Thumbs.db:encrypt
+*~
+*.bak
+*.sw?
 
-# editor directories and files
-.vscode/
+# ─────────────────────────────────────────────────────────────────
+# ÉDITEURS DE CODE (VS Code, JetBrains)
+# ─────────────────────────────────────────────────────────────────
+.vscode/*
+!.vscode/extensions.json
 .idea/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+
+# ─────────────────────────────────────────────────────────────────
+# LOGICIELS DE CONCEPTION & DIVERS
+# ─────────────────────────────────────────────────────────────────
+.pnpm-debug.log*
+# Ignorer le fichier généré pour donner du contexte à l'IA
+contexte_portfolio_ia.md

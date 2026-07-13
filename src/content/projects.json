@@ -1,0 +1,131 @@
+[
+  {
+    "id": "shuba",
+    "title": "Shuba: Marketplace Multi-tenant",
+    "category": "Personnel",
+    "status": "completed",
+    "description": "Plateforme e-commerce SaaS complète multi-tenant avec isolation des bases de données et personnalisation dynamique des boutiques.",
+    "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #10b981 100%)",
+    "image": "/preview-shuba.png",
+    "tags": ["Django", "Python", "PostgreSQL", "Docker"],
+    "technicalDetails": {
+      "architecture": "Architecture monolithique modulaire avec routeur de bases de données pour le multi-tenancy basé sur les sous-domaines.",
+      "tools": ["Django Tenants", "Celery", "Redis", "Stripe API", "Nginx"],
+      "challenges": "Gestion de la migration dynamique des schémas de base de données pour chaque nouveau locataire en évitant les temps d'arrêt."
+    },
+    "links": [
+      {
+        "label": "Explorer l'application",
+        "url": "https://shuba.onrender.com",
+        "trackEvent": "View_Project",
+        "trackName": "Marketplace",
+        "colorStyle": "#10b981"
+      },
+      {
+        "label": "Code Source",
+        "url": "https://github.com/JosueMoffo/saas-marketplace",
+        "trackEvent": "View_Project",
+        "trackName": "Marketplace_GH",
+        "colorStyle": "#10b981"
+      }
+    ]
+  },
+    {
+    "id": "travyotei-v2",
+    "title": "TravYotei V2 - Mobilité Intégrée",
+    "category": "Académique",
+    "status": "in-progress",
+    "description": "Portail web unifié de réservation de trajets interurbains avec synchronisation en temps réel de l'état des bus.",
+    "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #f59e0b 100%)",
+    "image": "profil-travyotei.png",
+    "tags": ["Next.js", "TypeScript", "TailwindCSS", "WebSockets"],
+    "technicalDetails": {
+      "architecture": "Rendu hybride SSR/SSG pour des performances de référencement optimales combiné avec des sockets persistantes.",
+      "tools": ["Socket.io", "Prisma ORB", "React Query", "Vercel"],
+      "challenges": "Gestion de la concurrence lors du verrouillage simultané des sièges de bus par plusieurs clients."
+    },
+    "links": [
+      {
+        "label": "Accéder à l'application",
+        "url": "https://frontend-travyotei.vercel.app/",
+        "trackEvent": "View_Project",
+        "trackName": "TravYotei_Frontend",
+        "colorStyle": "var(--accent)"
+      }
+    ]
+  },
+  {
+    "id": "api-recommendation",
+    "title": "Système de Recommandation IA",
+    "category": "Académique",
+    "status": "completed",
+    "description": "API de suggestion d'ouvrages littéraires basée sur l'analyse comportementale et le filtrage collaboratif.",
+    "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #a78bfa 100%)",
+    "image": "",
+    "tags": ["Flask", "Python", "Machine Learning", "Scikit-Learn"],
+    "technicalDetails": {
+      "architecture": "Architecture micro-service découplée exposant des modèles de prédiction via une API REST sécurisée.",
+      "tools": ["Pandas", "Numpy", "Railway Cloud", "REST API"],
+      "challenges": "Optimisation du temps de calcul de la matrice de similarité cosinus pour supporter des requêtes sous la barre des 100ms."
+    },
+    "links": [
+      {
+        "label": "Consulter la Démo",
+        "url": "https://recommendation.up.railway.app",
+        "trackEvent": "View_Project",
+        "trackName": "API-recommendation",
+        "colorStyle": "#a78bfa"
+      }
+    ]
+  },
+
+  {
+    "id": "api-rsv",
+    "title": "API-Rsv-TravYotei Microservices",
+    "category": "Académique",
+    "status": "completed",
+    "description": "Moteur distribué de traitement des réservations à haut débit, s'appuyant sur des flux d'événements pour garantir la cohérence finale.",
+    "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #00d9ff 100%)",
+    "image": "",
+    "tags": ["Spring Boot", "Java", "Apache Kafka", "PostgreSQL"],
+    "technicalDetails": {
+      "architecture": "Microservices événementiels (Event-Driven Architecture) avec découplage complet via des files d'attente de messages.",
+      "tools": ["Kafka Streams", "Spring Cloud Gateway", "Eureka Discovery", "Docker Compose"],
+      "challenges": "Garantir le traitement unique des messages (Idempotency) dans Kafka en situation de pannes de nœuds réseau."
+    },
+    "links": [
+      {
+        "label": "Dépôt GitHub",
+        "url": "https://github.com/JosueMoffo/API-Rsv-TravYotei",
+        "trackEvent": "View_Project",
+        "trackName": "API-Rsv-TravYotei",
+        "colorStyle": "var(--accent)"
+      }
+    ]
+  },
+
+  {
+    "id": "shieldguard",
+    "title": "ShieldGuard: Analyseur Réseau",
+    "category": "Personnel",
+    "status": "in-progress",
+    "description": "Outil d'audit automatique des configurations de commutateurs Cisco et détection automatique des failles courantes.",
+    "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #ef4444 100%)",
+    "image": "",
+    "tags": ["FastAPI", "Python", "Scapy", "Cisco SSH"],
+    "technicalDetails": {
+      "architecture": "Agent de scrutation asynchrone collectant les flux SSH et analysant la topologie réseau en temps réel.",
+      "tools": ["Paramiko", "Netmiko", "Pytest", "Vue.js"],
+      "challenges": "Extraction et parsing normalisé de configurations CLI Cisco hétérogènes sans surcharge CPU sur le matériel ciblé."
+    },
+    "links": [
+      {
+        "label": "Suivre le projet (GitHub)",
+        "url": "https://github.com/JosueMoffo",
+        "trackEvent": "View_Project",
+        "trackName": "ShieldGuard",
+        "colorStyle": "#ef4444"
+      }
+    ]
+  }
+]

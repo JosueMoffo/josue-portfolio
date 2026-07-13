@@ -1,0 +1,104 @@
+{
+  "name": "JOSUÉ",
+  "lastName": "MBAH MOFFO",
+  "fullName": "MBAH MOFFO JOSUÉ",
+  "title": "Ingénieur de Conception Informatique",
+  "specialty": "Développeur Backend Orienté Sécurité",
+  "description": "Focus sur le développement d'applications robustes et l'administration sécurisée des infrastructures réseaux.",
+  "email": "josuemoffo@gmail.com",
+  "location": "Yaoundé, Cameroun",
+  "lastUpdate": "15 Avril 2026",
+  "web3FormsKey": "40346999-4889-42d1-92a1-9eb18d8efc53",
+  "cvPath": "/assets/CV-Mbah_Josue.pdf",
+  "socials": [
+    {
+      "id": "github",
+      "label": "GitHub",
+      "url": "https://github.com/JosueMoffo",
+      "trackEvent": "Social_Link",
+      "trackPlatform": "GitHub"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/josue-mbah-moffo/",
+      "trackEvent": "Social_Link",
+      "trackPlatform": "Linkedin"
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/elmoffojos/",
+      "trackEvent": "Social_Link",
+      "trackPlatform": "Instagram"
+    }
+  ],
+  "skills": [
+    {
+      "id": "dev",
+      "category": "Développement",
+      "accentColor": "var(--accent)",
+      "items": ["JavaScript", "TypeScript", "C", "Python", "Java"],
+      "subSection": {
+        "label": "Frameworks",
+        "items": ["Astro", "Django", "FastAPI", "SpringBoot", "Tailwind CSS"]
+      }
+    },
+    {
+      "id": "infra",
+      "category": "Infrastructure & Réseaux",
+      "accentColor": "var(--cyber-purple, #a78bfa)",
+      "items": ["Linux", "SNMP", "Nagios"],
+      "subSection": {
+        "label": "Outils",
+        "items": ["Cisco Packet Tracer", "Wireshark", "VirtualBox"]
+      }
+    },
+    {
+      "id": "devops",
+      "category": "DevOps & Cloud",
+      "accentColor": "#10b981",
+      "items": ["Docker", "Git", "Bash", "Firebase"],
+      "subSection": {
+        "label": "Plateformes",
+        "items": ["Supabase", "Render"]
+      }
+    },
+    {
+      "id": "db",
+      "category": "Base de Données",
+      "accentColor": "var(--accent)",
+      "items": ["MySQL", "PostgreSQL", "Firebase"],
+      "subSection": null
+    },
+    {
+      "id": "security",
+      "category": "Sécurité",
+      "accentColor": "#ef4444",
+      "items": ["Analyse de vulnérabilités", "Metasploitable", "Chiffrement AES et RSA", "OWASP Top 10"],
+      "subSection": null
+    }
+  ],
+  "faq": [
+    {
+      "id": "faq-disponibilite",
+      "question": "Quel est votre rythme de disponibilité ?",
+      "answer": "Actuellement en formation à l'ENSPY, je suis disponible pour des stages ou missions freelance en parallèle de mes études. Je peux m'adapter aux besoins du projet tout en maintenant un équilibre avec mon parcours académique."
+    },
+    {
+      "id": "faq-double-profil",
+      "question": "Pourquoi ce double profil Dev et Réseau ?",
+      "answer": "Pour comprendre l'application de la couche logicielle jusqu'à la transmission physique des données, étape cruciale pour la cybersécurité. Cette approche me permet d'appréhender les systèmes informatiques dans leur globalité, de l'infrastructure réseau aux applications utilisateur. Ce qui est essentiel pour identifier et corriger les vulnérabilités."
+    },
+    {
+      "id": "faq-objectifs",
+      "question": "Quels sont vos prochains objectifs techniques ?",
+      "answer": "L'approfondissement de la sécurité offensive à travers la pratique du penetration testing et l'obtention de certifications professionnelles, notamment les certifications Cisco (CCNA) et CompTIA Security+. Je continue également à développer mes compétences en analyse de vulnérabilités et en administration sécurisée des infrastructures."
+    },
+    {
+      "id": "faq-freelance",
+      "question": "Acceptez-vous des missions freelance ou à distance ?",
+      "answer": "Oui, tout à fait. Je suis ouvert aux collaborations à distance (remote) et aux missions ponctuelles sur des projets backend, API REST, architecture microservices ou sécurisation d'applications. N'hésitez pas à me contacter via le formulaire ci-dessous pour discuter de vos besoins."
+    }
+  ]
+}

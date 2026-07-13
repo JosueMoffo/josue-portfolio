@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+import profile from '../content/profile.json';
 
 interface Props {
   title: string;
@@ -91,7 +92,7 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
             <span class="mob-arrow">→</span>
           </a>
         ))}
-        <a href="https://drive.google.com/file/d/1SSyVmkj5LcFCKE7AUuJ1U7TztF5efOID/view?usp=drive_link" target="_blank" data-mobile-link class="btn-primary" style="margin-top:28px;letter-spacing:0.08em;">TÉLÉCHARGER_CV</a>
+        <a href={profile.cvPath} download data-mobile-link class="btn-primary" style="margin-top:28px;letter-spacing:0.08em;">TÉLÉCHARGER_CV</a>
       </nav>
 
       <div style="position:relative;z-index:10;display:flex;justify-content:center;padding-bottom:28px;">
@@ -109,7 +110,7 @@ const { title, description = "Portfolio de Josué Mbah Moffo - Étudiant en Gén
         <p style="color:var(--text-muted);font-size:0.82rem;max-width:420px;margin:0 auto 24px;line-height:1.7;">Ingénieur en formation à l'ENSPY. Spécialisation en développement sécurisé et administration systèmes.</p>
         <div style="display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-bottom:24px;">
           <a href="https://github.com/JosueMoffo" target="_blank" class="footer-link">GitHub</a>
-          <a href="https://www.linkedin.com/in/josue-moffo-07b756352/" target="_blank" class="footer-link">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/josue-mbah-moffo/" target="_blank" class="footer-link">LinkedIn</a>
           <a href="mailto:josuemoffo@gmail.com" class="footer-link">✉ Contact</a>
         </div>
       </div>

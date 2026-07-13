@@ -1,8 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import profile from '../content/profile.json';
+import projects from '../content/projects.json';
+
+// SVG arrow partagé pour les liens de projets
+const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
 ---
 
-<Layout title="Josué Mbah Moffo - Portfolio">
+<Layout title={`${profile.fullName} - Portfolio`}>
 
   <!-- ══ HERO ══════════════════════════════════════════════════ -->
   <section id="accueil" style="min-height:100vh;padding:8rem 1.5rem 4rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
@@ -15,21 +20,21 @@ import Layout from '../layouts/Layout.astro';
       <div class="animate-fade-in" style="display:inline-block;position:relative;margin-bottom:1.5rem;">
         <div style="position:absolute;inset:-4px;border-radius:50%;background:var(--accent);opacity:0.12;filter:blur(16px);"></div>
         <img
-          src="/profile.png" alt="Josué Mbah Moffo"
+          src="/profile.png" alt={profile.fullName}
           style="position:relative;width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);box-shadow:0 0 24px rgba(var(--accent-rgb),0.18);"
         />
       </div>
 
       <h1 class="animate-fade-in-up delay-100" style="font-size:clamp(2.4rem,7vw,4.2rem);font-weight:700;line-height:1.1;margin:0 0 8px;color:var(--text-primary);">
-        Mbah Moffo <span style="color:var(--accent);">Josué</span>
+        {profile.lastName} <span style="color:var(--accent);">{profile.name}</span>
       </h1>
 
       <h2 class="animate-fade-in-up delay-200" style="font-size:clamp(1rem,3vw,1.3rem);color:var(--text-secondary);margin:0 0 8px;font-weight:400;">
-        Étudiant en Génie Informatique
+        {profile.title}
       </h2>
 
       <p class="animate-fade-in-up delay-200" style="font-family:'Fira Code',monospace;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);opacity:0.85;margin:0 0 1.5rem;">
-        Backend Developer orienté Sécurité
+        {profile.specialty}
       </p>
 
       <div class="animate-fade-in delay-300" style="display:flex;justify-content:center;margin-bottom:2rem;">
@@ -39,18 +44,23 @@ import Layout from '../layouts/Layout.astro';
             <span class="ping-dot"></span>
           </div>
           <span style="font-size:0.62rem;font-family:'Fira Code',monospace;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);">
-            Dernière mise à jour : <span style="color:var(--text-primary);">15 Avril 2026</span>
+            Dernière mise à jour : <span style="color:var(--text-primary);">{profile.lastUpdate}</span>
           </span>
         </div>
       </div>
 
       <p class="animate-fade-in-up delay-300" style="color:var(--text-secondary);font-size:1.05rem;line-height:1.75;max-width:580px;margin:0 auto 2.5rem;">
-        Focus sur le développement d'applications robustes et l'administration sécurisée des infrastructures réseaux.
+        {profile.description}
       </p>
 
       <div class="animate-fade-in-up delay-400 cta-group" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a href="https://drive.google.com/file/d/1SSyVmkj5LcFCKE7AUuJ1U7TztF5efOID/view?usp=drive_link"
-           target="_blank" onclick="window.trackClick('Download_CV',{})" class="btn-primary" style="letter-spacing:0.08em;">
+        <a
+          href={profile.cvPath}
+          download
+          onclick="window.trackClick('Download_CV',{})"
+          class="btn-primary"
+          style="letter-spacing:0.08em;"
+        >
           TÉLÉCHARGER_CV
         </a>
         <a href="#contact" onclick="window.trackClick('Contact_Click',{})" class="btn-outline">
@@ -117,156 +127,379 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;">
-
-        <div class="card" style="padding:1.5rem;" id="card-dev">
-          <h3 style="font-size:1.05rem;font-weight:700;color:var(--accent);margin:0 0 1rem;">Développement</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;">
-            {['JavaScript','TypeScript','PHP','C','Python','Java'].map(s => <span class="tag">{s}</span>)}
-          </div>
-          <div style="border-top:1px solid var(--border-color);padding-top:1rem;">
-            <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:0 0 8px;font-weight:600;">Frameworks</p>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;">
-              {['Astro','Django','FastAPI','SpringBoot','Tailwind CSS'].map(s => <span class="tag">{s}</span>)}
+        {profile.skills.map((skill) => (
+          <div class="card" style="padding:1.5rem;" id={`card-${skill.id}`}>
+            <h3 style={`font-size:1.05rem;font-weight:700;color:${skill.accentColor};margin:0 0 1rem;`}>
+              {skill.category}
+            </h3>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;">
+              {skill.items.map((item) => (
+                <span class="tag">{item}</span>
+              ))}
             </div>
+            {skill.subSection && (
+              <div style="border-top:1px solid var(--border-color);padding-top:1rem;">
+                <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:0 0 8px;font-weight:600;">
+                  {skill.subSection.label}
+                </p>
+                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                  {skill.subSection.items.map((item) => (
+                    <span class="tag">{item}</span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
-        </div>
-
-        <div class="card" style="padding:1.5rem;">
-          <h3 style="font-size:1.05rem;font-weight:700;color:var(--cyber-purple,#a78bfa);margin:0 0 1rem;" class="card-title-purple">Infrastructure & Réseaux</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;">
-            {['Linux','Windows','SNMP','Nagios'].map(s => <span class="tag">{s}</span>)}
-          </div>
-          <div style="border-top:1px solid var(--border-color);padding-top:1rem;">
-            <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:0 0 8px;font-weight:600;">Outils</p>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;">
-              {['Cisco Packet Tracer','Wireshark','VirtualBox'].map(s => <span class="tag">{s}</span>)}
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="padding:1.5rem;">
-          <h3 style="font-size:1.05rem;font-weight:700;color:#10b981;margin:0 0 1rem;">DevOps & Cloud</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:1rem;">
-            {['Docker','Git','Bash','Firebase'].map(s => <span class="tag">{s}</span>)}
-          </div>
-          <div style="border-top:1px solid var(--border-color);padding-top:1rem;">
-            <p style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-muted);margin:0 0 8px;font-weight:600;">Plateformes</p>
-            <div style="display:flex;flex-wrap:wrap;gap:8px;">
-              {['Supabase','Vercel','Render'].map(s => <span class="tag">{s}</span>)}
-            </div>
-          </div>
-        </div>
-
-        <div class="card" style="padding:1.5rem;">
-          <h3 style="font-size:1.05rem;font-weight:700;color:var(--accent);margin:0 0 1rem;">Base de Données</h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            {['MySQL','PostgreSQL','Firebase'].map(s => <span class="tag">{s}</span>)}
-          </div>
-        </div>
-
-        <div class="card" style="padding:1.5rem;grid-column:span 1;" id="security-card">
-          <h3 style="font-size:1.05rem;font-weight:700;color:#ef4444;margin:0 0 1rem;">Sécurité </h3>
-          <div style="display:flex;flex-wrap:wrap;gap:8px;">
-            {['Analyse de vulnérabilités','Metasploitable','Penetration Testing'].map(s => <span class="tag">{s}</span>)}
-          </div>
-        </div>
-
+        ))}
       </div>
     </div>
   </section>
 
   <!-- ══ PROJETS ════════════════════════════════════════════════ -->
-  <section id="projets" class="section-alt" style="padding:5rem 1.5rem;">
-    <div style="max-width:1280px;margin:0 auto;">
+  <section id="projets" class="section-alt" style="padding:6rem 1.5rem; position:relative; overflow:hidden;">
+    <div style="max-width:1200px;margin:0 auto;position:relative;z-index:2;">
+      
+      <!-- En-tête de section -->
       <div style="text-align:center;margin-bottom:3rem;">
-        <h2 class="section-title">Projets Personnels</h2>
-        <div class="section-bar"></div>
+        <span style="font-family:'Fira Code',monospace;font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);">Engineering Lab</span>
+        <h2 class="section-title" style="margin-top:0.5rem;letter-spacing:-0.03em;">Projets & Réalisations</h2>
+        <div class="section-bar" style="margin-bottom:2rem;"></div>
+        <p style="color:var(--text-secondary);font-size:0.95rem;max-width:600px;margin:0 auto;">
+          Conceptions logicielles, microservices et infrastructures réseau présentés sous forme de spécifications techniques interactives.
+        </p>
       </div>
 
-        <!-- Shuba -->
-        <div class="card-inner" style="padding:2rem;">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:1rem;flex-wrap:wrap;">
-            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin:0;flex:1;">Shuba: Une Marketplace Multi-tenant</h3>
-            <span style="padding:3px 10px;font-family:'Fira Code',monospace;font-size:0.68rem;border-radius:4px;background:rgba(16,185,129,0.1);color:#10b981;border:1px solid rgba(16,185,129,0.2);white-space:nowrap;">Django</span>
-          </div>
-          <p style="color:var(--text-secondary);line-height:1.72;margin:0 0 1.2rem;font-size:0.92rem;">Plateforme e-commerce complète développée avec Django. Gestion avancée des produits, paniers d'achat, systèmes de paiement, authentification sécurisée et interface d'administration.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.2rem;">
-            {['Python','Django','PostgreSQL','Backend Focus'].map(s => <span class="tag">{s}</span>)}
-          </div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <a href="https://shuba.onrender.com" target="_blank" onclick="window.trackClick('View_Project',{name:'Marketplace'})" class="project-link" style="color:#10b981;">
-              Explorer l'application en production
-              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            </a>
-            <a href="https://github.com/JosueMoffo/saas-marketplace" target="_blank" onclick="window.trackClick('View_Project',{name:'Marketplace_GH'})" class="project-link" style="color:#10b981;">
-              Voir sur GitHub
-              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-            </a>
-          </div>
+      <!-- Contrôles de filtrage interactifs (Bento Pills avec TOP par défaut) -->
+      <div style="display:flex;justify-content:center;margin-bottom:4rem;">
+        <div class="filter-pills-container" style="display:inline-flex;background:var(--bg-card-inner);padding:4px;border-radius:999px;border:1px solid var(--border-color);box-shadow:inset 0 2px 4px rgba(0,0,0,0.2);">
+          <button class="filter-pill active" data-filter="top" style="font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-primary);background:var(--bg-card);border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+            TOP_3
+          </button>
+          <button class="filter-pill" data-filter="all" style="font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-secondary);background:transparent;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;">
+            ALL_PROJECTS
+          </button>
+          <button class="filter-pill" data-filter="completed" style="font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-secondary);background:transparent;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;">
+            PRODUCTION
+          </button>
+          <button class="filter-pill" data-filter="in-progress" style="font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-secondary);background:transparent;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;">
+            EN_COURS
+          </button>
         </div>
-        <br>
-
-      <div style="text-align:center;margin-bottom:4rem;">
-        <h2 class="section-title">Projets Académiques</h2>
-        <div class="section-bar"></div>
       </div>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5rem;">
+      <!-- Grille Bento de Projets (Cartes Compactes et Précises) -->
+      <div class="projects-bento-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));gap:1.5rem;align-items:stretch;">
+        {projects.map((project, index) => {
+          const isTop = index < 3;
+          return (
+            <div 
+              class="project-bento-card card" 
+              data-status={project.status} 
+              data-is-top={isTop ? "true" : "false"}
+              data-id={project.id}
+              style={`display:${isTop ? 'flex' : 'none'};flex-direction:column;border-radius:8px;overflow:hidden;transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);opacity:${isTop ? '1' : '0'};transform:${isTop ? 'scale(1)' : 'scale(0.95)'};`}
+            >
+              <!-- Preview Visuelle Stylisée CSS Réduite (Console) -->
+              <div class="bento-preview-zone" style={`background:${project.previewGradient};height:120px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:1rem;`}>
+                {project.image ? (
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform 0.4s ease;" 
+                    class="project-preview-img"
+                  />
+                  <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent, rgba(10,14,26,0.85));z-index:1;"></div>
+                ) : (
+                  <>
+                    <div class="grid-bg" style="opacity:0.06;z-index:1;"></div>
+                    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent, rgba(10,14,26,0.9));z-index:1;"></div>
+                  </>
+                )}
+                <div style="position:relative;z-index:2;font-family:'Fira Code',monospace;font-size:0.6rem;color:#ffffff;background:rgba(0,0,0,0.6);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);padding:3px 8px;border-radius:3px;border:1px solid rgba(255,255,255,0.1);letter-spacing:0.05em;">
+                  {project.tags.slice(0, 2).join(' / ')}
+                </div>
+              </div>
 
-        <!-- API-Rsv -->
-        <div class="card-inner" style="padding:2rem;">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:1rem;flex-wrap:wrap;">
-            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin:0;flex:1;">API-Rsv-TravYotei</h3>
-            <span style="padding:3px 10px;font-family:'Fira Code',monospace;font-size:0.68rem;border-radius:4px;background:rgba(var(--accent-rgb),0.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.2);white-space:nowrap;">SpringBoot</span>
-          </div>
-          <p style="color:var(--text-secondary);line-height:1.72;margin:0 0 1.2rem;font-size:0.92rem;">Système de gestion de réservations utilisant SpringBoot et Apache Kafka pour une communication asynchrone robuste entre microservices. Architecture orientée événements.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.2rem;">
-            {['Java','SpringBoot','Apache Kafka','Microservices'].map(s => <span class="tag">{s}</span>)}
-          </div>
-          <a href="https://github.com/JosueMoffo/API-Rsv-TravYotei" target="_blank" onclick="window.trackClick('View_Project',{name:'API-Rsv-TravYotei'})" class="project-link">
-            Voir sur GitHub
-            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>
-        </div>
+              <!-- Contenu textuel réduit -->
+              <div style="padding:1.5rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;background:var(--bg-card);">
+                <div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
+                    <span style="font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;">{project.category}</span>
+                    {project.status === 'completed' ? (
+                      <span class="tag" style="background:rgba(16,185,129,0.08);color:#10b981;border:1px solid rgba(16,185,129,0.2);font-size:0.55rem;padding:2px 6px;">✓ PRODUCTION</span>
+                    ) : (
+                      <span class="tag" style="background:rgba(245,158,11,0.08);color:#f59e0b;border:1px solid rgba(245,158,11,0.2);font-size:0.55rem;padding:2px 6px;">⚡ EN_COURS</span>
+                    )}
+                  </div>
 
-        <!-- Recommendation -->
-        <div class="card-inner" style="padding:2rem;">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:1rem;flex-wrap:wrap;">
-            <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin:0;flex:1;">API-recommendation-systeme</h3>
-            <span style="padding:3px 10px;font-family:'Fira Code',monospace;font-size:0.68rem;border-radius:4px;background:rgba(167,139,250,0.1);color:#a78bfa;border:1px solid rgba(167,139,250,0.2);white-space:nowrap;">Flask</span>
-          </div>
-          <p style="color:var(--text-secondary);line-height:1.72;margin:0 0 1.2rem;font-size:0.92rem;">API de recommandation intelligente pour bibliothèque utilisant des algorithmes de Machine Learning. Analyse les préférences utilisateurs et suggère des ouvrages pertinents.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.2rem;">
-            {['Python','Flask','Machine Learning','Railway'].map(s => <span class="tag">{s}</span>)}
-          </div>
-          <a href="https://recommendation.up.railway.app" target="_blank" onclick="window.trackClick('View_Project',{name:'API-recommendation'})" class="project-link" style="color:#a78bfa;">
-            Voir la démo
-            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>
-        </div>
+                  <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:0 0 0.5rem 0;letter-spacing:-0.02em;">{project.title}</h3>
+                  <p style="color:var(--text-secondary);font-size:0.82rem;line-height:1.5;margin-bottom:1.2rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;">
+                    {project.description}
+                  </p>
+                </div>
 
-        <!-- TravYotei -->
-        <div class="card-inner" style="padding:2rem;">
-          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:6px;flex-wrap:wrap;">
-            <div style="flex:1;">
-              <h3 style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin:0 0 4px;">TravYotei : Planification de Voyages</h3>
-              <p style="color:var(--accent);font-size:0.75rem;font-family:'Fira Code',monospace;margin:0;">Application Fullstack • Projet Académique ENSPY</p>
+                <!-- Footer de la carte : Liens direct & Bouton détails techniques -->
+                <div style="border-top:1px solid var(--border-color);padding-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:8px;">
+                  <button 
+                    class="btn-open-details" 
+                    style="font-family:'Fira Code',monospace;font-size:0.7rem;font-weight:700;color:var(--accent);background:transparent;border:none;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:4px;outline:none;"
+                  >
+                    [ SPECIFICATIONS ]
+                  </button>
+                  <div style="display:flex;gap:8px;">
+                    {project.links.slice(0, 1).map((link) => (
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        onclick={"window.trackClick('" + link.trackEvent + "', { name: '" + link.trackName + "' })"}
+                        class="project-link"
+                        style={`color:var(--text-muted);font-size:0.75rem;`}
+                        title={link.label}
+                        set:html={arrowSvg}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
             </div>
-            <span style="padding:3px 10px;font-family:'Fira Code',monospace;font-size:0.68rem;border-radius:4px;background:rgba(var(--accent-rgb),0.1);color:var(--accent);border:1px solid rgba(var(--accent-rgb),0.2);white-space:nowrap;">Next.js + SpringBoot</span>
+          );
+        })}
+      </div>
+
+    </div>
+
+    <!-- ==================== MINI FENÊTRE DETAILS (MODAL POPUP) ==================== -->
+    <div id="project-modal" class="modal-overlay" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(5, 8, 16, 0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;opacity:0;transition:opacity 0.25s ease;padding:1rem;">
+      
+      <!-- Boîte centrale de la Modal (Style Console/IDE) -->
+      <div class="modal-content card" style="max-width:580px;width:100%;background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;box-shadow:0 24px 64px rgba(0,0,0,0.8);position:relative;transform:scale(0.95);transition:transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);overflow:hidden;display:flex;flex-direction:column;">
+        
+        <!-- En-tête type Fenêtre de Code -->
+        <div style="background:var(--bg-card-inner);border-bottom:1px solid var(--border-color);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:6px;">
+            <span style="width:10px;height:10px;border-radius:50%;background:#ef4444;display:inline-block;"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>
+            <span style="width:10px;height:10px;border-radius:50%;background:#10b981;display:inline-block;"></span>
+            <span style="font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--text-muted);margin-left:10px;" id="modal-header-id">project-spec-compiling.log</span>
           </div>
-          <p style="color:var(--text-secondary);line-height:1.72;margin:0 0 1.2rem;font-size:0.92rem;">Solution complète de digitalisation du transport interurbain au Cameroun. Planification de trajets, gestion des agences et réservation en temps réel sur architecture microservices.</p>
-          <div style="display:flex;flex-wrap:wrap;gap:7px;margin-bottom:1.2rem;">
-            {['TypeScript','Astro/React','Tailwind CSS','Spring Boot API','Kafka','Vercel'].map(s => <span class="tag">{s}</span>)}
+          <button id="btn-close-modal" style="background:transparent;border:none;color:var(--text-muted);font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:700;cursor:pointer;outline:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+            [ FERMER ]
+          </button>
+        </div>
+
+        <div style="padding:2rem;max-height:80vh;overflow-y:auto;display:flex;flex-direction:column;gap:1.5rem;">
+          
+          <!-- Titre & Badge -->
+          <div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;gap:1rem;flex-wrap:wrap;">
+              <span style="font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;" id="modal-category">CATÉGORIE</span>
+              <span class="tag" style="font-size:0.6rem;" id="modal-status-badge">STATUT</span>
+            </div>
+            <h3 style="font-size:1.4rem;font-weight:800;color:var(--text-primary);margin:0;letter-spacing:-0.02em;" id="modal-title">Project Title</h3>
           </div>
-          <a href="https://frontend-travyotei.vercel.app/" target="_blank" onclick="window.trackClick('View_Project',{name:'TravYotei_Frontend'})" class="project-link">
-            Explorer l'application
-            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          </a>
+
+          <!-- Mini zone visuelle colorée -->
+          <div id="modal-visual-gradient" style="height:60px;border-radius:4px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;opacity:0.85;">
+            <div class="grid-bg" style="opacity:0.08;"></div>
+            <div style="font-family:'Fira Code',monospace;font-size:0.6rem;color:#ffffff;background:rgba(0,0,0,0.4);padding:4px 10px;border-radius:4px;border:1px solid rgba(255,255,255,0.08);" id="modal-visual-stack">
+              CORE_STACK
+            </div>
+          </div>
+
+          <!-- Description complète -->
+          <div>
+            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin:0;" id="modal-description">
+              Full description of the project goes here.
+            </p>
+          </div>
+
+          <!-- Spécifications techniques -->
+          <div style="background:var(--bg-card-inner);border:1px solid var(--border-color);border-radius:6px;padding:1.2rem;display:flex;flex-direction:column;gap:1rem;font-size:0.82rem;">
+            <div>
+              <strong style="color:var(--text-primary);font-family:'Fira Code',monospace;font-size:0.65rem;text-transform:uppercase;display:block;margin-bottom:0.3rem;">[ARCHITECTURE_PATTERN]</strong>
+              <span style="color:var(--text-secondary);line-height:1.4;" id="modal-spec-arch">Architecture details...</span>
+            </div>
+            <div style="border-top:1px dashed var(--border-color);padding-top:0.8rem;">
+              <strong style="color:var(--text-primary);font-family:'Fira Code',monospace;font-size:0.65rem;text-transform:uppercase;display:block;margin-bottom:0.3rem;">[OUTILS_ADDITIONNELS]</strong>
+              <span style="color:var(--text-secondary);" id="modal-spec-tools">Tools and frameworks...</span>
+            </div>
+            <div style="border-top:1px dashed var(--border-color);padding-top:0.8rem;">
+              <strong style="color:var(--text-primary);font-family:'Fira Code',monospace;font-size:0.65rem;text-transform:uppercase;display:block;margin-bottom:0.3rem;">[DEFIS_RESOLUS]</strong>
+              <span style="color:var(--text-secondary);line-height:1.4;" id="modal-spec-challenges">Challenges details...</span>
+            </div>
+          </div>
+
+          <!-- Actions de la Modal -->
+          <div style="display:flex;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--border-color);padding-top:1.2rem;" id="modal-links-container">
+            <!-- Injecté dynamiquement par JS -->
+          </div>
+
         </div>
 
       </div>
     </div>
   </section>
+
+  <!-- Script de filtrage et contrôle de modal -->
+  <script define:vars={{ projects }}>
+    // ── FILTRAGE INTERACTIF ──────────────────────────────────────────
+    const filterButtons = document.querySelectorAll('.filter-pill');
+    const projectCards = document.querySelectorAll('.project-bento-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Gérer l'état actif des boutons
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('style', "font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-secondary);background:transparent;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;");
+        });
+        button.classList.add('active');
+        button.setAttribute('style', "font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-primary);background:var(--bg-card);border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;box-shadow:0 2px 8px rgba(0,0,0,0.15);");
+
+        const filterValue = button.getAttribute('data-filter');
+
+        // Filtrer les cartes de projets avec un effet de fondu
+        projectCards.forEach(card => {
+          const cardStatus = card.getAttribute('data-status');
+          const isTop = card.getAttribute('data-is-top') === 'true';
+          const cardElement = card;
+
+          let shouldShow = false;
+          if (filterValue === 'all') {
+            shouldShow = true;
+          } else if (filterValue === 'top') {
+            shouldShow = isTop;
+          } else if (cardStatus === filterValue) {
+            shouldShow = true;
+          }
+
+          if (shouldShow) {
+            cardElement.style.display = 'flex';
+            setTimeout(() => {
+              cardElement.style.opacity = '1';
+              cardElement.style.transform = 'scale(1)';
+            }, 10);
+          } else {
+            cardElement.style.opacity = '0';
+            cardElement.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+              cardElement.style.display = 'none';
+            }, 250);
+          }
+        });
+      });
+    });
+
+    // ── GESTION DE LA FENETRE MODALE DE SPECIFICATIONS ───────────────
+    const modal = document.getElementById('project-modal');
+    const modalContent = modal.querySelector('.modal-content');
+    const btnCloseModal = document.getElementById('btn-close-modal');
+    const btnOpenDetails = document.querySelectorAll('.btn-open-details');
+
+    // Éléments de la modal à remplir
+    const modalHeaderId = document.getElementById('modal-header-id');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCategory = document.getElementById('modal-category');
+    const modalStatusBadge = document.getElementById('modal-status-badge');
+    const modalVisualGradient = document.getElementById('modal-visual-gradient');
+    const modalVisualStack = document.getElementById('modal-visual-stack');
+    const modalDescription = document.getElementById('modal-description');
+    const modalSpecArch = document.getElementById('modal-spec-arch');
+    const modalSpecTools = document.getElementById('modal-spec-tools');
+    const modalSpecChallenges = document.getElementById('modal-spec-challenges');
+    const modalLinksContainer = document.getElementById('modal-links-container');
+
+    const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
+
+    function openModal(project) {
+      // Remplir les données
+      modalHeaderId.textContent = `${project.id}-specs-compiling.log`;
+      modalTitle.textContent = project.title;
+      modalCategory.textContent = project.category;
+      modalDescription.textContent = project.description;
+      
+      // Statut
+      if (project.status === 'completed') {
+        modalStatusBadge.textContent = '✓ PRODUCTION';
+        modalStatusBadge.setAttribute('style', 'background:rgba(16,185,129,0.08);color:#10b981;border:1px solid rgba(16,185,129,0.2);padding:2px 8px;border-radius:4px;');
+      } else {
+        modalStatusBadge.textContent = '⚡ EN_COURS';
+        modalStatusBadge.setAttribute('style', 'background:rgba(245,158,11,0.08);color:#f59e0b;border:1px solid rgba(245,158,11,0.2);padding:2px 8px;border-radius:4px;');
+      }
+
+      // Preview Gradient & Stack
+      if (project.image) {
+        modalVisualGradient.setAttribute('style', `background: linear-gradient(to bottom, rgba(10,14,26,0.3), rgba(10,14,26,0.85)), url(${project.image}) center/cover no-repeat; height:60px; border-radius:4px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; opacity:0.85;`);
+      } else {
+        modalVisualGradient.setAttribute('style', `background:${project.previewGradient}; height:60px; border-radius:4px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; opacity:0.85;`);
+      }
+      modalVisualStack.textContent = project.tags.join(' / ');
+
+      // Spécifications
+      modalSpecArch.textContent = project.technicalDetails.architecture;
+      modalSpecTools.textContent = project.technicalDetails.tools.join(', ');
+      modalSpecChallenges.textContent = project.technicalDetails.challenges;
+
+      // Liens
+      modalLinksContainer.innerHTML = '';
+      project.links.forEach((link) => {
+        const a = document.createElement('a');
+        a.href = link.url;
+        a.target = '_blank';
+        a.className = 'project-link';
+        a.style.color = link.colorStyle;
+        a.style.fontSize = '0.85rem';
+        a.style.fontFamily = "'Fira Code',monospace";
+        a.innerHTML = `${link.label} ${arrowSvg}`;
+        a.addEventListener('click', () => {
+          window.trackClick?.(link.trackEvent, { name: link.trackName });
+        });
+        modalLinksContainer.appendChild(a);
+      });
+
+      // Ouvrir la modal de façon fluide
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => {
+        modal.style.opacity = '1';
+        modalContent.style.transform = 'scale(1)';
+      }, 10);
+    }
+
+    function closeModal() {
+      modal.style.opacity = '0';
+      modalContent.style.transform = 'scale(0.95)';
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 250);
+    }
+
+    // Connecter les boutons d'ouverture
+    btnOpenDetails.forEach(button => {
+      button.addEventListener('click', (e) => {
+        const card = button.closest('.project-bento-card');
+        const projectId = card.getAttribute('data-id');
+        const projectData = projects.find((p) => p.id === projectId);
+        if (projectData) {
+          openModal(projectData);
+        }
+      });
+    });
+
+    // Événements de fermeture
+    btnCloseModal.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+    });
+  </script>
+
+
+
 
   <!-- ══ FAQ ═══════════════════════════════════════════════════ -->
   <section id="faq" class="section-dark" style="padding:5rem 1.5rem;">
@@ -277,63 +510,21 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <div style="display:flex;flex-direction:column;gap:12px;">
-
-        <div class="faq-item">
-          <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-question">Quel est votre rythme de disponibilité ?</span>
-            <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Actuellement en formation à l'ENSPY, je suis disponible pour des stages ou missions freelance en parallèle de mes études. Je peux m'adapter aux besoins du projet tout en maintenant un équilibre avec mon parcours académique.
+        {profile.faq.map((item) => (
+          <div class="faq-item" id={item.id}>
+            <button class="faq-trigger" aria-expanded="false">
+              <span class="faq-question">{item.question}</span>
+              <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                {item.answer}
+              </div>
             </div>
           </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-question">Pourquoi ce double profil Dev et Réseau ?</span>
-            <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Pour comprendre l'application de la couche logicielle jusqu'à la transmission physique des données, étape cruciale pour la cybersécurité. Cette approche me permet d'appréhender les systèmes informatiques dans leur globalité, de l'infrastructure réseau aux applications utilisateur. Ce qui est essentiel pour identifier et corriger les vulnérabilités.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-question">Quels sont vos prochains objectifs techniques ?</span>
-            <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              L'approfondissement de la sécurité offensive à travers la pratique du penetration testing et l'obtention de certifications professionnelles, notamment les certifications Cisco (CCNA) et CompTIA Security+. Je continue également à développer mes compétences en analyse de vulnérabilités et en administration sécurisée des infrastructures.
-            </div>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-trigger" aria-expanded="false">
-            <span class="faq-question">Acceptez-vous des missions freelance ou à distance ?</span>
-            <svg class="faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
-            </svg>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">
-              Oui, tout à fait. Je suis ouvert aux collaborations à distance (remote) et aux missions ponctuelles sur des projets backend, API REST, architecture microservices ou sécurisation d'applications. N'hésitez pas à me contacter via le formulaire ci-dessous pour discuter de vos besoins.
-            </div>
-          </div>
-        </div>
-
+        ))}
       </div>
     </div>
   </section>
@@ -356,7 +547,15 @@ import Layout from '../layouts/Layout.astro';
             </svg>
           </div>
           <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Email</h3>
-          <a href="mailto:josuemoffo@gmail.com" onclick="window.trackClick('Social_Link',{platform:'Gmail'})" style="color:var(--text-secondary);text-decoration:none;font-size:0.88rem;transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">josuemoffo@gmail.com</a>
+          <a
+            href={`mailto:${profile.email}`}
+            onclick="window.trackClick('Social_Link',{platform:'Gmail'})"
+            style="color:var(--text-secondary);text-decoration:none;font-size:0.88rem;transition:color 0.2s;"
+            onmouseover="this.style.color='var(--accent)'"
+            onmouseout="this.style.color='var(--text-secondary)'"
+          >
+            {profile.email}
+          </a>
         </div>
 
         <div class="card" style="padding:1.75rem;text-align:center;">
@@ -367,16 +566,18 @@ import Layout from '../layouts/Layout.astro';
             </svg>
           </div>
           <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Localisation</h3>
-          <p style="color:var(--text-secondary);font-size:0.88rem;margin:0;">Yaoundé, Cameroun</p>
+          <p style="color:var(--text-secondary);font-size:0.88rem;margin:0;">{profile.location}</p>
         </div>
       </div>
 
       <!-- Formulaire d'email direct -->
       <div class="card" style="padding:2rem 2.5rem;margin-bottom:2rem;">
         <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Envoyer un message</h3>
-        <p style="color:var(--text-muted);font-size:0.82rem;margin:0 0 1.5rem;font-family:'Fira Code',monospace;">NOTE: Le message sera envoyé directement à josuemoffo@gmail.com</p>
+        <p style="color:var(--text-muted);font-size:0.82rem;margin:0 0 1.5rem;font-family:'Fira Code',monospace;">
+          Le message sera envoyé directement à {profile.email} — aucune redirection.
+        </p>
 
-        <form id="contact-form" style="display:flex;flex-direction:column;gap:1.1rem;" novalidate>
+        <form id="contact-form" data-access-key={profile.web3FormsKey} style="display:flex;flex-direction:column;gap:1.1rem;" novalidate>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
             <div class="form-group">
               <label class="form-label" for="cf-name">Votre nom</label>
@@ -412,24 +613,31 @@ import Layout from '../layouts/Layout.astro';
       <div class="card" style="padding:1.5rem 2rem;">
         <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin:0 0 1rem;text-align:center;">Retrouvez-moi sur</h3>
         <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
-          <a href="https://github.com/JosueMoffo" target="_blank" onclick="window.trackClick('Social_Link',{platform:'GitHub'})" class="social-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--text-secondary);">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-            </svg>
-            GitHub
-          </a>
-          <a href="https://www.linkedin.com/in/josue-moffo-07b756352/" target="_blank" onclick="window.trackClick('Social_Link',{platform:'Linkedin'})" class="social-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#0077b5;">
-              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-            </svg>
-            LinkedIn
-          </a>
-          <a href="https://www.instagram.com/elmoffojos/" target="_blank" onclick="window.trackClick('Social_Link',{platform:'Instagram'})" class="social-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#e1306c;">
-              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
-            </svg>
-            Instagram
-          </a>
+          {profile.socials.map((social) => (
+            <a
+              href={social.url}
+              target="_blank"
+              onclick={"window.trackClick('" + social.trackEvent + "', { platform: '" + social.trackPlatform + "' })"}
+              class="social-btn"
+            >
+              {social.id === 'github' && (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:var(--text-secondary);">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+              )}
+              {social.id === 'linkedin' && (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#0077b5;">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              )}
+              {social.id === 'instagram' && (
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="color:#e1306c;">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+              )}
+              {social.label}
+            </a>
+          ))}
         </div>
       </div>
     </div>
@@ -438,46 +646,98 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <script>
-  // ── FORMULAIRE DE CONTACT ─────────────────────────────────────
-  const form = document.getElementById('contact-form') as HTMLFormElement;
-  const statusEl = document.getElementById('form-status')!;
+  // ── FORMULAIRE DE CONTACT (Web3Forms) ────────────────────────
+  const form      = document.getElementById('contact-form') as HTMLFormElement;
+  const statusEl  = document.getElementById('form-status')!;
   const submitBtn = document.getElementById('cf-submit') as HTMLButtonElement;
 
-  form?.addEventListener('submit', (e) => {
+  // ── Helpers UI ────────────────────────────────────────────────
+  function setStatus(type: 'success' | 'error' | 'loading' | 'hidden', text = '') {
+    if (type === 'hidden') {
+      statusEl.className = 'form-status';
+      statusEl.textContent = '';
+      return;
+    }
+    if (type === 'loading') {
+      statusEl.className = 'form-status loading';
+      statusEl.textContent = text;
+      return;
+    }
+    statusEl.className = `form-status ${type}`;
+    statusEl.textContent = text;
+  }
+
+  function setSubmitState(loading: boolean) {
+    submitBtn.disabled = loading;
+    submitBtn.style.opacity = loading ? '0.65' : '1';
+    submitBtn.style.cursor  = loading ? 'not-allowed' : '';
+    submitBtn.textContent   = loading ? 'ENVOI EN COURS…' : 'ENVOYER LE MESSAGE';
+  }
+
+  function resetForm() {
+    form.reset();
+    setTimeout(() => setStatus('hidden'), 6000);
+  }
+
+  // ── Soumission ────────────────────────────────────────────────
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const name    = (document.getElementById('cf-name') as HTMLInputElement).value.trim();
-    const email   = (document.getElementById('cf-email') as HTMLInputElement).value.trim();
+
+    const name    = (document.getElementById('cf-name')    as HTMLInputElement).value.trim();
+    const email   = (document.getElementById('cf-email')   as HTMLInputElement).value.trim();
     const subject = (document.getElementById('cf-subject') as HTMLInputElement).value.trim();
     const message = (document.getElementById('cf-message') as HTMLTextAreaElement).value.trim();
 
-    // Validation basique
+    // ── Validation côté client ────────────────────────────────
     if (!name || !email || !subject || !message) {
-      statusEl.className = 'form-status error';
-      statusEl.textContent = 'Veuillez remplir tous les champs.';
+      setStatus('error', '⚠ Veuillez remplir tous les champs.');
       return;
     }
     const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRx.test(email)) {
-      statusEl.className = 'form-status error';
-      statusEl.textContent = 'Adresse email invalide.';
+      setStatus('error', '⚠ Adresse email invalide.');
       return;
     }
 
-    // Construction du mailto
-    const body = `Nom : ${name}\nEmail : ${email}\n\n${message}`;
-    const mailto = `mailto:josuemoffo@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
+    // ── Envoi via Web3Forms ───────────────────────────────────
+    setStatus('loading', 'Envoi en cours…');
+    setSubmitState(true);
 
-    statusEl.className = 'form-status success';
-    statusEl.textContent = 'Votre client mail va s\'ouvrir pour envoyer le message.';
-    submitBtn.textContent = 'MESSAGE PRÉPARÉ';
-    submitBtn.style.opacity = '0.7';
+    const accessKey = form.dataset.accessKey ?? '';
 
-    setTimeout(() => {
-      submitBtn.textContent = 'ENVOYER LE MESSAGE';
-      submitBtn.style.opacity = '1';
-    }, 5000);
+    const payload = {
+      access_key: accessKey,
+      name,
+      email,
+      subject,
+      message,
+      // Champs optionnels Web3Forms
+      from_name:   'Portfolio – ' + name,
+      botcheck:    '',   // honeypot
+    };
 
-    (window as any).trackClick?.('Contact_Form_Submit', { name, subject });
+    try {
+      const res  = await fetch('https://api.web3forms.com/submit', {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+      const data = await res.json();
+
+      if (res.ok && data.success) {
+        setStatus('success', 'Message envoyé avec succès ! Je vous répondrai dès que possible.');
+        resetForm();
+        (window as any).trackClick?.('Contact_Form_Submit', { name, subject });
+      } else {
+        // Erreur retournée par l'API (ex. clé invalide)
+        const apiMsg = data?.message ?? 'Erreur inconnue.';
+        setStatus('error', `❌ Échec de l'envoi : ${apiMsg}`);
+      }
+    } catch {
+      // Erreur réseau (offline, CORS, etc.)
+      setStatus('error', '❌ Erreur réseau. Vérifiez votre connexion et réessayez.');
+    } finally {
+      setSubmitState(false);
+    }
   });
 </script>
