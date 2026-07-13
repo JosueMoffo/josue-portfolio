@@ -1,0 +1,129 @@
+[
+  {
+    "id": "shuba",
+    "title": "Shuba: Multi-tenant Marketplace",
+    "category": "Personal",
+    "status": "completed",
+    "description": "Full-featured multi-tenant SaaS e-commerce platform with database isolation and dynamic store customization per tenant.",
+    "previewGradient": "linear-gradient(135deg, #111520 0%, #10b981 100%)",
+    "image": "/profil-shuba.png",
+    "tags": ["Django", "Python", "PostgreSQL", "Docker"],
+    "technicalDetails": {
+      "architecture": "Modular monolithic architecture with a database router for subdomain-based multi-tenancy.",
+      "tools": ["Django Tenants", "Celery", "Redis", "Stripe API", "Nginx"],
+      "challenges": "Managing dynamic database schema migrations for each new tenant without causing downtime."
+    },
+    "links": [
+      {
+        "label": "Explore the app",
+        "url": "https://shuba.onrender.com",
+        "trackEvent": "View_Project",
+        "trackName": "Marketplace",
+        "colorStyle": "#10b981"
+      },
+      {
+        "label": "Source Code",
+        "url": "https://github.com/JosueMoffo/saas-marketplace",
+        "trackEvent": "View_Project",
+        "trackName": "Marketplace_GH",
+        "colorStyle": "#10b981"
+      }
+    ]
+  },
+    {
+    "id": "travyotei",
+    "title": "TravYotei - Integrated Mobility",
+    "category": "Academic",
+    "status": "completed",
+    "description": "Unified web portal for intercity trip booking with real-time bus status synchronization.",
+    "previewGradient": "linear-gradient(135deg, #111520 0%, #f59e0b 100%)",
+    "image": "profil-travyotei.png",
+    "tags": ["Next.js", "TypeScript", "TailwindCSS", "WebSockets"],
+    "technicalDetails": {
+      "architecture": "Hybrid SSR/SSG rendering for optimal SEO performance combined with persistent sockets.",
+      "tools": ["Socket.io", "Prisma ORM", "React Query", "Vercel"],
+      "challenges": "Handling concurrent seat locking by multiple clients on the same bus."
+    },
+    "links": [
+      {
+        "label": "Access the app",
+        "url": "https://frontend-travyotei.vercel.app/",
+        "trackEvent": "View_Project",
+        "trackName": "TravYotei_Frontend",
+        "colorStyle": "var(--accent)"
+      }
+    ]
+  },
+    {
+    "id": "api-recommendation",
+    "title": "AI Recommendation Engine",
+    "category": "Academic",
+    "status": "completed",
+    "description": "Book recommendation API based on behavioral analysis and collaborative filtering.",
+    "previewGradient": "linear-gradient(135deg, #111520 0%, #a78bfa 100%)",
+    "image": "",
+    "tags": ["Flask", "Python", "Machine Learning", "Scikit-Learn"],
+    "technicalDetails": {
+      "architecture": "Decoupled microservice exposing prediction models through a secured REST API.",
+      "tools": ["Pandas", "Numpy", "Railway Cloud", "REST API"],
+      "challenges": "Optimizing cosine similarity matrix computation to handle queries under 100ms."
+    },
+    "links": [
+      {
+        "label": "View Demo",
+        "url": "https://recommendation.up.railway.app",
+        "trackEvent": "View_Project",
+        "trackName": "API-recommendation",
+        "colorStyle": "#a78bfa"
+      }
+    ]
+  },
+  {
+    "id": "api-rsv",
+    "title": "API-Rsv-TravYotei Microservices",
+    "category": "Academic",
+    "status": "completed",
+    "description": "High-throughput distributed booking engine leveraging event streaming to guarantee eventual consistency.",
+    "previewGradient": "linear-gradient(135deg, #111520 0%, #00d9ff 100%)",
+    "image": "",
+    "tags": ["Spring Boot", "Java", "Apache Kafka", "PostgreSQL"],
+    "technicalDetails": {
+      "architecture": "Event-driven microservices with full decoupling via message queues.",
+      "tools": ["Kafka Streams", "Spring Cloud Gateway", "Eureka Discovery", "Docker Compose"],
+      "challenges": "Guaranteeing idempotent message processing in Kafka during network node failures."
+    },
+    "links": [
+      {
+        "label": "GitHub Repository",
+        "url": "https://github.com/JosueMoffo/API-Rsv-TravYotei",
+        "trackEvent": "View_Project",
+        "trackName": "API-Rsv-TravYotei",
+        "colorStyle": "var(--accent)"
+      }
+    ]
+  },
+{
+    "id": "quorx",
+    "title": "QUORX: System Instinct",
+    "category": "Personal",
+    "status": "in-progress",
+    "description": "An immersive system simulation and graphical educational game designed to train core computer engineering reflexes (process management, memory, networking, and security).",
+    "previewGradient": "linear-gradient(135deg, #0f172a 0%, #3b82f6 100%)",
+    "image": "profil-quorx.png",
+    "tags": ["Godot 4", "GDScript", "SQLite", "Linux / Ubuntu"],
+    "technicalDetails": {
+      "architecture": "Modular architecture driven by a Core Engine coupled with a real-time simulation engine (CPU, Memory, Network, Security) and an asynchronous random incident generator.",
+      "tools": ["Godot Engine", "SQLite v3", "Linux OS Core Concepts"],
+      "challenges": "Accurately modeling and visually representing complex system behaviors (memory leaks, CPU spikes, network anomalies) within ultra-short 30-to-90-second gameplay loops."
+    },
+    "links": [
+      {
+        "label": "Follow Project (GitHub)",
+        "url": "https://github.com/JosueMoffo",
+        "trackEvent": "View_Project",
+        "trackName": "QUORX",
+        "colorStyle": "#3b82f6"
+      }
+    ]
+  }
+]

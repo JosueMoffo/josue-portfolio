@@ -1,16 +1,20 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import profile from '../content/profile.json';
-import projects from '../content/projects.json';
+import Layout from '../../layouts/Layout.astro';
+import profile from '../../content/profile.en.json';
+import projects from '../../content/projects.en.json';
 
-// SVG arrow partagé pour les liens de projets
 const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
 ---
 
-<Layout title={`${profile.fullName} - Portfolio`}>
+<Layout
+  title={`${profile.fullName} - Portfolio`}
+  description="Portfolio of Josué Mbah Moffo – Computer Engineering Student & Security-Focused Backend Developer"
+  lang="en"
+  altLangPath="/"
+>
 
   <!-- ══ HERO ══════════════════════════════════════════════════ -->
-  <section id="accueil" style="min-height:100vh;padding:8rem 1.5rem 4rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+  <section id="home" style="min-height:100vh;padding:8rem 1.5rem 4rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
     <div class="grid-bg"></div>
     <div style="position:absolute;top:20%;right:10%;width:320px;height:320px;background:rgba(var(--accent-rgb),0.04);border-radius:50%;filter:blur(80px);pointer-events:none;"></div>
 
@@ -44,7 +48,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
             <span class="ping-dot"></span>
           </div>
           <span style="font-size:0.62rem;font-family:'Fira Code',monospace;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);">
-            Dernière mise à jour : <span style="color:var(--text-primary);">{profile.lastUpdate}</span>
+            Last updated: <span style="color:var(--text-primary);">{profile.lastUpdate}</span>
           </span>
         </div>
       </div>
@@ -61,10 +65,10 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
           class="btn-primary"
           style="letter-spacing:0.08em;"
         >
-          TÉLÉCHARGER_CV
+          DOWNLOAD_CV
         </a>
         <a href="#contact" onclick="window.trackClick('Contact_Click',{})" class="btn-outline">
-          ME_CONTACTER
+          CONTACT_ME
         </a>
       </div>
     </div>
@@ -74,47 +78,47 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
     </div>
   </section>
 
-  <!-- ══ À PROPOS ══════════════════════════════════════════════ -->
-  <section id="a-propos" class="section-dark" style="padding:5rem 1.5rem;">
+<!-- ══ ABOUT ME ══════════════════════════════════════════════ -->
+  <section id="about" class="section-dark" style="padding:5rem 1.5rem;">
     <div style="max-width:860px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:3.5rem;">
-        <h2 class="section-title" style="margin-top:0.5rem;">À propos de moi</h2>
+        <h2 class="section-title" style="margin-top:0.5rem;">About Me</h2>
         <div class="section-bar"></div>
       </div>
 
       <div class="card" style="padding:2.5rem 3rem;position:relative;overflow:hidden;">
-        <!-- Décor d'accent en arrière-plan -->
+        <!-- Background accent decoration -->
         <div style="position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:rgba(var(--accent-rgb),0.04);border-radius:50%;filter:blur(40px);pointer-events:none;"></div>
 
-        <!-- Texte -->
+        <!-- Text content -->
         <div style="display:flex;flex-direction:column;gap:1.1rem;">
           <p style="color:var(--text-primary);font-size:1.05rem;line-height:1.85;margin:0;">
-            Je suis en 4e année de génie informatique à l'ENSPY, et j'ai construit mon profil à l'intersection du développement backend et de la sécurité réseau, pas par hasard, mais parce que je voulais comprendre les systèmes de bout en bout, de la ligne de code jusqu'au paquet réseau qui traverse l'infrastructure.
+            I am a 4th-year Computer Engineering student at ENSPY, and I have built my profile at the intersection of backend development and network security. This choice was deliberate: I wanted to understand systems end-to-end—from the line of code to the network packet traversing the infrastructure.
           </p>
           <p style="color:var(--text-secondary);font-size:1rem;line-height:1.85;margin:0;">
-            En pratique, ça veut dire que je conçois des APIs et des architectures distribuées, tout en gardant un œil sur les surfaces d'attaque. J'ai travaillé sur des projets de chiffrement AES/RSA, des microservices Kafka, et une plateforme SaaS multi-tenant. Des contextes où la robustesse n'est pas optionnelle.
+            In practice, this means designing APIs and distributed architectures while keeping a close eye on attack surfaces. I have worked on AES/RSA encryption projects, Kafka microservices, and a multi-tenant SaaS platform—environments where robustness is never optional.
           </p>
           <p style="color:var(--text-secondary);font-size:1rem;line-height:1.85;margin:0;">
-            Ce qui m'intéresse le plus, c'est la partie où la complexité technique doit quand même produire quelque chose qui fonctionne vraiment en production, sous charge, avec des contraintes réelles. Le reste du temps, je creuse la sécurité offensive et je prépare les certifications.
+            What interests me most is the stage where technical complexity must deliver something that truly works in production, under heavy load, and within real-world constraints. The rest of the time, I dive into offensive security and prepare for professional certifications.
           </p>
         </div>
 
-        <!-- Signature en pied de bloc -->
+        <!-- Footer tags -->
         <div style="margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border-color);display:flex;flex-wrap:wrap;gap:12px;">
-          <span class="tag" style="font-size:0.7rem;">Architecture Distribuée</span>
-          <span class="tag" style="font-size:0.7rem;">Sécurité logicielles</span>
-          <span class="tag" style="font-size:0.7rem;">Backend Python / Java</span>
-          <span class="tag" style="font-size:0.7rem;">Réseaux & Systèmes</span>
+          <span class="tag" style="font-size:0.7rem;">Distributed Architecture</span>
+          <span class="tag" style="font-size:0.7rem;">Software Security</span>
+          <span class="tag" style="font-size:0.7rem;">Python / Java Backend</span>
+          <span class="tag" style="font-size:0.7rem;">Networks & Systems</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ══ PARCOURS ══════════════════════════════════════════════ -->
-  <section id="parcours" class="section-alt" style="padding:5rem 1.5rem;">
+  <!-- ══ EDUCATION ══════════════════════════════════════════════ -->
+  <section id="education" class="section-alt" style="padding:5rem 1.5rem;">
     <div style="max-width:1280px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:4rem;">
-        <h2 class="section-title">Parcours & Formations</h2>
+        <h2 class="section-title">Education & Training</h2>
         <div class="section-bar"></div>
       </div>
 
@@ -123,11 +127,11 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
         <div class="timeline-line" style="position:relative;padding-left:2rem;">
           <div style="position:absolute;left:-7px;top:0;width:14px;height:14px;border-radius:50%;background:var(--accent);"></div>
           <div style="margin-bottom:6px;">
-            <span style="display:inline-block;padding:2px 10px;border-radius:4px;font-size:0.68rem;font-family:'Fira Code',monospace;font-weight:600;background:var(--tag-bg);color:var(--accent);">2022 - Présent</span>
+            <span style="display:inline-block;padding:2px 10px;border-radius:4px;font-size:0.68rem;font-family:'Fira Code',monospace;font-weight:600;background:var(--tag-bg);color:var(--accent);">2022 - Present</span>
           </div>
-          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Génie Informatique 4e année</h3>
+          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Computer Engineering – 4th Year</h3>
           <p style="color:var(--text-secondary);margin:0 0 4px;">École Nationale Supérieure Polytechnique de Yaoundé (ENSPY)</p>
-          <p style="color:var(--text-muted);font-size:0.85rem;margin:0;">Yaoundé, Cameroun</p>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin:0;">Yaoundé, Cameroon</p>
         </div>
 
         <div class="timeline-line" style="position:relative;padding-left:2rem;">
@@ -135,9 +139,9 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
           <div style="margin-bottom:6px;">
             <span style="display:inline-block;padding:2px 10px;border-radius:4px;font-size:0.68rem;font-family:'Fira Code',monospace;font-weight:600;background:var(--tag-bg);color:var(--text-muted);">2021 - 2022</span>
           </div>
-          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Formation en Mathématiques</h3>
-          <p style="color:var(--text-secondary);margin:0 0 4px;">Université de Yaoundé 1</p>
-          <p style="color:var(--text-muted);font-size:0.85rem;margin:0;">Yaoundé, Cameroun</p>
+          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Mathematics Foundation</h3>
+          <p style="color:var(--text-secondary);margin:0 0 4px;">University of Yaoundé 1</p>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin:0;">Yaoundé, Cameroon</p>
         </div>
 
         <div class="timeline-line" style="position:relative;padding-left:2rem;">
@@ -145,20 +149,20 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
           <div style="margin-bottom:6px;">
             <span style="display:inline-block;padding:2px 10px;border-radius:4px;font-size:0.68rem;font-family:'Fira Code',monospace;font-weight:600;background:var(--tag-bg);color:var(--text-muted);">2021</span>
           </div>
-          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Baccalauréat Série C</h3>
-          <p style="color:var(--text-secondary);margin:0 0 4px;">Sciences Mathématiques</p>
-          <p style="color:var(--text-muted);font-size:0.85rem;margin:0;">Cameroun</p>
+          <h3 style="font-size:1.3rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Baccalauréat – Series C</h3>
+          <p style="color:var(--text-secondary);margin:0 0 4px;">Mathematics & Sciences</p>
+          <p style="color:var(--text-muted);font-size:0.85rem;margin:0;">Cameroon</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- ══ COMPÉTENCES ═══════════════════════════════════════════ -->
-  <section id="competences" class="section-dark" style="padding:5rem 1.5rem;">
+  <!-- ══ SKILLS ═══════════════════════════════════════════════ -->
+  <section id="skills" class="section-dark" style="padding:5rem 1.5rem;">
     <div style="max-width:1280px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:4rem;">
-        <h2 class="section-title">Compétences Techniques</h2>
+        <h2 class="section-title">Technical Skills</h2>
         <div class="section-bar"></div>
       </div>
 
@@ -191,21 +195,20 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
     </div>
   </section>
 
-  <!-- ══ PROJETS ════════════════════════════════════════════════ -->
-  <section id="projets" class="section-alt" style="padding:6rem 1.5rem; position:relative; overflow:hidden;">
+  <!-- ══ PROJECTS ══════════════════════════════════════════════ -->
+  <section id="projects" class="section-alt" style="padding:6rem 1.5rem;position:relative;overflow:hidden;">
     <div style="max-width:1200px;margin:0 auto;position:relative;z-index:2;">
-      
-      <!-- En-tête de section -->
+
       <div style="text-align:center;margin-bottom:3rem;">
         <span style="font-family:'Fira Code',monospace;font-size:0.75rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--accent);">Engineering Lab</span>
-        <h2 class="section-title" style="margin-top:0.5rem;letter-spacing:-0.03em;">Projets & Réalisations</h2>
+        <h2 class="section-title" style="margin-top:0.5rem;letter-spacing:-0.03em;">Projects & Work</h2>
         <div class="section-bar" style="margin-bottom:2rem;"></div>
         <p style="color:var(--text-secondary);font-size:0.95rem;max-width:600px;margin:0 auto;">
-          Conceptions logicielles, microservices et infrastructures réseau présentés sous forme de spécifications techniques interactives.
+          Software designs, microservices and network infrastructures presented as interactive technical specifications.
         </p>
       </div>
 
-      <!-- Contrôles de filtrage interactifs (Bento Pills avec TOP par défaut) -->
+      <!-- Filter pills -->
       <div style="display:flex;justify-content:center;margin-bottom:4rem;">
         <div class="filter-pills-container" style="display:inline-flex;background:var(--bg-card-inner);padding:4px;border-radius:999px;border:1px solid var(--border-color);box-shadow:inset 0 2px 4px rgba(0,0,0,0.2);">
           <button class="filter-pill active" data-filter="top" style="font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-primary);background:var(--bg-card);border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
@@ -218,30 +221,30 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
             PRODUCTION
           </button>
           <button class="filter-pill" data-filter="in-progress" style="font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-secondary);background:transparent;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;">
-            EN_COURS
+            IN_PROGRESS
           </button>
         </div>
       </div>
 
-      <!-- Grille Bento de Projets (Cartes Compactes et Précises) -->
+      <!-- Bento Grid -->
       <div class="projects-bento-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));gap:1.5rem;align-items:stretch;">
         {projects.map((project, index) => {
           const isTop = index < 3;
           return (
-            <div 
-              class="project-bento-card card" 
-              data-status={project.status} 
+            <div
+              class="project-bento-card card"
+              data-status={project.status}
               data-is-top={isTop ? "true" : "false"}
               data-id={project.id}
               style={`display:${isTop ? 'flex' : 'none'};flex-direction:column;border-radius:8px;overflow:hidden;transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);opacity:${isTop ? '1' : '0'};transform:${isTop ? 'scale(1)' : 'scale(0.95)'};`}
             >
-              <!-- Preview Visuelle Stylisée CSS Réduite (Console) -->
+              <!-- Preview Zone -->
               <div class="bento-preview-zone" style={`background:${project.previewGradient};height:120px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:1rem;`}>
                 {project.image ? (
-                  <img 
-                    src={project.image} 
-                    alt={project.title} 
-                    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform 0.4s ease;" 
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;transition:transform 0.4s ease;"
                     class="project-preview-img"
                   />
                   <div style="position:absolute;inset:0;background:linear-gradient(to bottom, transparent, rgba(10,14,26,0.85));z-index:1;"></div>
@@ -256,7 +259,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
                 </div>
               </div>
 
-              <!-- Contenu textuel réduit -->
+              <!-- Card Content -->
               <div style="padding:1.5rem;flex:1;display:flex;flex-direction:column;justify-content:space-between;background:var(--bg-card);">
                 <div>
                   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
@@ -264,7 +267,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
                     {project.status === 'completed' ? (
                       <span class="tag" style="background:rgba(16,185,129,0.08);color:#10b981;border:1px solid rgba(16,185,129,0.2);font-size:0.55rem;padding:2px 6px;">✓ PRODUCTION</span>
                     ) : (
-                      <span class="tag" style="background:rgba(245,158,11,0.08);color:#f59e0b;border:1px solid rgba(245,158,11,0.2);font-size:0.55rem;padding:2px 6px;">⚡ EN_COURS</span>
+                      <span class="tag" style="background:rgba(245,158,11,0.08);color:#f59e0b;border:1px solid rgba(245,158,11,0.2);font-size:0.55rem;padding:2px 6px;">⚡ IN_PROGRESS</span>
                     )}
                   </div>
 
@@ -274,10 +277,9 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
                   </p>
                 </div>
 
-                <!-- Footer de la carte : Liens direct & Bouton détails techniques -->
                 <div style="border-top:1px solid var(--border-color);padding-top:1rem;display:flex;align-items:center;justify-content:space-between;gap:8px;">
-                  <button 
-                    class="btn-open-details" 
+                  <button
+                    class="btn-open-details"
                     style="font-family:'Fira Code',monospace;font-size:0.7rem;font-weight:700;color:var(--accent);background:transparent;border:none;cursor:pointer;padding:4px 0;display:flex;align-items:center;gap:4px;outline:none;"
                   >
                     [ SPECIFICATIONS ]
@@ -305,70 +307,60 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
 
     </div>
 
-    <!-- ==================== MINI FENÊTRE DETAILS (MODAL POPUP) ==================== -->
+    <!-- ── MODAL ── -->
     <div id="project-modal" class="modal-overlay" style="display:none;position:fixed;inset:0;z-index:100;background:rgba(5, 8, 16, 0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);align-items:center;justify-content:center;opacity:0;transition:opacity 0.25s ease;padding:1rem;">
-      
-      <!-- Boîte centrale de la Modal (Style Console/IDE) -->
+
       <div class="modal-content card" style="max-width:580px;width:100%;background:var(--bg-card);border:1px solid var(--border-color);border-radius:8px;box-shadow:0 24px 64px rgba(0,0,0,0.8);position:relative;transform:scale(0.95);transition:transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);overflow:hidden;display:flex;flex-direction:column;">
-        
-        <!-- En-tête type Fenêtre de Code -->
+
+        <!-- Header -->
         <div style="background:var(--bg-card-inner);border-bottom:1px solid var(--border-color);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;">
           <div style="display:flex;align-items:center;gap:6px;">
             <span style="width:10px;height:10px;border-radius:50%;background:#ef4444;display:inline-block;"></span>
             <span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;display:inline-block;"></span>
             <span style="width:10px;height:10px;border-radius:50%;background:#10b981;display:inline-block;"></span>
-            <span style="font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--text-muted);margin-left:10px;" id="modal-header-id">project-spec-compiling.log</span>
           </div>
-          <button id="btn-close-modal" style="background:transparent;border:none;color:var(--text-muted);font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:700;cursor:pointer;outline:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
-            [ FERMER ]
-          </button>
+          <span id="modal-header-id" style="font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--text-muted);letter-spacing:0.08em;"></span>
+          <button id="btn-close-modal" style="font-family:'Fira Code',monospace;font-size:0.62rem;color:var(--text-muted);background:transparent;border:1px solid var(--border-color);border-radius:3px;padding:2px 8px;cursor:pointer;transition:color 0.2s,border-color 0.2s;">[ CLOSE ]</button>
         </div>
 
-        <div style="padding:2rem;max-height:80vh;overflow-y:auto;display:flex;flex-direction:column;gap:1.5rem;">
-          
-          <!-- Titre & Badge -->
-          <div>
-            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;gap:1rem;flex-wrap:wrap;">
-              <span style="font-family:'Fira Code',monospace;font-size:0.65rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;" id="modal-category">CATÉGORIE</span>
-              <span class="tag" style="font-size:0.6rem;" id="modal-status-badge">STATUT</span>
-            </div>
-            <h3 style="font-size:1.4rem;font-weight:800;color:var(--text-primary);margin:0;letter-spacing:-0.02em;" id="modal-title">Project Title</h3>
+        <!-- Body -->
+        <div style="padding:1.5rem;overflow-y:auto;max-height:70vh;display:flex;flex-direction:column;gap:1.25rem;">
+
+          <!-- Visual -->
+          <div id="modal-visual-gradient" style="height:60px;border-radius:4px;overflow:hidden;display:flex;align-items:center;justify-content:center;">
+            <span id="modal-visual-stack" style="font-family:'Fira Code',monospace;font-size:0.62rem;color:#fff;background:rgba(0,0,0,0.6);padding:3px 10px;border-radius:3px;letter-spacing:0.06em;"></span>
           </div>
 
-          <!-- Mini zone visuelle colorée -->
-          <div id="modal-visual-gradient" style="height:60px;border-radius:4px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;opacity:0.85;">
-            <div class="grid-bg" style="opacity:0.08;"></div>
-            <div style="font-family:'Fira Code',monospace;font-size:0.6rem;color:#ffffff;background:rgba(0,0,0,0.4);padding:4px 10px;border-radius:4px;border:1px solid rgba(255,255,255,0.08);" id="modal-visual-stack">
-              CORE_STACK
-            </div>
-          </div>
-
-          <!-- Description complète -->
-          <div>
-            <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.6;margin:0;" id="modal-description">
-              Full description of the project goes here.
-            </p>
-          </div>
-
-          <!-- Spécifications techniques -->
-          <div style="background:var(--bg-card-inner);border:1px solid var(--border-color);border-radius:6px;padding:1.2rem;display:flex;flex-direction:column;gap:1rem;font-size:0.82rem;">
+          <!-- Meta -->
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px;">
             <div>
-              <strong style="color:var(--text-primary);font-family:'Fira Code',monospace;font-size:0.65rem;text-transform:uppercase;display:block;margin-bottom:0.3rem;">[ARCHITECTURE_PATTERN]</strong>
-              <span style="color:var(--text-secondary);line-height:1.4;" id="modal-spec-arch">Architecture details...</span>
+              <span id="modal-category" style="font-family:'Fira Code',monospace;font-size:0.62rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;display:block;margin-bottom:4px;"></span>
+              <h3 id="modal-title" style="font-size:1.2rem;font-weight:700;color:var(--text-primary);margin:0;"></h3>
             </div>
-            <div style="border-top:1px dashed var(--border-color);padding-top:0.8rem;">
-              <strong style="color:var(--text-primary);font-family:'Fira Code',monospace;font-size:0.65rem;text-transform:uppercase;display:block;margin-bottom:0.3rem;">[OUTILS_ADDITIONNELS]</strong>
-              <span style="color:var(--text-secondary);" id="modal-spec-tools">Tools and frameworks...</span>
+            <span id="modal-status-badge" style="font-size:0.6rem;font-family:'Fira Code',monospace;white-space:nowrap;flex-shrink:0;"></span>
+          </div>
+
+          <!-- Description -->
+          <p id="modal-description" style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;margin:0;"></p>
+
+          <!-- Specs -->
+          <div style="display:flex;flex-direction:column;gap:1rem;">
+            <div style="background:var(--bg-card-inner);border-radius:6px;padding:1rem;border:1px solid var(--border-color);">
+              <p style="font-family:'Fira Code',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin:0 0 6px;font-weight:600;">Architecture</p>
+              <p id="modal-spec-arch" style="color:var(--text-secondary);font-size:0.85rem;line-height:1.65;margin:0;"></p>
             </div>
-            <div style="border-top:1px dashed var(--border-color);padding-top:0.8rem;">
-              <strong style="color:var(--text-primary);font-family:'Fira Code',monospace;font-size:0.65rem;text-transform:uppercase;display:block;margin-bottom:0.3rem;">[DEFIS_RESOLUS]</strong>
-              <span style="color:var(--text-secondary);line-height:1.4;" id="modal-spec-challenges">Challenges details...</span>
+            <div style="background:var(--bg-card-inner);border-radius:6px;padding:1rem;border:1px solid var(--border-color);">
+              <p style="font-family:'Fira Code',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--accent);margin:0 0 6px;font-weight:600;">Additional Tools</p>
+              <p id="modal-spec-tools" style="color:var(--text-secondary);font-size:0.85rem;line-height:1.65;margin:0;font-family:'Fira Code',monospace;"></p>
+            </div>
+            <div style="background:var(--bg-card-inner);border-radius:6px;padding:1rem;border:1px solid var(--border-color);">
+              <p style="font-family:'Fira Code',monospace;font-size:0.62rem;text-transform:uppercase;letter-spacing:0.12em;color:#f59e0b;margin:0 0 6px;font-weight:600;">Key Challenge</p>
+              <p id="modal-spec-challenges" style="color:var(--text-secondary);font-size:0.85rem;line-height:1.65;margin:0;"></p>
             </div>
           </div>
 
-          <!-- Actions de la Modal -->
+          <!-- Links -->
           <div style="display:flex;flex-wrap:wrap;gap:1.5rem;border-top:1px solid var(--border-color);padding-top:1.2rem;" id="modal-links-container">
-            <!-- Injecté dynamiquement par JS -->
           </div>
 
         </div>
@@ -379,13 +371,11 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
 
   <!-- Script de filtrage et contrôle de modal -->
   <script define:vars={{ projects }}>
-    // ── FILTRAGE INTERACTIF ──────────────────────────────────────────
     const filterButtons = document.querySelectorAll('.filter-pill');
     const projectCards = document.querySelectorAll('.project-bento-card');
 
     filterButtons.forEach(button => {
       button.addEventListener('click', () => {
-        // Gérer l'état actif des boutons
         filterButtons.forEach(btn => {
           btn.classList.remove('active');
           btn.setAttribute('style', "font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-secondary);background:transparent;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;");
@@ -394,46 +384,30 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
         button.setAttribute('style', "font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-primary);background:var(--bg-card);border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;box-shadow:0 2px 8px rgba(0,0,0,0.15);");
 
         const filterValue = button.getAttribute('data-filter');
-
-        // Filtrer les cartes de projets avec un effet de fondu
         projectCards.forEach(card => {
           const cardStatus = card.getAttribute('data-status');
           const isTop = card.getAttribute('data-is-top') === 'true';
           const cardElement = card;
-
           let shouldShow = false;
-          if (filterValue === 'all') {
-            shouldShow = true;
-          } else if (filterValue === 'top') {
-            shouldShow = isTop;
-          } else if (cardStatus === filterValue) {
-            shouldShow = true;
-          }
+          if (filterValue === 'all') shouldShow = true;
+          else if (filterValue === 'top') shouldShow = isTop;
+          else if (cardStatus === filterValue) shouldShow = true;
 
           if (shouldShow) {
             cardElement.style.display = 'flex';
-            setTimeout(() => {
-              cardElement.style.opacity = '1';
-              cardElement.style.transform = 'scale(1)';
-            }, 10);
+            setTimeout(() => { cardElement.style.opacity = '1'; cardElement.style.transform = 'scale(1)'; }, 10);
           } else {
-            cardElement.style.opacity = '0';
-            cardElement.style.transform = 'scale(0.95)';
-            setTimeout(() => {
-              cardElement.style.display = 'none';
-            }, 250);
+            cardElement.style.opacity = '0'; cardElement.style.transform = 'scale(0.95)';
+            setTimeout(() => { cardElement.style.display = 'none'; }, 250);
           }
         });
       });
     });
 
-    // ── GESTION DE LA FENETRE MODALE DE SPECIFICATIONS ───────────────
     const modal = document.getElementById('project-modal');
     const modalContent = modal.querySelector('.modal-content');
     const btnCloseModal = document.getElementById('btn-close-modal');
     const btnOpenDetails = document.querySelectorAll('.btn-open-details');
-
-    // Éléments de la modal à remplir
     const modalHeaderId = document.getElementById('modal-header-id');
     const modalTitle = document.getElementById('modal-title');
     const modalCategory = document.getElementById('modal-category');
@@ -449,99 +423,66 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
     const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
 
     function openModal(project) {
-      // Remplir les données
       modalHeaderId.textContent = `${project.id}-specs-compiling.log`;
       modalTitle.textContent = project.title;
       modalCategory.textContent = project.category;
       modalDescription.textContent = project.description;
-      
-      // Statut
       if (project.status === 'completed') {
         modalStatusBadge.textContent = '✓ PRODUCTION';
         modalStatusBadge.setAttribute('style', 'background:rgba(16,185,129,0.08);color:#10b981;border:1px solid rgba(16,185,129,0.2);padding:2px 8px;border-radius:4px;');
       } else {
-        modalStatusBadge.textContent = '⚡ EN_COURS';
+        modalStatusBadge.textContent = '⚡ IN_PROGRESS';
         modalStatusBadge.setAttribute('style', 'background:rgba(245,158,11,0.08);color:#f59e0b;border:1px solid rgba(245,158,11,0.2);padding:2px 8px;border-radius:4px;');
       }
-
-      // Preview Gradient & Stack
       if (project.image) {
         modalVisualGradient.setAttribute('style', `background: linear-gradient(to bottom, rgba(10,14,26,0.3), rgba(10,14,26,0.85)), url(${project.image}) center/cover no-repeat; height:60px; border-radius:4px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; opacity:0.85;`);
       } else {
         modalVisualGradient.setAttribute('style', `background:${project.previewGradient}; height:60px; border-radius:4px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; opacity:0.85;`);
       }
       modalVisualStack.textContent = project.tags.join(' / ');
-
-      // Spécifications
       modalSpecArch.textContent = project.technicalDetails.architecture;
       modalSpecTools.textContent = project.technicalDetails.tools.join(', ');
       modalSpecChallenges.textContent = project.technicalDetails.challenges;
-
-      // Liens
       modalLinksContainer.innerHTML = '';
       project.links.forEach((link) => {
         const a = document.createElement('a');
-        a.href = link.url;
-        a.target = '_blank';
-        a.className = 'project-link';
-        a.style.color = link.colorStyle;
-        a.style.fontSize = '0.85rem';
+        a.href = link.url; a.target = '_blank'; a.className = 'project-link';
+        a.style.color = link.colorStyle; a.style.fontSize = '0.85rem';
         a.style.fontFamily = "'Fira Code',monospace";
         a.innerHTML = `${link.label} ${arrowSvg}`;
-        a.addEventListener('click', () => {
-          window.trackClick?.(link.trackEvent, { name: link.trackName });
-        });
+        a.addEventListener('click', () => { window.trackClick?.(link.trackEvent, { name: link.trackName }); });
         modalLinksContainer.appendChild(a);
       });
-
-      // Ouvrir la modal de façon fluide
       modal.style.display = 'flex';
       document.body.style.overflow = 'hidden';
-      setTimeout(() => {
-        modal.style.opacity = '1';
-        modalContent.style.transform = 'scale(1)';
-      }, 10);
+      setTimeout(() => { modal.style.opacity = '1'; modalContent.style.transform = 'scale(1)'; }, 10);
     }
 
     function closeModal() {
-      modal.style.opacity = '0';
-      modalContent.style.transform = 'scale(0.95)';
+      modal.style.opacity = '0'; modalContent.style.transform = 'scale(0.95)';
       document.body.style.overflow = '';
-      setTimeout(() => {
-        modal.style.display = 'none';
-      }, 250);
+      setTimeout(() => { modal.style.display = 'none'; }, 250);
     }
 
-    // Connecter les boutons d'ouverture
     btnOpenDetails.forEach(button => {
       button.addEventListener('click', (e) => {
         const card = button.closest('.project-bento-card');
         const projectId = card.getAttribute('data-id');
         const projectData = projects.find((p) => p.id === projectId);
-        if (projectData) {
-          openModal(projectData);
-        }
+        if (projectData) openModal(projectData);
       });
     });
 
-    // Événements de fermeture
     btnCloseModal.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
-    });
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.style.display === 'flex') closeModal(); });
   </script>
-
-
-
 
   <!-- ══ FAQ ═══════════════════════════════════════════════════ -->
   <section id="faq" class="section-dark" style="padding:5rem 1.5rem;">
     <div style="max-width:760px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:4rem;">
-        <h2 class="section-title">Questions Fréquentes</h2>
+        <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="section-bar"></div>
       </div>
 
@@ -565,16 +506,16 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
     </div>
   </section>
 
-  <!-- ══ CONTACT ═══════════════════════════════════════════════ -->
+  <!-- ══ CONTACT ══════════════════════════════════════════════ -->
   <section id="contact" class="section-alt" style="padding:5rem 1.5rem;">
     <div style="max-width:900px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:4rem;">
-        <h2 class="section-title">Entrons en Contact</h2>
+        <h2 class="section-title">Get in Touch</h2>
         <div class="section-bar" style="margin-bottom:1rem;"></div>
-        <p style="color:var(--text-secondary);font-size:1rem;">N'hésitez pas à me contacter pour discuter de projets, opportunités ou collaborations</p>
+        <p style="color:var(--text-secondary);font-size:1rem;">Feel free to reach out to discuss projects, opportunities or collaborations</p>
       </div>
 
-      <!-- Infos rapides -->
+      <!-- Quick info -->
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-bottom:2rem;">
         <div class="card" style="padding:1.75rem;text-align:center;">
           <div style="width:52px;height:52px;border-radius:50%;background:rgba(var(--accent-rgb),0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 12px;">
@@ -601,53 +542,53 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
             </svg>
           </div>
-          <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Localisation</h3>
+          <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Location</h3>
           <p style="color:var(--text-secondary);font-size:0.88rem;margin:0;">{profile.location}</p>
         </div>
       </div>
 
-      <!-- Formulaire d'email direct -->
+      <!-- Contact Form -->
       <div class="card" style="padding:2rem 2.5rem;margin-bottom:2rem;">
-        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Envoyer un message</h3>
+        <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Send a Message</h3>
         <p style="color:var(--text-muted);font-size:0.82rem;margin:0 0 1.5rem;font-family:'Fira Code',monospace;">
-          Le message sera envoyé directement à {profile.email} — aucune redirection.
+          Your message will be sent directly to {profile.email} — no redirects.
         </p>
 
         <form id="contact-form" data-access-key={profile.web3FormsKey} style="display:flex;flex-direction:column;gap:1.1rem;" novalidate>
           <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;">
             <div class="form-group">
-              <label class="form-label" for="cf-name">Votre nom</label>
+              <label class="form-label" for="cf-name">Your name</label>
               <input class="form-input" type="text" id="cf-name" name="name" placeholder="Mbah Josué" required autocomplete="name" />
             </div>
             <div class="form-group">
-              <label class="form-label" for="cf-email">Votre email</label>
-              <input class="form-input" type="email" id="cf-email" name="email" placeholder="josue@exemple.com" required autocomplete="email" />
+              <label class="form-label" for="cf-email">Your email</label>
+              <input class="form-input" type="email" id="cf-email" name="email" placeholder="you@example.com" required autocomplete="email" />
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="cf-subject">Sujet</label>
-            <input class="form-input" type="text" id="cf-subject" name="subject" placeholder="Stage, collaboration, projet, Questions..." required />
+            <label class="form-label" for="cf-subject">Subject</label>
+            <input class="form-input" type="text" id="cf-subject" name="subject" placeholder="Internship, collaboration, project, questions..." required />
           </div>
 
           <div class="form-group">
             <label class="form-label" for="cf-message">Message</label>
-            <textarea class="form-textarea" id="cf-message" name="message" placeholder="Ecrire votre message..." required rows="5"></textarea>
+            <textarea class="form-textarea" id="cf-message" name="message" placeholder="Write your message..." required rows="5"></textarea>
           </div>
 
           <div id="form-status" class="form-status"></div>
 
           <div>
             <button type="submit" class="btn-primary" id="cf-submit" style="min-width:180px;letter-spacing:0.06em;">
-              ENVOYER LE MESSAGE
+              SEND MESSAGE
             </button>
           </div>
         </form>
       </div>
 
-      <!-- Réseaux sociaux -->
+      <!-- Social links -->
       <div class="card" style="padding:1.5rem 2rem;">
-        <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin:0 0 1rem;text-align:center;">Retrouvez-moi sur</h3>
+        <h3 style="font-size:1rem;font-weight:700;color:var(--text-primary);margin:0 0 1rem;text-align:center;">Find me on</h3>
         <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;">
           {profile.socials.map((social) => (
             <a
@@ -682,96 +623,60 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
 </Layout>
 
 <script>
-  // ── FORMULAIRE DE CONTACT (Web3Forms) ────────────────────────
-  const form      = document.getElementById('contact-form') as HTMLFormElement;
-  const statusEl  = document.getElementById('form-status')!;
-  const submitBtn = document.getElementById('cf-submit') as HTMLButtonElement;
+  // ── CONTACT FORM (Web3Forms) ───────────────────────────────
+  const form      = document.getElementById('contact-form');
+  const statusEl  = document.getElementById('form-status');
+  const submitBtn = document.getElementById('cf-submit');
 
-  // ── Helpers UI ────────────────────────────────────────────────
-  function setStatus(type: 'success' | 'error' | 'loading' | 'hidden', text = '') {
-    if (type === 'hidden') {
-      statusEl.className = 'form-status';
-      statusEl.textContent = '';
-      return;
-    }
-    if (type === 'loading') {
-      statusEl.className = 'form-status loading';
-      statusEl.textContent = text;
-      return;
-    }
+  function setStatus(type, text = '') {
+    if (type === 'hidden') { statusEl.className = 'form-status'; statusEl.textContent = ''; return; }
+    if (type === 'loading') { statusEl.className = 'form-status loading'; statusEl.textContent = text; return; }
     statusEl.className = `form-status ${type}`;
     statusEl.textContent = text;
   }
 
-  function setSubmitState(loading: boolean) {
+  function setSubmitState(loading) {
     submitBtn.disabled = loading;
     submitBtn.style.opacity = loading ? '0.65' : '1';
     submitBtn.style.cursor  = loading ? 'not-allowed' : '';
-    submitBtn.textContent   = loading ? 'ENVOI EN COURS…' : 'ENVOYER LE MESSAGE';
+    submitBtn.textContent   = loading ? 'SENDING…' : 'SEND MESSAGE';
   }
 
-  function resetForm() {
-    form.reset();
-    setTimeout(() => setStatus('hidden'), 6000);
-  }
+  function resetForm() { form.reset(); setTimeout(() => setStatus('hidden'), 6000); }
 
-  // ── Soumission ────────────────────────────────────────────────
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
+    const name    = document.getElementById('cf-name').value.trim();
+    const email   = document.getElementById('cf-email').value.trim();
+    const subject = document.getElementById('cf-subject').value.trim();
+    const message = document.getElementById('cf-message').value.trim();
 
-    const name    = (document.getElementById('cf-name')    as HTMLInputElement).value.trim();
-    const email   = (document.getElementById('cf-email')   as HTMLInputElement).value.trim();
-    const subject = (document.getElementById('cf-subject') as HTMLInputElement).value.trim();
-    const message = (document.getElementById('cf-message') as HTMLTextAreaElement).value.trim();
-
-    // ── Validation côté client ────────────────────────────────
-    if (!name || !email || !subject || !message) {
-      setStatus('error', '⚠ Veuillez remplir tous les champs.');
-      return;
-    }
+    if (!name || !email || !subject || !message) { setStatus('error', '⚠ Please fill in all fields.'); return; }
     const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRx.test(email)) {
-      setStatus('error', '⚠ Adresse email invalide.');
-      return;
-    }
+    if (!emailRx.test(email)) { setStatus('error', '⚠ Invalid email address.'); return; }
 
-    // ── Envoi via Web3Forms ───────────────────────────────────
-    setStatus('loading', 'Envoi en cours…');
+    setStatus('loading', 'Sending…');
     setSubmitState(true);
 
     const accessKey = form.dataset.accessKey ?? '';
-
-    const payload = {
-      access_key: accessKey,
-      name,
-      email,
-      subject,
-      message,
-      // Champs optionnels Web3Forms
-      from_name:   'Portfolio – ' + name,
-      botcheck:    '',   // honeypot
-    };
+    const payload = { access_key: accessKey, name, email, subject, message, from_name: 'Portfolio EN – ' + name, botcheck: '' };
 
     try {
       const res  = await fetch('https://api.web3forms.com/submit', {
-        method:  'POST',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body:    JSON.stringify(payload),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
-
       if (res.ok && data.success) {
-        setStatus('success', 'Message envoyé avec succès ! Je vous répondrai dès que possible.');
+        setStatus('success', 'Message sent! I\'ll get back to you as soon as possible.');
         resetForm();
-        (window as any).trackClick?.('Contact_Form_Submit', { name, subject });
+        window.trackClick?.('Contact_Form_Submit', { name, subject });
       } else {
-        // Erreur retournée par l'API (ex. clé invalide)
-        const apiMsg = data?.message ?? 'Erreur inconnue.';
-        setStatus('error', `❌ Échec de l'envoi : ${apiMsg}`);
+        setStatus('error', `❌ Failed to send: ${data?.message ?? 'Unknown error.'}`);
       }
     } catch {
-      // Erreur réseau (offline, CORS, etc.)
-      setStatus('error', '❌ Erreur réseau. Vérifiez votre connexion et réessayez.');
+      setStatus('error', '❌ Network error. Check your connection and try again.');
     } finally {
       setSubmitState(false);
     }

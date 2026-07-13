@@ -3,10 +3,10 @@
     "id": "shuba",
     "title": "Shuba: Marketplace Multi-tenant",
     "category": "Personnel",
-    "status": "completed",
+    "status": "in-progress",
     "description": "Plateforme e-commerce SaaS complète multi-tenant avec isolation des bases de données et personnalisation dynamique des boutiques.",
     "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #10b981 100%)",
-    "image": "/preview-shuba.png",
+    "image": "/profil-shuba.png",
     "tags": ["Django", "Python", "PostgreSQL", "Docker"],
     "technicalDetails": {
       "architecture": "Architecture monolithique modulaire avec routeur de bases de données pour le multi-tenancy basé sur les sous-domaines.",
@@ -31,10 +31,10 @@
     ]
   },
     {
-    "id": "travyotei-v2",
-    "title": "TravYotei V2 - Mobilité Intégrée",
+    "id": "travyotei",
+    "title": "TravYotei - Mobilité Intégrée",
     "category": "Académique",
-    "status": "in-progress",
+    "status": "completed",
     "description": "Portail web unifié de réservation de trajets interurbains avec synchronisation en temps réel de l'état des bus.",
     "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #f59e0b 100%)",
     "image": "profil-travyotei.png",
@@ -104,27 +104,27 @@
     ]
   },
 
-  {
-    "id": "shieldguard",
-    "title": "ShieldGuard: Analyseur Réseau",
+{
+    "id": "quorx",
+    "title": "QUORX: System Instinct",
     "category": "Personnel",
     "status": "in-progress",
-    "description": "Outil d'audit automatique des configurations de commutateurs Cisco et détection automatique des failles courantes.",
-    "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #ef4444 100%)",
-    "image": "",
-    "tags": ["FastAPI", "Python", "Scapy", "Cisco SSH"],
+    "description": "Simulation système immersive et jeu éducatif graphique conçu pour développer les réflexes fondamentaux en ingénierie informatique (gestion des processus, mémoire, réseau et sécurité).",
+    "previewGradient": "linear-gradient(135deg, #0f172a 0%, #3b82f6 100%)",
+    "image": "profil-quorx.png",
+    "tags": ["Godot 4", "GDScript", "SQLite", "Linux / Ubuntu"],
     "technicalDetails": {
-      "architecture": "Agent de scrutation asynchrone collectant les flux SSH et analysant la topologie réseau en temps réel.",
-      "tools": ["Paramiko", "Netmiko", "Pytest", "Vue.js"],
-      "challenges": "Extraction et parsing normalisé de configurations CLI Cisco hétérogènes sans surcharge CPU sur le matériel ciblé."
+      "architecture": "Architecture modulaire articulée autour d'un Core Engine couplé à un moteur de simulation temps réel (CPU, Mémoire, Réseau, Sécurité) et un générateur d'incidents asynchrones aléatoires.",
+      "tools": ["Godot Engine", "SQLite v3", "Linux OS Core Concepts"],
+      "challenges": "Modélisation mathématique et visuelle fidèle de comportements système complexes (fuites de mémoire, surcharges CPU, anomalies réseau) dans des boucles de gameplay ultra-courtes de 30 à 90 secondes."
     },
     "links": [
       {
         "label": "Suivre le projet (GitHub)",
-        "url": "https://github.com/JosueMoffo",
+        "url": "https://github.com/JosueMoffo/Quorx",
         "trackEvent": "View_Project",
-        "trackName": "ShieldGuard",
-        "colorStyle": "#ef4444"
+        "trackName": "QUORX",
+        "colorStyle": "#3b82f6"
       }
     ]
   }

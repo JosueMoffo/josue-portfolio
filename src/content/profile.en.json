@@ -1,0 +1,104 @@
+{
+  "name": "JOSUÉ",
+  "lastName": "MBAH MOFFO",
+  "fullName": "MBAH MOFFO JOSUÉ",
+  "title": "Computer Engineering Student",
+  "specialty": "Security-Focused Backend Developer",
+  "description": "Building robust applications and securing network infrastructure — from the code layer to the network packet.",
+  "email": "josuemoffo@gmail.com",
+  "location": "Yaoundé, Cameroon",
+  "lastUpdate": "April 15, 2026",
+  "web3FormsKey": "40346999-4889-42d1-92a1-9eb18d8efc53",
+  "cvPath": "/assets/CV-Mbah_Josue.pdf",
+  "socials": [
+    {
+      "id": "github",
+      "label": "GitHub",
+      "url": "https://github.com/JosueMoffo",
+      "trackEvent": "Social_Link",
+      "trackPlatform": "GitHub"
+    },
+    {
+      "id": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://www.linkedin.com/in/josue-mbah-moffo/",
+      "trackEvent": "Social_Link",
+      "trackPlatform": "Linkedin"
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram",
+      "url": "https://www.instagram.com/elmoffojos/",
+      "trackEvent": "Social_Link",
+      "trackPlatform": "Instagram"
+    }
+  ],
+  "skills": [
+    {
+      "id": "dev",
+      "category": "Development",
+      "accentColor": "var(--accent)",
+      "items": ["JavaScript", "TypeScript", "C", "Python", "Java"],
+      "subSection": {
+        "label": "Frameworks",
+        "items": ["Astro", "Django", "FastAPI", "SpringBoot", "Tailwind CSS"]
+      }
+    },
+    {
+      "id": "infra",
+      "category": "Infrastructure & Networks",
+      "accentColor": "var(--cyber-purple, #a78bfa)",
+      "items": ["Linux", "SNMP", "Nagios"],
+      "subSection": {
+        "label": "Tools",
+        "items": ["Cisco Packet Tracer", "Wireshark", "VirtualBox"]
+      }
+    },
+    {
+      "id": "devops",
+      "category": "DevOps & Cloud",
+      "accentColor": "#10b981",
+      "items": ["Docker", "Git", "Bash", "Firebase"],
+      "subSection": {
+        "label": "Platforms",
+        "items": ["Supabase", "Render"]
+      }
+    },
+    {
+      "id": "db",
+      "category": "Databases",
+      "accentColor": "var(--accent)",
+      "items": ["MySQL", "PostgreSQL", "Firebase"],
+      "subSection": null
+    },
+    {
+      "id": "security",
+      "category": "Security",
+      "accentColor": "#ef4444",
+      "items": ["Vulnerability Analysis", "Metasploitable", "AES & RSA Encryption", "OWASP Top 10"],
+      "subSection": null
+    }
+  ],
+  "faq": [
+    {
+      "id": "faq-availability",
+      "question": "What is your current availability?",
+      "answer": "I'm currently a student at ENSPY and available for internships or freelance missions alongside my studies. I can adapt to project timelines while maintaining a balance with my academic schedule."
+    },
+    {
+      "id": "faq-dual-profile",
+      "question": "Why this dual Dev and Network profile?",
+      "answer": "To understand systems from the software layer all the way down to physical data transmission — a crucial perspective for cybersecurity. This approach lets me see the full picture: from network infrastructure to user-facing applications, which is essential for identifying and fixing vulnerabilities."
+    },
+    {
+      "id": "faq-goals",
+      "question": "What are your next technical goals?",
+      "answer": "Deepening offensive security through penetration testing practice and earning professional certifications, specifically Cisco CCNA and CompTIA Security+. I'm also continuing to develop my skills in vulnerability analysis and secure infrastructure administration."
+    },
+    {
+      "id": "faq-freelance",
+      "question": "Are you open to freelance or remote work?",
+      "answer": "Yes, absolutely. I'm open to remote collaborations and short-term missions on backend projects, REST APIs, microservice architectures, or application security hardening. Feel free to reach out via the contact form below to discuss your needs."
+    }
+  ]
+}

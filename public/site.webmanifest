@@ -1,6 +1,7 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "Josué Mbah Moffo - Portfolio",
+  "short_name": "JMM.dev",
+  "description": "Portfolio de Josué Mbah Moffo — Ingénieur Backend & Sécurité",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,7 +14,8 @@
       "type": "image/png"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
-  "display": "standalone"
+  "theme_color": "#111520",
+  "background_color": "#111520",
+  "display": "standalone",
+  "start_url": "/"
 }
