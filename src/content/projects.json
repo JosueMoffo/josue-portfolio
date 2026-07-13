@@ -3,7 +3,7 @@
     "id": "shuba",
     "title": "Shuba: Marketplace Multi-tenant",
     "category": "Personnel",
-    "status": "in-progress",
+    "status": "completed",
     "description": "Plateforme e-commerce SaaS complète multi-tenant avec isolation des bases de données et personnalisation dynamique des boutiques.",
     "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #10b981 100%)",
     "image": "/profil-shuba.png",
