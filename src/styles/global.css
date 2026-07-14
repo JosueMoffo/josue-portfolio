@@ -49,14 +49,14 @@
 }
 
 [data-theme="light"] {
-  /* Fonds : blanc chaud, pas de blanc pur */
-  --bg-primary:    #f2f4f8;
-  --bg-secondary:  #f8fafd;
-  --bg-card:       #fafbff;
-  --bg-card-inner: #edf0f7;
-  --bg-nav:        rgba(242,244,248,0.95);
-  --bg-input:      #edf0f7;
-  --border-color:  #dce2ef;
+  /* Fonds : clairs, lumineux et propres */
+  --bg-primary:    #f8fafc;
+  --bg-secondary:  #ffffff;
+  --bg-card:       #ffffff;
+  --bg-card-inner: #f1f5f9;
+  --bg-nav:        rgba(248,250,252,0.95);
+  --bg-input:      #f1f5f9;
+  --border-color:  #e2e8f0;
   /* Texte : encre chaude, pas de noir pur */
   --text-primary:  #1e2640;
   --text-secondary:#4a5572;
@@ -68,7 +68,7 @@
   --accent:        #2563a8;
   --accent-rgb:    37,99,168;
   /* Scrollbar */
-  --scrollbar-track: #edf0f7;
+  --scrollbar-track: #f1f5f9;
   --scrollbar-thumb: #c8cfdf;
   /* Grille */
   --grid-color:    #2563a8;
@@ -450,6 +450,32 @@ footer {
 
 .filter-pill:hover:not(.active) {
   color: var(--accent) !important;
+}
+
+/* ── CONTRASTE COMPÉTENCES (THÈME CLAIR) ──
+   Assombrit la zone de compétences pour reposer les yeux */
+[data-theme="light"] #competences .card,
+[data-theme="light"] #skills .card {
+  background: #161b2a; /* Fond bleu ardoise sombre doux */
+  border-color: #232a3e;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="light"] #competences .card:hover,
+[data-theme="light"] #skills .card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="light"] #competences .card .tag,
+[data-theme="light"] #skills .card .tag {
+  background: #1e2538;
+  color: #b8c3dc;
+}
+
+[data-theme="light"] #competences .card p,
+[data-theme="light"] #skills .card p {
+  color: #8b98b8 !important;
 }
 
 
