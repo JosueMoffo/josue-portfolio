@@ -13,7 +13,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
 <BaseLayout altLangPath="/en">
 
   <!-- ══ HERO ══════════════════════════════════════════════════ -->
-  <section id="accueil" style="min-height:100vh;padding:8rem 1.5rem 4rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+  <section id="accueil" style="min-height:100vh;padding:3rem 2rem 1rem;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
     <div class="grid-bg"></div>
     <div style="position:absolute;top:20%;right:10%;width:320px;height:320px;background:rgba(var(--accent-rgb),0.04);border-radius:50%;filter:blur(80px);pointer-events:none;"></div>
 
@@ -26,17 +26,12 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
           </span>
         </div>
 
-        <p style="font-family:'Fira Code',monospace;font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);opacity:0.9;margin:0 0 0.75rem;">
-          {profile.specialty}
-        </p>
-
         <h1 style="font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.04;font-weight:800;margin:0 0 0.8rem;color:var(--text-primary);">
-          <span style="display:block;">Backend & SecOps</span>
-          <span style="display:block;color:var(--accent);margin-top:0.2rem;">{profile.fullName}</span>
+          <span style="display:block;">{profile.lastName} {profile.name}</span>
         </h1>
 
-        <h2 style="font-size:clamp(1rem,2.2vw,1.25rem);font-weight:500;line-height:1.4;color:var(--text-secondary);margin:0 0 1rem;max-width:620px;">
-          {profile.title}
+        <h2 class="text-blue-500 text-[clamp(1rem,2.2vw,1.25rem)] font-medium leading-snug mb-4 max-w-[620px]">
+          Backend & SecOps • {profile.title}
         </h2>
 
         <p style="color:var(--text-secondary);font-size:1.02rem;line-height:1.8;max-width:620px;margin:0 0 1.6rem;">
@@ -60,7 +55,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
       </div>
 
       <div class="animate-fade-in delay-200" style="display:flex;justify-content:center;">
-        <div class="card" style="width:100%;max-width:430px;padding:1.25rem;border:1px solid var(--border-color);background:var(--bg-card);box-shadow:0 20px 50px rgba(2, 6, 23, 0.22);border-radius:20px;overflow:hidden;">
+        <div class="card" style="width:100%;max-width:430px;padding:1rem;border:1px solid var(--border-color);background:var(--bg-card);box-shadow:0 20px 50px rgba(2, 6, 23, 0.22);border-radius:20px;overflow:hidden;">
           <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
             <div style="display:flex;align-items:center;gap:10px;">
               <img src="/profile.png" alt={profile.fullName} style="width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);" />
@@ -69,9 +64,6 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
                 <div style="font-size:0.78rem;color:var(--text-muted);">{profile.location}</div>
               </div>
             </div>
-            <span style="font-size:0.7rem;font-family:'Fira Code',monospace;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">
-              {profile.lastUpdate}
-            </span>
           </div>
 
           <div style="border:1px solid var(--border-color);border-radius:12px;padding:0.95rem;background:rgba(255,255,255,0.03);">
@@ -79,14 +71,14 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
               <span style="width:10px;height:10px;border-radius:50%;background:#ef4444;"></span>
               <span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;"></span>
               <span style="width:10px;height:10px;border-radius:50%;background:#10b981;"></span>
-              <span style="margin-left:8px;font-size:0.65rem;font-family:'Fira Code',monospace;color:var(--text-muted);letter-spacing:0.08em;">portfolio@dev:~</span>
+              <span style="margin-left:8px;font-size:0.65rem;font-family:'Fira Code',monospace;color:var(--text-muted);letter-spacing:0.08em;">josue@dev:~</span>
             </div>
             <div style="font-family:'Fira Code',monospace;font-size:0.76rem;line-height:1.6;color:var(--text-secondary);">
               <div><span style="color:var(--accent);">$</span> tech stack --fast</div>
-              <div>• FastAPI</div>
-              <div>• Spring Boot</div>
-              <div>• SecOps</div>
-              <div>• Linux / Network</div>
+              <div>> FastAPI</div>
+              <div>> Spring Boot</div>
+              <div>> SecOps</div>
+              <div>> Linux / Network</div>
               <div style="margin-top:0.4rem;color:var(--text-muted);">ready for secure builds</div>
             </div>
           </div>
@@ -100,14 +92,14 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
   </section>
 
   <!-- ══ À PROPOS ══════════════════════════════════════════════ -->
-  <section id="a-propos" class="section-dark" style="padding:5rem 1.5rem;">
+  <section id="a-propos" class="section-dark" style="padding:2rem 1.5rem;">
     <div style="max-width:960px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:3.5rem;">
         <h2 class="section-title" style="margin-top:0.5rem;">À propos de moi</h2>
         <div class="section-bar"></div>
       </div>
 
-      <div class="card" style="padding:2.5rem 3rem;position:relative;overflow:hidden;">
+      <div class="card" style="padding:1.5rem 2rem;position:relative;overflow:hidden;">
         <!-- Décor d'accent en arrière-plan -->
         <div style="position:absolute;top:-30px;right:-30px;width:160px;height:160px;background:rgba(var(--accent-rgb),0.04);border-radius:50%;filter:blur(40px);pointer-events:none;"></div>
 
@@ -116,7 +108,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
           Comprendre les systèmes de bout en bout, de la ligne de code jusqu'au paquet réseau.
         </p>
 
-        <!-- Corps : texte + highlights -->
+        <!-- Corps : texte + image -->
         <div class="about-grid" style="border-top:1px solid var(--border-color);padding-top:2rem;position:relative;z-index:1;">
           <div style="display:flex;flex-direction:column;gap:1.1rem;">
             <p style="color:var(--text-primary);font-size:1rem;line-height:1.85;margin:0;">
@@ -128,22 +120,33 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
             <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.85;margin:0;">
               Ce qui m'intéresse le plus : faire fonctionner cette complexité technique en production, sous charge réelle. Le reste du temps, je creuse la sécurité offensive et prépare mes certifications.
             </p>
-          </div>
 
-          <div style="display:flex;flex-direction:column;gap:0.75rem;">
-            <div class="card-inner" style="padding:0.85rem 1.1rem;">
-              <p style="color:var(--accent);font-size:1.2rem;font-weight:700;margin:0;">5e année</p>
-              <p style="color:var(--text-muted);font-size:0.72rem;margin:2px 0 0;">ENSPY</p>
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.75rem;margin-top:0.25rem;">
+              <div class="card-inner" style="padding:0.85rem 1.1rem;">
+                <p style="color:var(--accent);font-size:1.2rem;font-weight:700;margin:0;">5e année</p>
+                <p style="color:var(--text-muted);font-size:0.72rem;margin:2px 0 0;">ENSPY</p>
+              </div>
+              <div class="card-inner" style="padding:0.85rem 1.1rem;">
+                <p style="color:var(--accent);font-size:1.2rem;font-weight:700;margin:0;">{projectCount}+ projets</p>
+                <p style="color:var(--text-muted);font-size:0.72rem;margin:2px 0 0;">Backend & sécurité</p>
+              </div>
             </div>
-            <div class="card-inner" style="padding:0.85rem 1.1rem;">
-              <p style="color:var(--accent);font-size:1.2rem;font-weight:700;margin:0;">{projectCount}+ projets</p>
-              <p style="color:var(--text-muted);font-size:0.72rem;margin:2px 0 0;">Backend & sécurité</p>
-            </div>
+
             <div class="card-inner" style="padding:0.85rem 1.1rem;display:flex;flex-wrap:wrap;gap:6px;">
               <span class="tag" style="font-size:0.62rem;">Architecture Distribuée</span>
               <span class="tag" style="font-size:0.62rem;">Sécurité logicielle</span>
               <span class="tag" style="font-size:0.62rem;">Backend Python / Java</span>
               <span class="tag" style="font-size:0.62rem;">Réseaux & Systèmes</span>
+            </div>
+          </div>
+
+          <div style="display:flex;justify-content:center;align-items:center;">
+            <div class="about-image-card" style="width:100%;max-width:420px;border:1px solid var(--border-color);border-radius:1rem;overflow:hidden;background:var(--bg-card-inner);box-shadow:0 20px 45px rgba(2,6,23,0.15);">
+              <img
+                src="/josue.jpeg"
+                alt="Mbah Moffo Josué"
+                style="display:block;width:100%;max-width:100%;height:auto;object-fit:cover;object-position:center;"
+              />
             </div>
           </div>
         </div>
@@ -156,10 +159,22 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
       display: grid;
       grid-template-columns: 1.4fr 1fr;
       gap: 2rem;
+      align-items: center;
+    }
+    .about-image-card img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+      object-position: center;
     }
     @media (max-width: 768px) {
       .about-grid {
         grid-template-columns: 1fr;
+      }
+      .about-image-card {
+        max-width: 100%;
       }
     }
 
@@ -176,7 +191,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
   </style>
 
   <!-- ══ PARCOURS ══════════════════════════════════════════════ -->
-  <section id="parcours" class="section-alt" style="padding:5rem 1.5rem;">
+  <section id="parcours" class="section-alt" style="padding:3rem 1.5rem;">
     <div style="max-width:1280px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:4rem;">
         <h2 class="section-title">Parcours & Formations</h2>
@@ -220,7 +235,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
   </section>
 
   <!-- ══ COMPÉTENCES ═══════════════════════════════════════════ -->
-  <section id="competences" class="section-dark" style="padding:5rem 1.5rem;">
+  <section id="competences" class="section-dark" style="padding:3rem 1.5rem;">
     <div style="max-width:1280px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:4rem;">
         <h2 class="section-title">Compétences Techniques</h2>
@@ -257,7 +272,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
   </section>
 
   <!-- ══ PROJETS ════════════════════════════════════════════════ -->
-  <section id="projets" class="section-alt" style="padding:6rem 1.5rem; position:relative; overflow:hidden;">
+  <section id="projets" class="section-alt" style="padding:3rem 1.5rem; position:relative; overflow:hidden;">
     <div style="max-width:1200px;margin:0 auto;position:relative;z-index:2;">
       
       <!-- En-tête de section -->
@@ -594,7 +609,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
 
 
   <!-- ══ FAQ ═══════════════════════════════════════════════════ -->
-  <section id="faq" class="section-dark" style="padding:5rem 1.5rem;">
+  <section id="faq" class="section-dark" style="padding:3rem 1.5rem;">
     <div style="max-width:760px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:4rem;">
         <h2 class="section-title">Questions Fréquentes</h2>
@@ -622,7 +637,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
   </section>
 
   <!-- ══ CONTACT ═══════════════════════════════════════════════ -->
-  <section id="contact" class="section-alt" style="padding:5rem 1.5rem;">
+  <section id="contact" class="section-alt" style="padding:3rem 1.5rem;">
     <div style="max-width:900px;margin:0 auto;">
       <div style="text-align:center;margin-bottom:4rem;">
         <h2 class="section-title">Entrons en Contact</h2>
