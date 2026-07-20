@@ -12,13 +12,12 @@ interface Props {
   ogImage?: string;
 }
 
-const {
-  title = "Mbah Moffo Josué | Backend Developer & SecOps",
-  description = "Portfolio de Mbah Moffo Josué, Développeur Backend spécialisé en architectures sécurisées, FastAPI, Spring Boot et Django.",
-  lang = 'fr',
-  altLangPath = lang === 'fr' ? '/en' : '/',
-  ogImage = '/profile.png'
-} = Astro.props;
+const props = Astro.props as Props;
+const title = props.title ?? `${profile.fullName} | ${profile.specialty}`;
+const description = props.description ?? profile.description;
+const lang = props.lang ?? 'fr';
+const altLangPath = props.altLangPath ?? (lang === 'fr' ? '/en' : '/');
+const ogImage = props.ogImage ?? '/josue.jpeg';
 
 // Génération automatique des URLs absolues canoniques pour le SEO
 const siteURL = Astro.site ? Astro.site.href : 'https://josuembah.ag-technologies.tech/';

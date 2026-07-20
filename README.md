@@ -1,33 +1,92 @@
-#  Portfolio: Josué Mbah Moffo
+# Portfolio : Josué Mbah Moffo
 
-Bienvenue sur le dépôt de mon portfolio professionnel. C'est un site vitrine ultra-léger, performant et optimisé pour le SEO, conçu pour présenter mon parcours académique à l'ENSPY, mes compétences et mes projets.
+Ce dépôt contient le portfolio statique de Josué Mbah Moffo, construit avec Astro et conçu pour mettre en valeur son profil de développeur backend et SecOps.
 
-##  Aperçu & Philosophie
+## Présentation du projet
 
--  **Design Night Blue** : Une esthétique épurée, sombre par défaut, moderne et hautement professionnelle.
--  **100% Responsive** : Expérience utilisateur fluide et adaptée sur mobile, tablette et desktop.
--  **Performance Maximale** : Construit avec Astro pour un chargement instantané et un score Lighthouse optimal.
--  **Focus Visuel** : Approche minimaliste sans icônes superflues, mettant l'accent sur la typographie et le jeu des couleurs.
+Le site est une vitrine personnelle destinée à présenter :
 
----
+- le profil et les compétences techniques
+- les expériences et parcours académiques
+- les projets réalisés
+- un contenu multilingue français / anglais
+- des informations de contact
 
-##  Stack Technique
+Le projet est structuré pour offrir une expérience rapide, responsive et optimisée pour le SEO.
 
-Le projet a été mis à niveau avec les dernières technologies de pointe de l'écosystème web :
+## Fonctionnalités clés
 
-- **Framework :** [Astro 5](https://astro.build/) (générateur de site statique ultra-rapide)
-- **Styles :** [Tailwind CSS v4](https://tailwindcss.com/) (intégré nativement via le compilateur Vite)
-- **Langage :** TypeScript
-- **Fonts :** Playfair Display (titres), Inter (corps de texte), Fira Code (code/détails)
-- **Analytics :** Vercel Analytics & Speed Insights (suivi des performances en temps réel)
+- génération de site statique avec Astro
+- gestion multilingue FR / EN
+- layout global partagé via `src/layouts/BaseLayout.astro`
+- contenu dynamique issu de JSON (`src/content/profile.json`, `src/content/profile.en.json`, `src/content/projects.json`, `src/content/projects.en.json`)
+- métadonnées SEO dynamiques comprenant Open Graph et Twitter Card
+- intégration de favicons et PWA via `public/site.webmanifest`
+- affichage responsive avec disposition adaptative pour mobile
+- optimisation de performance et analytics Vercel
 
----
-
-##  Structure du Projet
+## Structure du projet
 
 ```text
 src/
+├── content/
+│   ├── profile.json
+│   ├── profile.en.json
+│   ├── projects.json
+│   └── projects.en.json
 ├── layouts/
-│   └── Layout.astro   # Structure globale HTML, métadonnées et gestion des thèmes
+│   └── BaseLayout.astro
 └── pages/
-    └── index.astro    # Page d'accueil unique regroupant toutes les sections
+    ├── index.astro
+    └── en/index.astro
+```
+
+## Mise en œuvre actuelle
+
+- `BaseLayout.astro` gère :
+  - les balises HTML communes
+  - les balises meta SEO
+  - les favicons
+  - le support multilingue
+
+- `src/pages/index.astro` et `src/pages/en/index.astro` contiennent :
+  - la section hero
+  - la section à propos
+  - la carte profil dynamique
+  - les projets et la navigation
+
+- les données affichées sont chargées depuis les fichiers JSON et utilisées de manière dynamique dans le layout et les pages.
+
+## Avancées récentes
+
+Le projet a été mis à jour pour :
+
+- afficher dynamiquement le contenu des profils FR/EN
+- tolérer les URL d’image publiques pour le partage social
+- utiliser `/josue.jpeg` comme image de prévisualisation OG
+- ajouter une section à propos avec un rendu image responsive
+- maintenir les métadonnées Open Graph dynamiques pour un meilleur partage WhatsApp et social
+
+## Commandes
+
+```bash
+npm install
+npm run dev
+npm run build
+npm run preview
+```
+
+## Dépendances principales
+
+- `astro`
+- `@astrojs/sitemap`
+- `tailwindcss`
+- `@tailwindcss/vite`
+- `@vercel/analytics`
+- `@vercel/speed-insights`
+
+## Remarques
+
+- le projet n’utilise pas d’icônes dans le README ni dans la structure de documentation
+- les images sont servies depuis le dossier `public`
+- le texte du portfolio est maintenu via JSON pour simplifier les mises à jour multilingues
