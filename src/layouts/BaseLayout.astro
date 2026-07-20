@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Analytics from '@vercel/analytics/astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import profile from '../content/profile.json';
+import profileEn from '../content/profile.en.json';
 
 interface Props {
   title?: string;
@@ -13,9 +14,10 @@ interface Props {
 }
 
 const props = Astro.props as Props;
-const title = props.title ?? `${profile.fullName} | ${profile.specialty}`;
-const description = props.description ?? profile.description;
 const lang = props.lang ?? 'fr';
+const profileData = lang === 'en' ? profileEn : profile;
+const title = props.title ?? `${profileData.fullName} | ${profileData.specialty}`;
+const description = props.description ?? profileData.description;
 const altLangPath = props.altLangPath ?? (lang === 'fr' ? '/en' : '/');
 const ogImage = props.ogImage ?? '/josue.jpeg';
 
@@ -60,6 +62,9 @@ const alternateURL = new URL(altLangPath, siteURL);
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- Google shearch Console -->
+    <meta name="google-site-verification" content="Q7eOycocRrdwSR73NszoAYIPyHv459kZx_uAZShzGcA" />
 
     <!-- Favicons PWA & Icones -->
     <link rel="icon" type="image/x-icon"       href="/favicon.ico" />
