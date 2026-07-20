@@ -453,29 +453,35 @@ footer {
 }
 
 /* ── CONTRASTE COMPÉTENCES (THÈME CLAIR) ──
-   Assombrit la zone de compétences pour reposer les yeux */
+   Style lisible, sobre et accessible pour le light mode */
 [data-theme="light"] #competences .card,
 [data-theme="light"] #skills .card {
-  background: #161b2a; /* Fond bleu ardoise sombre doux */
-  border-color: #232a3e;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
 }
 
 [data-theme="light"] #competences .card:hover,
 [data-theme="light"] #skills .card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
 [data-theme="light"] #competences .card .tag,
 [data-theme="light"] #skills .card .tag {
-  background: #1e2538;
-  color: #b8c3dc;
+  background: #f1f5f9;
+  color: #334155;
+  border-color: #e2e8f0;
 }
 
 [data-theme="light"] #competences .card p,
 [data-theme="light"] #skills .card p {
-  color: #8b98b8 !important;
+  color: #475569 !important;
+}
+
+[data-theme="light"] #competences .card .skill-card-title,
+[data-theme="light"] #skills .card .skill-card-title {
+  font-weight: 700;
 }
 
 
