@@ -115,17 +115,17 @@ const alternateURL = new URL(altLangPath, siteURL);
           </div>
 
           <div style="display:flex;align-items:center;gap:10px;">
-            <!-- Language Toggle -->
-            <a
-              id="lang-toggle"
+            <!-- Language Toggle (pill, avec icone 文) -->
+            
+              <a id="lang-toggle"
               href={altLangPath}
               aria-label={lang === 'fr' ? 'Switch to English' : 'Passer en français'}
               title={lang === 'fr' ? 'English' : 'Français'}
-              style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;border:1.5px solid var(--border-color);background:var(--bg-card);color:var(--text-secondary);cursor:pointer;text-decoration:none;font-family:'Fira Code',monospace;font-size:0.65rem;font-weight:700;letter-spacing:0.06em;transition:border-color 0.25s,color 0.25s,box-shadow 0.25s;"
+              style="display:inline-flex;align-items:center;gap:4px;height:36px;padding:0 12px;border-radius:999px;border:1.5px solid var(--border-color);background:var(--bg-card);color:var(--text-secondary);cursor:pointer;text-decoration:none;font-family:'Fira Code',monospace;font-size:0.68rem;font-weight:700;letter-spacing:0.05em;transition:border-color 0.25s,color 0.25s,box-shadow 0.25s;"
               onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)';this.style.boxShadow='0 0 12px rgba(var(--accent-rgb),0.25)';"
               onmouseout="this.style.borderColor='var(--border-color)';this.style.color='var(--text-secondary)';this.style.boxShadow='none';"
             >
-              {lang === 'fr' ? 'EN' : 'FR'}
+              <span aria-hidden="true">文</span>{lang === 'fr' ? 'EN' : 'FR'}
             </a>
 
             <!-- Theme Toggle - icône seule -->
@@ -252,23 +252,19 @@ const alternateURL = new URL(altLangPath, siteURL);
         html.setAttribute('data-theme', theme);
         localStorage.setItem('theme', theme);
         if (theme === 'light') {
-          // En mode light → montrer lune (pour switcher vers dark)
           iconMoon.style.display = 'block';
           iconSun.style.display  = 'none';
         } else {
-          // En mode dark → montrer soleil (pour switcher vers light)
           iconMoon.style.display = 'none';
           iconSun.style.display  = 'block';
         }
       }
 
-      // Priorité : 1) préférence sauvegardée  2) thème système  3) dark
       const saved = localStorage.getItem('theme');
       const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       const initial = saved || (systemPrefersDark ? 'dark' : 'light');
       applyTheme(initial);
 
-      // Suivre les changements de thème système en temps réel (si pas de choix manuel)
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         if (!localStorage.getItem('theme')) {
           applyTheme(e.matches ? 'dark' : 'light');
@@ -314,7 +310,6 @@ const alternateURL = new URL(altLangPath, siteURL);
         trigger.addEventListener('click', () => {
           const item = trigger.closest('.faq-item')!;
           const isOpen = item.classList.contains('open');
-          // Fermer tous
           document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
           if (!isOpen) item.classList.add('open');
         });

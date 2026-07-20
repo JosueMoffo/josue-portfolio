@@ -119,7 +119,7 @@
     "links": [
       {
         "label": "Follow Project (GitHub)",
-        "url": "https://github.com/JosueMoffo",
+        "url": "https://github.com/JosueMoffo/Quorx",
         "trackEvent": "View_Project",
         "trackName": "QUORX",
         "colorStyle": "#3b82f6"
