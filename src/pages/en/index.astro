@@ -21,58 +21,80 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
     <div class="grid-bg"></div>
     <div style="position:absolute;top:20%;right:10%;width:320px;height:320px;background:rgba(var(--accent-rgb),0.04);border-radius:50%;filter:blur(80px);pointer-events:none;"></div>
 
-    <div style="max-width:860px;margin:0 auto;text-align:center;position:relative;z-index:2;">
-
-      <!-- Photo -->
-      <div class="animate-fade-in" style="display:inline-block;position:relative;margin-bottom:1.5rem;">
-        <div style="position:absolute;inset:-4px;border-radius:50%;background:var(--accent);opacity:0.12;filter:blur(16px);"></div>
-        <img
-          src="/profile.png" alt={profile.fullName}
-          style="position:relative;width:120px;height:120px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);box-shadow:0 0 24px rgba(var(--accent-rgb),0.18);"
-        />
-      </div>
-
-      <h1 class="animate-fade-in-up delay-100" style="font-size:clamp(2.4rem,7vw,4.2rem);font-weight:700;line-height:1.1;margin:0 0 8px;color:var(--text-primary);">
-        {profile.lastName} <span>{profile.name}</span>
-      </h1>
-
-      <h2 class="animate-fade-in-up delay-200" style="font-size:clamp(1rem,3vw,1.3rem);color:var(--text-secondary);margin:0 0 8px;font-weight:400;">
-        {profile.title}
-      </h2>
-
-      <p class="animate-fade-in-up delay-200" style="font-family:'Fira Code',monospace;font-size:0.75rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);opacity:0.85;margin:0 0 1.5rem;">
-        {profile.specialty}
-      </p>
-
-      <div class="animate-fade-in delay-300" style="display:flex;justify-content:center;margin-bottom:2rem;">
-        <div class="hero-status">
-          <div class="ping-wrapper">
-            <span class="ping-ring"></span>
-            <span class="ping-dot"></span>
-          </div>
-          <span style="font-size:0.62rem;font-family:'Fira Code',monospace;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-muted);">
-            Last updated: <span style="color:var(--text-primary);">{profile.lastUpdate}</span>
+    <div style="width:min(1200px,100%);margin:0 auto;position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,0.85fr);gap:2rem;align-items:center;">
+      <div class="animate-fade-in-up delay-100" style="display:flex;flex-direction:column;align-items:flex-start;">
+        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid rgba(var(--accent-rgb),0.22);background:rgba(var(--accent-rgb),0.08);border-radius:999px;margin-bottom:1rem;">
+          <span style="width:8px;height:8px;border-radius:999px;background:var(--accent);display:inline-block;"></span>
+          <span style="font-size:0.68rem;font-family:'Fira Code',monospace;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-primary);">
+            {profile.lastUpdate} · Available for missions
           </span>
+        </div>
+
+        <p style="font-family:'Fira Code',monospace;font-size:0.78rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--accent);opacity:0.9;margin:0 0 0.75rem;">
+          {profile.specialty}
+        </p>
+
+        <h1 style="font-size:clamp(2.2rem,4.6vw,3.6rem);line-height:1.04;font-weight:800;margin:0 0 0.8rem;color:var(--text-primary);">
+          <span style="display:block;">Backend & SecOps</span>
+          <span style="display:block;color:var(--accent);margin-top:0.2rem;">{profile.fullName}</span>
+        </h1>
+
+        <h2 style="font-size:clamp(1rem,2.2vw,1.25rem);font-weight:500;line-height:1.4;color:var(--text-secondary);margin:0 0 1rem;max-width:620px;">
+          {profile.title}
+        </h2>
+
+        <p style="color:var(--text-secondary);font-size:1.02rem;line-height:1.8;max-width:620px;margin:0 0 1.6rem;">
+          {profile.description}
+        </p>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a
+            href={profile.cvPath}
+            download
+            onclick="window.trackClick('Download_CV',{})"
+            class="btn-primary"
+            style="letter-spacing:0.04em;padding:0.9rem 1.25rem;"
+          >
+            Download my CV
+          </a>
+          <a href="#contact" onclick="window.trackClick('Contact_Click',{})" class="btn-outline" style="padding:0.9rem 1.25rem;">
+            Contact me
+          </a>
         </div>
       </div>
 
-      <p class="animate-fade-in-up delay-300" style="color:var(--text-secondary);font-size:1.05rem;line-height:1.75;max-width:580px;margin:0 auto 2.5rem;">
-        {profile.description}
-      </p>
+      <div class="animate-fade-in delay-200" style="display:flex;justify-content:center;">
+        <div class="card" style="width:100%;max-width:430px;padding:1.25rem;border:1px solid var(--border-color);background:var(--bg-card);box-shadow:0 20px 50px rgba(2, 6, 23, 0.22);border-radius:20px;overflow:hidden;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <img src="/profile.png" alt={profile.fullName} style="width:58px;height:58px;border-radius:50%;object-fit:cover;border:2px solid var(--accent);" />
+              <div>
+                <div style="font-size:0.95rem;font-weight:700;color:var(--text-primary);">{profile.fullName}</div>
+                <div style="font-size:0.78rem;color:var(--text-muted);">{profile.location}</div>
+              </div>
+            </div>
+            <span style="font-size:0.7rem;font-family:'Fira Code',monospace;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);">
+              {profile.lastUpdate}
+            </span>
+          </div>
 
-      <div class="animate-fade-in-up delay-400 cta-group" style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
-        <a
-          href={profile.cvPath}
-          download
-          onclick="window.trackClick('Download_CV',{})"
-          class="btn-primary"
-          style="letter-spacing:0.08em;"
-        >
-          DOWNLOAD_CV
-        </a>
-        <a href="#contact" onclick="window.trackClick('Contact_Click',{})" class="btn-outline">
-          CONTACT_ME
-        </a>
+          <div style="border:1px solid var(--border-color);border-radius:12px;padding:0.95rem;background:rgba(255,255,255,0.03);">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:0.75rem;">
+              <span style="width:10px;height:10px;border-radius:50%;background:#ef4444;"></span>
+              <span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;"></span>
+              <span style="width:10px;height:10px;border-radius:50%;background:#10b981;"></span>
+              <span style="margin-left:8px;font-size:0.65rem;font-family:'Fira Code',monospace;color:var(--text-muted);letter-spacing:0.08em;">portfolio@dev:~</span>
+            </div>
+            <div style="font-family:'Fira Code',monospace;font-size:0.76rem;line-height:1.6;color:var(--text-secondary);">
+              <div><span style="color:var(--accent);">$</span> tech stack --fast</div>
+              <div>• FastAPI</div>
+              <div>• Spring Boot</div>
+              <div>• SecOps</div>
+              <div>• Linux / Network</div>
+              <div style="margin-top:0.4rem;color:var(--text-muted);">ready for secure builds</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -142,6 +164,17 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
     @media (max-width: 768px) {
       .about-grid {
         grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      #home > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem;
+      }
+      #home > div[style*="grid-template-columns"] > div:first-child {
+        align-items: center;
+        text-align: center;
       }
     }
   </style>
