@@ -3,10 +3,10 @@
     "id": "shuba",
     "title": "Shuba: Multi-tenant Marketplace",
     "category": "Personal",
-    "status": "completed",
+    "status": "BETA VERSION",
     "description": "Full-featured multi-tenant SaaS e-commerce platform with database isolation and dynamic store customization per tenant.",
     "previewGradient": "linear-gradient(135deg, #111520 0%, #10b981 100%)",
-    "image": "/profil-shuba.png",
+    "image": "profil-shuba.png",
     "tags": ["Django", "Python", "PostgreSQL", "Docker"],
     "technicalDetails": {
       "architecture": "Modular monolithic architecture with a database router for subdomain-based multi-tenancy.",
@@ -30,11 +30,37 @@
       }
     ]
   },
-    {
+  {
+    "id": "agt-infra",
+    "title": "AGT Infra: Infrastructure Management Platform",
+    "category": "Professional",
+    "status": "INTERNAL",
+    "statusColor": "#8b5cf6",
+    "description": "Internal platform unifying the management of AG Technologies' servers and Docker containers: continuous deployment, monitoring and integrated web console, with dynamic access control.",
+    "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #f97316 100%)",
+    "image": "profil-agt-infra.png",
+    "tags": ["FastAPI", "React", "PostgreSQL", "Docker"],
+    "technicalDetails": {
+      "architecture": "Layered architecture: React/TypeScript interface, FastAPI backend, SSH and Docker adapters, PostgreSQL database, all containerized with Docker Compose.",
+      "tools": ["SQLAlchemy 2.0", "Paramiko", "aiodocker", "Netdata", "Nginx", "Certbot"],
+      "challenges": "Designing RBAC/IBAC access control that can be changed without redeployment, with the backend as the only security safeguard and explicit deny taking priority."
+    },
+    "links": [
+      {
+        "label": "Watch the demo (YouTube)",
+        "url": "https://www.youtube.com/watch?v=mrOhQ07zcHI&list=PLHCvbvj5XROk",
+        "trackEvent": "View_Project",
+        "trackName": "AGT_Infra_Demo",
+        "colorStyle": "#f97316"
+      }
+    ]
+  },
+
+  {
     "id": "travyotei",
     "title": "TravYotei - Integrated Mobility",
     "category": "Academic",
-    "status": "completed",
+    "status": "COMPLETED",
     "description": "Unified web portal for intercity trip booking with real-time bus status synchronization.",
     "previewGradient": "linear-gradient(135deg, #111520 0%, #f59e0b 100%)",
     "image": "profil-travyotei.png",
@@ -58,7 +84,7 @@
     "id": "api-recommendation",
     "title": "AI Recommendation Engine",
     "category": "Academic",
-    "status": "in-progress",
+    "status": "IN_PROGRESS",
     "description": "Book recommendation API based on behavioral analysis and collaborative filtering.",
     "previewGradient": "linear-gradient(135deg, #111520 0%, #a78bfa 100%)",
     "image": "",
@@ -82,7 +108,7 @@
     "id": "api-rsv",
     "title": "API-Rsv-TravYotei Microservices",
     "category": "Academic",
-    "status": "in-progress",
+    "status": "COMPLETED",
     "description": "High-throughput distributed booking engine leveraging event streaming to guarantee eventual consistency.",
     "previewGradient": "linear-gradient(135deg, #111520 0%, #00d9ff 100%)",
     "image": "",
@@ -106,7 +132,7 @@
     "id": "quorx",
     "title": "QUORX: System Instinct",
     "category": "Personal",
-    "status": "in-progress",
+    "status": "IN_PROGRESS",
     "description": "An immersive system simulation and graphical educational game designed to train core computer engineering reflexes (process management, memory, networking, and security).",
     "previewGradient": "linear-gradient(135deg, #0f172a 0%, #3b82f6 100%)",
     "image": "profil-quorx.png",

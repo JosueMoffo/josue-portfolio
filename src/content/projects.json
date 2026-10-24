@@ -3,7 +3,7 @@
     "id": "shuba",
     "title": "Shuba: Marketplace Multi-tenant",
     "category": "Personnel",
-    "status": "completed",
+    "status": "VERSION BETA",
     "description": "Plateforme e-commerce SaaS complète multi-tenant avec isolation des bases de données et personnalisation dynamique des boutiques.",
     "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #10b981 100%)",
     "image": "/profil-shuba.png",
@@ -30,11 +30,36 @@
       }
     ]
   },
-    {
+  {
+    "id": "agt-infra",
+    "title": "AGT Infra: Plateforme de Gestion d'Infrastructure",
+    "category": "Professionnel",
+    "status": "INTERNE",
+    "statusColor": "#8b5cf6",
+    "description": "Plateforme interne unifiant le pilotage des serveurs et des conteneurs Docker d'AG Technologies : déploiement continu, supervision et console web intégrée, avec un contrôle d'accès dynamique.",
+    "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #f97316 100%)",
+    "image": "profil-agt-infra.png",
+    "tags": ["FastAPI", "React", "PostgreSQL", "Docker"],
+    "technicalDetails": {
+      "architecture": "Architecture en couches : interface React/TypeScript, backend FastAPI, adaptateurs SSH et Docker, base PostgreSQL, le tout conteneurisé avec Docker Compose.",
+      "tools": ["SQLAlchemy 2.0", "Paramiko", "aiodocker", "Netdata", "Nginx", "Certbot"],
+      "challenges": "Concevoir un contrôle d'accès RBAC/IBAC modifiable sans redéploiement, avec le backend comme unique garde-fou de sécurité et le refus explicite prioritaire."
+    },
+    "links": [      
+      {
+        "label": "Voir la démo (YouTube)",
+        "url": "https://www.youtube.com/watch?v=mrOhQ07zcHI&list=PLHCvbvj5XROk",
+        "trackEvent": "View_Project",
+        "trackName": "AGT_Infra_Demo",
+        "colorStyle": "#f97316"
+      }]
+  },
+
+  {
     "id": "travyotei",
     "title": "TravYotei - Mobilité Intégrée",
     "category": "Académique",
-    "status": "completed",
+    "status": "COMPLET",
     "description": "Portail web unifié de réservation de trajets interurbains avec synchronisation en temps réel de l'état des bus.",
     "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #f59e0b 100%)",
     "image": "profil-travyotei.png",
@@ -58,7 +83,7 @@
     "id": "api-recommendation",
     "title": "Système de Recommandation IA",
     "category": "Académique",
-    "status": "in-progress",
+    "status": "EN_COURS",
     "description": "API de suggestion d'ouvrages littéraires basée sur l'analyse comportementale et le filtrage collaboratif.",
     "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #a78bfa 100%)",
     "image": "",
@@ -83,7 +108,7 @@
     "id": "api-rsv",
     "title": "API-Rsv-TravYotei Microservices",
     "category": "Académique",
-    "status": "in-progress",
+    "status": "COMPLET",
     "description": "Moteur distribué de traitement des réservations à haut débit, s'appuyant sur des flux d'événements pour garantir la cohérence finale.",
     "previewGradient": "linear-gradient(135deg, #0a0e1a 0%, #00d9ff 100%)",
     "image": "",
@@ -108,7 +133,7 @@
     "id": "quorx",
     "title": "QUORX: System Instinct",
     "category": "Personnel",
-    "status": "in-progress",
+    "status": "EN_COURS",
     "description": "Simulation système immersive et jeu éducatif graphique conçu pour développer les réflexes fondamentaux en ingénierie informatique (gestion des processus, mémoire, réseau et sécurité).",
     "previewGradient": "linear-gradient(135deg, #0f172a 0%, #3b82f6 100%)",
     "image": "profil-quorx.png",
