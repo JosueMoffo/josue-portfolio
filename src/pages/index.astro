@@ -8,6 +8,37 @@ const projectCount = projects.length;
 
 // SVG arrow partagé pour les liens de projets
 const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>`;
+
+// ── Tag de statut piloté par le JSON ─────────────────────────────
+// Le texte affiché est EXACTEMENT la valeur de "status" dans le JSON.
+// Couleur : champ optionnel "statusColor" du JSON, sinon table ci-dessous
+// (clés en MAJUSCULES), sinon couleur d'accent par défaut.
+const STATUS_COLORS: Record<string, string> = {
+  PRODUCTION: '#10b981',
+  EN_COURS: '#f59e0b',
+  IN_PROGRESS: '#f59e0b',
+};
+const DEFAULT_STATUS_COLOR = 'var(--accent)';
+
+const projectsView = projects.map((p) => {
+  const custom = (p as Record<string, unknown>).statusColor;
+  const color =
+    typeof custom === 'string'
+      ? custom
+      : (STATUS_COLORS[p.status.toUpperCase()] ?? DEFAULT_STATUS_COLOR);
+  return {
+    ...p,
+    statusStyle: `background:color-mix(in srgb, ${color} 8%, transparent);color:${color};border:1px solid color-mix(in srgb, ${color} 20%, transparent);`,
+  };
+});
+
+// Filtres générés à partir des tags réellement présents dans le JSON
+const statusTags = [...new Set(projectsView.map((p) => p.status))];
+
+// Styles des boutons de filtre (partagés avec le script client)
+const PILL_BASE = "font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;";
+const PILL_ACTIVE = `${PILL_BASE}color:var(--text-primary);background:var(--bg-card);box-shadow:0 2px 8px rgba(0,0,0,0.15);`;
+const PILL_INACTIVE = `${PILL_BASE}color:var(--text-secondary);background:transparent;`;
 ---
 
 <BaseLayout altLangPath="/en">
@@ -285,27 +316,26 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
         </p>
       </div>
 
-      <!-- Contrôles de filtrage interactifs (Bento Pills avec TOP par défaut) -->
+      <!-- Contrôles de filtrage interactifs (TOP et ALL fixes, puis un bouton par tag présent dans le JSON) -->
       <div style="display:flex;justify-content:center;margin-bottom:4rem;">
-        <div class="filter-pills-container" style="display:inline-flex;background:var(--bg-card-inner);padding:4px;border-radius:999px;border:1px solid var(--border-color);box-shadow:inset 0 2px 4px rgba(0,0,0,0.2);">
-          <button class="filter-pill active" data-filter="top" style="font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-primary);background:var(--bg-card);border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;box-shadow:0 2px 8px rgba(0,0,0,0.15);">
+        <div class="filter-pills-container" style="display:inline-flex;flex-wrap:wrap;justify-content:center;max-width:100%;background:var(--bg-card-inner);padding:4px;border-radius:999px;border:1px solid var(--border-color);box-shadow:inset 0 2px 4px rgba(0,0,0,0.2);">
+          <button class="filter-pill active" data-filter="top" style={PILL_ACTIVE}>
             TOP_3
           </button>
-          <button class="filter-pill" data-filter="all" style="font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-secondary);background:transparent;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;">
+          <button class="filter-pill" data-filter="all" style={PILL_INACTIVE}>
             ALL_PROJECTS
           </button>
-          <button class="filter-pill" data-filter="completed" style="font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-secondary);background:transparent;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;">
-            PRODUCTION
-          </button>
-          <button class="filter-pill" data-filter="in-progress" style="font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-secondary);background:transparent;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;">
-            EN_COURS
-          </button>
+          {statusTags.map((tag) => (
+            <button class="filter-pill" data-filter={tag} style={PILL_INACTIVE}>
+              {tag}
+            </button>
+          ))}
         </div>
       </div>
 
       <!-- Grille Bento de Projets (Cartes Compactes et Précises) -->
       <div class="projects-bento-grid" style="display:grid;grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));gap:1.5rem;align-items:stretch;">
-        {projects.map((project, index) => {
+        {projectsView.map((project, index) => {
           const isTop = index < 3;
           return (
             <div 
@@ -343,11 +373,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
                 <div>
                   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem;">
                     <span style="font-family:'Fira Code',monospace;font-size:0.6rem;color:var(--accent);text-transform:uppercase;letter-spacing:0.1em;">{project.category}</span>
-                    {project.status === 'completed' ? (
-                      <span class="tag" style="background:rgba(16,185,129,0.08);color:#10b981;border:1px solid rgba(16,185,129,0.2);font-size:0.55rem;padding:2px 6px;">✓ PRODUCTION</span>
-                    ) : (
-                      <span class="tag" style="background:rgba(245,158,11,0.08);color:#f59e0b;border:1px solid rgba(245,158,11,0.2);font-size:0.55rem;padding:2px 6px;">⚡ EN_COURS</span>
-                    )}
+                    <span class="tag" style={`${project.statusStyle}font-size:0.55rem;padding:2px 6px;`}>{project.status}</span>
                   </div>
 
                   <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:0 0 0.5rem 0;letter-spacing:-0.02em;">{project.title}</h3>
@@ -460,7 +486,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
   </section>
 
   <!-- Script de filtrage et contrôle de modal -->
-  <script define:vars={{ projects }}>
+  <script define:vars={{ projects: projectsView, pillActive: PILL_ACTIVE, pillInactive: PILL_INACTIVE }}>
     // ── FILTRAGE INTERACTIF ──────────────────────────────────────────
     const filterButtons = document.querySelectorAll('.filter-pill');
     const projectCards = document.querySelectorAll('.project-bento-card');
@@ -469,10 +495,10 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
       button.addEventListener('click', () => {
         filterButtons.forEach(btn => {
           btn.classList.remove('active');
-          btn.setAttribute('style', "font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-secondary);background:transparent;border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;");
+          btn.setAttribute('style', pillInactive);
         });
         button.classList.add('active');
-        button.setAttribute('style', "font-family:'Fira Code',monospace;font-size:0.75rem;font-weight:600;color:var(--text-primary);background:var(--bg-card);border:none;padding:8px 18px;border-radius:999px;cursor:pointer;transition:all 0.25s ease;box-shadow:0 2px 8px rgba(0,0,0,0.15);");
+        button.setAttribute('style', pillActive);
 
         const filterValue = button.getAttribute('data-filter');
 
@@ -533,13 +559,9 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
       modalCategory.textContent = project.category;
       modalDescription.textContent = project.description;
       
-      if (project.status === 'completed') {
-        modalStatusBadge.textContent = '✓ PRODUCTION';
-        modalStatusBadge.setAttribute('style', 'background:rgba(16,185,129,0.08);color:#10b981;border:1px solid rgba(16,185,129,0.2);padding:2px 8px;border-radius:4px;');
-      } else {
-        modalStatusBadge.textContent = '⚡ EN_COURS';
-        modalStatusBadge.setAttribute('style', 'background:rgba(245,158,11,0.08);color:#f59e0b;border:1px solid rgba(245,158,11,0.2);padding:2px 8px;border-radius:4px;');
-      }
+      // Tag de statut : texte exact du JSON, style calculé côté serveur
+      modalStatusBadge.textContent = project.status;
+      modalStatusBadge.setAttribute('style', project.statusStyle + 'padding:2px 8px;border-radius:4px;');
 
       if (project.image) {
         modalVisualGradient.setAttribute('style', `background: linear-gradient(to bottom, rgba(10,14,26,0.3), rgba(10,14,26,0.85)), url(${project.image}) center/cover no-repeat; height:60px; border-radius:4px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; opacity:0.85;`);
@@ -682,7 +704,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
       <div class="card" style="padding:2rem 2.5rem;margin-bottom:2rem;">
         <h3 style="font-size:1.1rem;font-weight:700;color:var(--text-primary);margin:0 0 6px;">Envoyer un message</h3>
         <p style="color:var(--text-muted);font-size:0.82rem;margin:0 0 1.5rem;font-family:'Fira Code',monospace;">
-          Le message sera envoyé directement à {profile.email} — aucune redirection.
+          Le message sera envoyé directement à {profile.email}, aucune redirection.
         </p>
 
         <form id="contact-form" data-access-key={profile.web3FormsKey} style="display:flex;flex-direction:column;gap:1.1rem;" novalidate>
@@ -815,7 +837,7 @@ const arrowSvg = `<svg width="14" height="14" fill="none" stroke="currentColor" 
       email,
       subject,
       message,
-      from_name:   'Portfolio – ' + name,
+      from_name:   'Portfolio - ' + name,
       botcheck:    '',
     };
 
